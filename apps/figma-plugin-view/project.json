@@ -4,46 +4,10 @@
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/webpack:webpack",
-      "outputs": ["{options.outputPath}"],
-      "defaultConfiguration": "production",
+      "executor": "nx:run-commands",
       "options": {
-        "compiler": "babel",
-        "outputPath": "dist/apps/figma-plugin-view",
-        "index": "apps/figma-plugin-view/src/index.html",
-        "baseHref": "/",
-        "main": "apps/figma-plugin-view/src/main.tsx",
-        "polyfills": "apps/figma-plugin-view/src/polyfills.ts",
-        "tsConfig": "apps/figma-plugin-view/tsconfig.app.json",
-        "assets": [
-          "apps/figma-plugin-view/src/favicon.ico",
-          "apps/figma-plugin-view/src/assets"
-        ],
-        "styles": ["apps/figma-plugin-view/src/styles.css"],
-        "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack"
-      },
-      "configurations": {
-        "development": {
-          "extractLicenses": false,
-          "optimization": false,
-          "sourceMap": true,
-          "vendorChunk": true
-        },
-        "production": {
-          "fileReplacements": [
-            {
-              "replace": "apps/figma-plugin-view/src/environments/environment.ts",
-              "with": "apps/figma-plugin-view/src/environments/environment.prod.ts"
-            }
-          ],
-          "optimization": true,
-          "outputHashing": "all",
-          "sourceMap": false,
-          "namedChunks": false,
-          "extractLicenses": true,
-          "vendorChunk": false
-        }
+        "command": "vite build --minify --emptyOutDir=false --config=apps/figma-plugin-view/vite.config.ts",
+        "__unparsed__": []
       }
     },
     "serve": {
