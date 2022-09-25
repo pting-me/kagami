@@ -1,18 +1,18 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/figma-plugin-iframe-e2e/src",
+  "sourceRoot": "apps/figma-plugin-view-e2e/src",
   "projectType": "application",
   "targets": {
     "e2e": {
       "executor": "@nrwl/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/figma-plugin-iframe-e2e/cypress.config.ts",
-        "devServerTarget": "figma-plugin-iframe:serve:development",
+        "cypressConfig": "apps/figma-plugin-view-e2e/cypress.config.ts",
+        "devServerTarget": "figma-plugin-view:serve:development",
         "testingType": "e2e"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "figma-plugin-iframe:serve:production"
+          "devServerTarget": "figma-plugin-view:serve:production"
         }
       }
     },
@@ -20,10 +20,10 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/figma-plugin-iframe-e2e/**/*.{js,ts}"]
+        "lintFilePatterns": ["apps/figma-plugin-view-e2e/**/*.{js,ts}"]
       }
     }
   },
   "tags": [],
-  "implicitDependencies": ["figma-plugin-iframe"]
+  "implicitDependencies": ["figma-plugin-view"]
 }

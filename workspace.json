@@ -2,7 +2,7 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "figma-plugin-iframe": "apps/figma-plugin-iframe",
-    "figma-plugin-iframe-e2e": "apps/figma-plugin-iframe-e2e"
+    "figma-plugin-view": "apps/figma-plugin-view",
+    "figma-plugin-view-e2e": "apps/figma-plugin-view-e2e"
   }
 }

@@ -1,6 +1,6 @@
 import { getGreeting } from '../support/app.po';
 
-describe('figma-plugin-iframe', () => {
+describe('figma-plugin-view', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {
@@ -8,6 +8,6 @@ describe('figma-plugin-iframe', () => {
     cy.login('my-email@something.com', 'myPassword');
 
     // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome figma-plugin-iframe');
+    getGreeting().contains('Welcome figma-plugin-view');
   });
 });

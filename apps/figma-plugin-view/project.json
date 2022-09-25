@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/figma-plugin-iframe/src",
+  "sourceRoot": "apps/figma-plugin-view/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,17 +9,17 @@
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
-        "outputPath": "dist/apps/figma-plugin-iframe",
-        "index": "apps/figma-plugin-iframe/src/index.html",
+        "outputPath": "dist/apps/figma-plugin-view",
+        "index": "apps/figma-plugin-view/src/index.html",
         "baseHref": "/",
-        "main": "apps/figma-plugin-iframe/src/main.tsx",
-        "polyfills": "apps/figma-plugin-iframe/src/polyfills.ts",
-        "tsConfig": "apps/figma-plugin-iframe/tsconfig.app.json",
+        "main": "apps/figma-plugin-view/src/main.tsx",
+        "polyfills": "apps/figma-plugin-view/src/polyfills.ts",
+        "tsConfig": "apps/figma-plugin-view/tsconfig.app.json",
         "assets": [
-          "apps/figma-plugin-iframe/src/favicon.ico",
-          "apps/figma-plugin-iframe/src/assets"
+          "apps/figma-plugin-view/src/favicon.ico",
+          "apps/figma-plugin-view/src/assets"
         ],
-        "styles": ["apps/figma-plugin-iframe/src/styles.css"],
+        "styles": ["apps/figma-plugin-view/src/styles.css"],
         "scripts": [],
         "webpackConfig": "@nrwl/react/plugins/webpack"
       },
@@ -33,8 +33,8 @@
         "production": {
           "fileReplacements": [
             {
-              "replace": "apps/figma-plugin-iframe/src/environments/environment.ts",
-              "with": "apps/figma-plugin-iframe/src/environments/environment.prod.ts"
+              "replace": "apps/figma-plugin-view/src/environments/environment.ts",
+              "with": "apps/figma-plugin-view/src/environments/environment.prod.ts"
             }
           ],
           "optimization": true,
@@ -50,15 +50,15 @@
       "executor": "@nrwl/webpack:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "figma-plugin-iframe:build",
+        "buildTarget": "figma-plugin-view:build",
         "hmr": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "figma-plugin-iframe:build:development"
+          "buildTarget": "figma-plugin-view:build:development"
         },
         "production": {
-          "buildTarget": "figma-plugin-iframe:build:production",
+          "buildTarget": "figma-plugin-view:build:production",
           "hmr": false
         }
       }
@@ -67,14 +67,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/figma-plugin-iframe/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/figma-plugin-view/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/figma-plugin-iframe"],
+      "outputs": ["coverage/apps/figma-plugin-view"],
       "options": {
-        "jestConfig": "apps/figma-plugin-iframe/jest.config.ts",
+        "jestConfig": "apps/figma-plugin-view/jest.config.ts",
         "passWithNoTests": true
       }
     }

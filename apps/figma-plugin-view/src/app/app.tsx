@@ -5,7 +5,7 @@ import NxWelcome from './nx-welcome';
 export function App() {
   return (
     <>
-      <NxWelcome title="figma-plugin-iframe" />
+      <NxWelcome title="figma-plugin-view" />
       <div />
     </>
   );
