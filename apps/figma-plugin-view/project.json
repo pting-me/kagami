@@ -6,25 +6,15 @@
     "build": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "vite build --minify --emptyOutDir=false --config=apps/figma-plugin-view/vite.config.ts",
-        "__unparsed__": []
+        "cwd": "apps/figma-plugin-view",
+        "command": "vite build --emptyOutDir=true"
       }
     },
     "serve": {
-      "executor": "@nrwl/webpack:dev-server",
-      "defaultConfiguration": "development",
+      "executor": "nx:run-commands",
       "options": {
-        "buildTarget": "figma-plugin-view:build",
-        "hmr": true
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "figma-plugin-view:build:development"
-        },
-        "production": {
-          "buildTarget": "figma-plugin-view:build:production",
-          "hmr": false
-        }
+        "cwd": "apps/figma-plugin-view",
+        "command": "vite preview"
       }
     },
     "lint": {

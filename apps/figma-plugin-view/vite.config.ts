@@ -19,6 +19,7 @@ export default defineConfig({
     }),
   ],
   build: {
+    minify: 'esbuild',
     outDir: path.resolve(__dirname, '../../dist'),
   },
 });
