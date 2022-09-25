@@ -90,7 +90,7 @@ export function NxWelcome({ title }: { title: string }) {
       width: 100%;
     }
     #welcome {
-      margin-top: 2.5rem;
+      padding-top: 2.5rem;
     }
     #welcome h1 {
       font-size: 3rem;
