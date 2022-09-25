@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { viteSingleFile } from 'vite-plugin-singlefile';
@@ -5,6 +6,9 @@ import { viteStaticCopy } from 'vite-plugin-static-copy';
 import path from 'path';
 
 export default defineConfig({
+  test: {
+    globals: true,
+  },
   root: path.resolve(__dirname, 'src'),
   plugins: [
     react(),

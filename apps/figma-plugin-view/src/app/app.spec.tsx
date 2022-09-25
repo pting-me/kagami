@@ -1,7 +1,9 @@
-import { render } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 
 import App from './app';
-
+/**
+ * @vitest-environment jsdom
+ */
 describe('App', () => {
   it('should render successfully', () => {
     const { baseElement } = render(<App />);
@@ -10,8 +12,8 @@ describe('App', () => {
   });
 
   it('should have a greeting as the title', () => {
-    const { getByText } = render(<App />);
+    render(<App />);
 
-    expect(getByText(/Welcome figma-plugin-view/gi)).toBeTruthy();
+    expect(screen.getByText(/Welcome figma-plugin-view/i)).toBeTruthy();
   });
 });

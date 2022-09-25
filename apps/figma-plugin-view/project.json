@@ -25,11 +25,10 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/figma-plugin-view"],
+      "executor": "nx:run-commands",
       "options": {
-        "jestConfig": "apps/figma-plugin-view/jest.config.ts",
-        "passWithNoTests": true
+        "cwd": "apps/figma-plugin-view",
+        "command": "vitest --run"
       }
     }
   },
