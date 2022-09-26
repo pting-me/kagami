@@ -7,7 +7,7 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": "apps/figma-plugin-sandbox",
-        "command": "esbuild apps/figma-plugin-sandbox/src/main.ts --outfile=../../dist/figma-plugin/main.js"
+        "command": "rollup --config rollup.config.ts --configPlugin rollup-plugin-esbuild"
       }
     },
     "serve": {

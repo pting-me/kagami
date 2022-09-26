@@ -4,6 +4,6 @@
     "outDir": "../../dist/out-tsc",
     "module": "commonjs"
   },
-  "exclude": ["vitest.config.ts", "**/*.spec.ts", "**/*.test.ts"],
+  "exclude": ["*.config.ts", "**/*.spec.ts", "**/*.test.ts"],
   "include": ["**/*.ts"]
 }
