@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@hashi/sandbox-features": ["libs/sandbox-features/src/index.ts"]
+      "@hashi/sandbox-features": ["libs/sandbox-features/src/index.ts"],
+      "@hashi/view-features": ["libs/view-features/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

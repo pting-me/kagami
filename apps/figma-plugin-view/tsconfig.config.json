@@ -3,19 +3,10 @@
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
     "module": "commonjs",
-    "types": ["vitest/globals", "node"]
+    "types": ["node"],
+    "resolveJsonModule": true
   },
-  "include": [
-    "**/*.test.ts",
-    "**/*.spec.ts",
-    "**/*.test.tsx",
-    "**/*.spec.tsx",
-    "**/*.test.js",
-    "**/*.spec.js",
-    "**/*.test.jsx",
-    "**/*.spec.jsx",
-    "**/*.d.ts"
-  ],
+  "include": ["*.config.ts"],
   "files": [
     "../../node_modules/@nrwl/react/typings/cssmodule.d.ts",
     "../../node_modules/@nrwl/react/typings/image.d.ts"

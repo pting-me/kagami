@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import styles from './App.module.css';
-import NxWelcome from './NxWelcome';
+import { NxWelcome } from '@hashi/view-features';
 
 export function App() {
   return (
