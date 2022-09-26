@@ -4,28 +4,10 @@
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/webpack:webpack",
-      "outputs": ["{options.outputPath}"],
+      "executor": "nx:run-commands",
       "options": {
-        "target": "node",
-        "compiler": "tsc",
-        "outputPath": "dist/apps/figma-plugin-sandbox",
-        "main": "apps/figma-plugin-sandbox/src/main.ts",
-        "tsConfig": "apps/figma-plugin-sandbox/tsconfig.app.json",
-        "assets": ["apps/figma-plugin-sandbox/src/assets"]
-      },
-      "configurations": {
-        "production": {
-          "optimization": true,
-          "extractLicenses": true,
-          "inspect": false,
-          "fileReplacements": [
-            {
-              "replace": "apps/figma-plugin-sandbox/src/environments/environment.ts",
-              "with": "apps/figma-plugin-sandbox/src/environments/environment.prod.ts"
-            }
-          ]
-        }
+        "cwd": "apps/figma-plugin-sandbox",
+        "command": "esbuild apps/figma-plugin-sandbox/src/main.ts --outfile=../../dist/figma-plugin/main.js"
       }
     },
     "serve": {
@@ -47,11 +29,10 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/figma-plugin-sandbox"],
+      "executor": "nx:run-commands",
       "options": {
-        "jestConfig": "apps/figma-plugin-sandbox/jest.config.ts",
-        "passWithNoTests": true
+        "cwd": "apps/figma-plugin-sandbox",
+        "command": "vitest --run"
       }
     }
   },

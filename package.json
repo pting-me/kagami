@@ -22,6 +22,7 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@figma/plugin-typings": "^1.52.0",
     "@nrwl/cli": "14.7.13",
     "@nrwl/cypress": "14.7.13",
     "@nrwl/eslint-plugin-nx": "14.7.13",

@@ -9,9 +9,11 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     globals: true,
-    root: path.resolve(__dirname, '../..'),
     cache: {
-      dir: path.resolve(__dirname, '../../node_modules/.vitest/figma-plugin-view'),
+      dir: path.resolve(
+        __dirname,
+        '../../node_modules/.vitest/figma-plugin-view'
+      ),
     },
   },
   root: path.resolve(__dirname, 'src'),
@@ -22,13 +24,14 @@ export default defineConfig({
       targets: [
         {
           src: 'assets/**/*',
-          dest: path.resolve(__dirname, '../../dist'),
+          dest: path.resolve(__dirname, '../../dist/figma-plugin'),
         },
       ],
     }),
   ],
   build: {
     minify: 'esbuild',
-    outDir: path.resolve(__dirname, '../../dist'),
+    emptyOutDir: false,
+    outDir: path.resolve(__dirname, '../../dist/figma-plugin'),
   },
 });

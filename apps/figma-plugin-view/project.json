@@ -7,7 +7,7 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": "apps/figma-plugin-view",
-        "command": "vite build --emptyOutDir=true"
+        "command": "vite build"
       }
     },
     "serve": {

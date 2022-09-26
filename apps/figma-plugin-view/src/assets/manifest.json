@@ -4,6 +4,6 @@
   "api": "1.0.0",
   "editorType": ["figma", "figjam"],
   "permissions": [],
-  "main": "./code.js",
+  "main": "./main.js",
   "ui": "./index.html"
 }
