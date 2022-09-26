@@ -1,0 +1,59 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/figma-plugin-sandbox/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/figma-plugin-sandbox",
+        "main": "apps/figma-plugin-sandbox/src/main.ts",
+        "tsConfig": "apps/figma-plugin-sandbox/tsconfig.app.json",
+        "assets": ["apps/figma-plugin-sandbox/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/figma-plugin-sandbox/src/environments/environment.ts",
+              "with": "apps/figma-plugin-sandbox/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/js:node",
+      "options": {
+        "buildTarget": "figma-plugin-sandbox:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "figma-plugin-sandbox:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/figma-plugin-sandbox/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/figma-plugin-sandbox"],
+      "options": {
+        "jestConfig": "apps/figma-plugin-sandbox/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
