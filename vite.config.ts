@@ -4,25 +4,26 @@ import path from 'path';
 
 import tsconfig from './tsconfig.base.json';
 
-export const getAliasEntries = (dirnameOverride?: string) => {
-  const dirname = dirnameOverride ?? __dirname;
+export const projectRoot = process.cwd();
+export const projectName = path.basename(projectRoot);
 
-  const pathEntries = Object.entries(tsconfig.compilerOptions.paths);
-  // assumes 1-1 relationship with paths in tsconfig
-  return pathEntries.map(([alias, [currentPath]]) => ({
-    find: alias,
-    replacement: path.resolve(dirname, currentPath),
-  }));
-};
+// don't use __dirname as it makes rollup confused
+export const workspaceRoot =
+  process.env['NX_WORKSPACE_ROOT'] ??
+  process.env['npm_config_local_prefix'] ??
+  path.resolve(projectRoot, '../..');
 
-export const getViteConfig = (sourceRoot: string, dirnameOverride?: string) => {
-  const dirname = dirnameOverride ?? __dirname;
-  return {
-    resolve: {
-      alias: getAliasEntries(dirnameOverride),
-    },
-    root: path.resolve(dirname, sourceRoot),
-  };
-};
+const pathEntries = Object.entries(tsconfig.compilerOptions.paths);
 
-export default defineConfig(getViteConfig(''));
+// assumes 1-1 relationship with paths in tsconfig
+export const aliasEntries = pathEntries.map(([alias, [currentPath]]) => ({
+  find: alias,
+  replacement: path.resolve(workspaceRoot, currentPath),
+}));
+
+export default defineConfig({
+  resolve: {
+    alias: aliasEntries,
+  },
+  root: path.resolve(projectRoot),
+});

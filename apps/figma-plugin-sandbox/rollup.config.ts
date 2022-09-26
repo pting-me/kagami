@@ -4,7 +4,7 @@ import alias from '@rollup/plugin-alias';
 import esbuild from 'rollup-plugin-esbuild';
 import path from 'path';
 
-import { getAliasEntries } from '../../vite.config';
+import { aliasEntries } from '../../vite.config';
 
 export default {
   input: path.resolve(__dirname, 'src/main.ts'),
@@ -15,7 +15,7 @@ export default {
   },
   plugins: [
     alias({
-      entries: getAliasEntries(path.resolve(__dirname, '../..')),
+      entries: aliasEntries,
     }),
     resolve(),
     commonjs(),

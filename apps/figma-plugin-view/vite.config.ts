@@ -5,11 +5,10 @@ import { viteSingleFile } from 'vite-plugin-singlefile';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 import path from 'path';
 
-import { getViteConfig } from '../../vite.config';
-import project from './project.json';
+import viteConfig from '../../vite.config';
 
 export default defineConfig(
-  mergeConfig(getViteConfig(project.sourceRoot), {
+  mergeConfig(viteConfig, {
     test: {
       passWithNoTests: true,
     },

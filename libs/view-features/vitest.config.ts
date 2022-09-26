@@ -2,11 +2,10 @@ import { defineConfig } from 'vitest/config';
 import { mergeConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-import { getVitestConfig } from '../../vitest.config';
-import project from './project.json';
+import vitestConfig from '../../vitest.config';
 
 export default defineConfig(
-  mergeConfig(getVitestConfig(project.sourceRoot), {
+  mergeConfig(vitestConfig, {
     plugins: [react()],
   })
 );
