@@ -11,11 +11,10 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/features/sandbox"],
+      "executor": "nx:run-commands",
       "options": {
-        "jestConfig": "libs/features/sandbox/jest.config.ts",
-        "passWithNoTests": true
+        "cwd": "libs/features/sandbox",
+        "command": "vitest --run"
       }
     }
   },

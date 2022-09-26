@@ -5,7 +5,6 @@
     "module": "commonjs"
   },
   "include": [
-    "jest.config.ts",
     "**/*.test.ts",
     "**/*.spec.ts",
     "**/*.test.tsx",
