@@ -1,10 +1,10 @@
-import { publisher } from '@hashi/features/sandbox';
+import { publisher } from '@hashi/sandbox-features';
 
 console.log(publisher(null));
 
 const nodes = figma.root.findAllWithCriteria({
-  types: ['COMPONENT', 'COMPONENT_SET']
-})
+  types: ['COMPONENT', 'COMPONENT_SET'],
+});
 
 console.log(nodes);
 

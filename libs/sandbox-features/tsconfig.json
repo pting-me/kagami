@@ -1,5 +1,5 @@
 {
-  "extends": "../../../tsconfig.figma.json",
+  "extends": "../../tsconfig.figma.json",
   "files": [],
   "include": [],
   "references": [

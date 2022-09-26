@@ -2,9 +2,9 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "features-sandbox": "libs/features/sandbox",
     "figma-plugin-sandbox": "apps/figma-plugin-sandbox",
     "figma-plugin-view": "apps/figma-plugin-view",
-    "figma-plugin-view-e2e": "apps/figma-plugin-view-e2e"
+    "figma-plugin-view-e2e": "apps/figma-plugin-view-e2e",
+    "sandbox-features": "libs/sandbox-features"
   }
 }

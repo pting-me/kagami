@@ -8,7 +8,7 @@ export default defineConfig({
     cache: {
       dir: path.resolve(
         __dirname,
-        '../../../node_modules/.vitest/figma-plugin-sandbox'
+        '../../node_modules/.vitest/figma-plugin-sandbox'
       ),
     },
   },
