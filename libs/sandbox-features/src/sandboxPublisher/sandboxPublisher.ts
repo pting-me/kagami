@@ -1,7 +1,7 @@
 type Publisher = (pluginMessage: any, options?: UIPostMessageOptions) => void;
 
-const publisher: Publisher = (pluginMessage, options) => {
+const sandboxPublisher: Publisher = (pluginMessage, options) => {
   return 'publisher';
 };
 
-export default publisher;
+export default sandboxPublisher;

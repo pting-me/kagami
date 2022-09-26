@@ -1,2 +1,2 @@
-export { default as publisher } from './publisher';
-export { default as subscriber } from './subscriber';
+export { default as sandboxPublisher } from './sandboxPublisher';
+export { default as sandboxSubscriber } from './sandboxSubscriber';
