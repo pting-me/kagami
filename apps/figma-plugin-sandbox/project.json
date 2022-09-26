@@ -11,14 +11,10 @@
       }
     },
     "serve": {
-      "executor": "@nrwl/js:node",
+      "executor": "nx:run-commands",
       "options": {
-        "buildTarget": "figma-plugin-sandbox:build"
-      },
-      "configurations": {
-        "production": {
-          "buildTarget": "figma-plugin-sandbox:build:production"
-        }
+        "cwd": "apps/figma-plugin-sandbox",
+        "command": "echo 'Nothing to serve'"
       }
     },
     "lint": {
