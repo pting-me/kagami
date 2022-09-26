@@ -1,9 +1,7 @@
 import { screen, render } from '@testing-library/react';
 
 import App from './app';
-/**
- * @vitest-environment jsdom
- */
+
 describe('App', () => {
   it('should render successfully', () => {
     const { baseElement } = render(<App />);

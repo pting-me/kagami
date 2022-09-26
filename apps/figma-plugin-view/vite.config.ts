@@ -7,7 +7,12 @@ import path from 'path';
 
 export default defineConfig({
   test: {
+    environment: 'jsdom',
     globals: true,
+    root: path.resolve(__dirname, '../..'),
+    cache: {
+      dir: path.resolve(__dirname, '../../node_modules/.vitest/figma-plugin-view'),
+    },
   },
   root: path.resolve(__dirname, 'src'),
   plugins: [
