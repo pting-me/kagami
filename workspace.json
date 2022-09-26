@@ -6,6 +6,7 @@
     "figma-plugin-view": "apps/figma-plugin-view",
     "figma-plugin-view-e2e": "apps/figma-plugin-view-e2e",
     "sandbox-features": "libs/sandbox-features",
-    "view-features": "libs/view-features"
+    "view-features": "libs/view-features",
+    "view-ui": "libs/view-ui"
   }
 }
