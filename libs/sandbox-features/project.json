@@ -1,19 +1,19 @@
 {
-  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/features/sandbox/src",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/sandbox-features/src",
   "projectType": "library",
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/features/sandbox/**/*.ts"]
+        "lintFilePatterns": ["libs/sandbox-features/**/*.ts"]
       }
     },
     "test": {
       "executor": "nx:run-commands",
       "options": {
-        "cwd": "libs/features/sandbox",
+        "cwd": "libs/sandbox-features",
         "command": "vitest --run"
       }
     }

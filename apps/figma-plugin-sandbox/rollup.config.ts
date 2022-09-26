@@ -3,16 +3,8 @@ import commonjs from '@rollup/plugin-commonjs';
 import alias from '@rollup/plugin-alias';
 import esbuild from 'rollup-plugin-esbuild';
 import path from 'path';
-import tsconfig from '../../tsconfig.base.json';
 
-const mapAliasEntries = (paths: typeof tsconfig.compilerOptions.paths) => {
-  const pathEntries = Object.entries(paths);
-  // assumes 1-1 relationship with paths in tsconfig
-  return pathEntries.map(([alias, [currentPath]]) => ({
-    find: alias,
-    replacement: path.resolve(`../../${currentPath}`),
-  }));
-};
+import { getAliasEntries } from '../../vite.config';
 
 export default {
   input: path.resolve(__dirname, 'src/main.ts'),
@@ -23,7 +15,7 @@ export default {
   },
   plugins: [
     alias({
-      entries: mapAliasEntries(tsconfig.compilerOptions.paths),
+      entries: getAliasEntries(path.resolve(__dirname, '../..')),
     }),
     resolve(),
     commonjs(),
