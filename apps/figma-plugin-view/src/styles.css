@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
-#root {
-  background-color: white;
+body {
+  background-color: var(--figma-color-bg);
+  color: var(--figma-color-text);
+  font-family: Inter, sans-serif;
+  font-size: 11px;
 }

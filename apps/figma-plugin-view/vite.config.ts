@@ -12,6 +12,7 @@ export default defineConfig(
     test: {
       passWithNoTests: true,
     },
+    root: path.resolve(__dirname, 'src'),
     plugins: [
       react(),
       viteSingleFile(),
