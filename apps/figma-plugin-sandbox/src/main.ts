@@ -1,6 +1,6 @@
-import { publisher } from '@hashi/sandbox-features';
+import { postMessageToView } from '@hashi/sandbox-features';
 
-console.log(publisher(null));
+console.log(postMessageToView(null));
 
 const nodes = figma.root.findAllWithCriteria({
   types: ['COMPONENT', 'COMPONENT_SET'],

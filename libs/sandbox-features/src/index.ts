@@ -1,2 +1,2 @@
-export { default as sandboxPublisher } from './sandboxPublisher';
-export { default as sandboxSubscriber } from './sandboxSubscriber';
+export { default as handleMessageFromView } from './handleMessageFromView';
+export { default as postMessageToView } from './postMessageToView';

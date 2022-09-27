@@ -3,7 +3,8 @@
   "compilerOptions": {
     "module": "commonjs",
     "outDir": "../../dist/out-tsc",
-    "declaration": true
+    "declaration": true,
+    "types": ["node", "@figma/plugin-typings"]
   },
   "exclude": ["*.config.ts", "**/*.spec.ts", "**/*.test.ts"],
   "include": ["**/*.ts"]
