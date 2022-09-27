@@ -11,18 +11,10 @@ export interface ContextAction {
 
 export type ContextDispatch = (action: ContextAction) => void;
 
-export interface ContextStore {
-  state: ContextState;
-  dispatch: ContextDispatch;
-}
-
-export const initialContext: ContextStore = {
-  state: { components: null },
-  dispatch: () => {
-    /* do nothing */
-  },
+export const initialContext: ContextState = {
+  components: null,
 };
 
-const MessageContext = React.createContext<ContextStore>(initialContext);
+const MessageContext = React.createContext<ContextState>(initialContext);
 
 export default MessageContext;

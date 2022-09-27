@@ -1,4 +1,5 @@
 import { PropsWithChildren, useReducer } from 'react';
+import createHandleMessageFromSandbox from '../createHandleMessageFromSandbox';
 import MessageContext, {
   initialContext,
   ContextAction,
@@ -19,21 +20,12 @@ function MessageContextWrapper(props: Props) {
     }
   };
 
-  const [state, dispatch] = useReducer(reducer, initialContext.state);
+  const [state, dispatch] = useReducer(reducer, initialContext);
 
-  window.onmessage = (ev: any) => {
-    const message = ev.data.pluginMessage;
-    if (!message) {
-      return;
-    }
-
-    dispatch(message);
-  };
+  window.onmessage = createHandleMessageFromSandbox(dispatch);
 
   return (
-    <MessageContext.Provider value={{ state, dispatch }}>
-      {children}
-    </MessageContext.Provider>
+    <MessageContext.Provider value={state}>{children}</MessageContext.Provider>
   );
 }
 
