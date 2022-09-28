@@ -13,10 +13,10 @@ function MessageContextWrapper(props: Props) {
 
   const reducer = (state: ContextState, action: ContextAction) => {
     switch (action.type) {
-      case 'setComponents':
-        return { ...state, components: action.payload };
-      case 'setComponentSets':
-        return { ...state, componentSets: action.payload };
+      case 'setComponentNodes':
+        return { ...state, componentNodes: action.payload };
+      case 'setComponentSetNodes':
+        return { ...state, componentSetNodes: action.payload };
       default:
         return state;
     }

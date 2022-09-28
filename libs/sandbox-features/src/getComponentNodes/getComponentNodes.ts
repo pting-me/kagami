@@ -5,14 +5,14 @@ import { enrichNode, hasChildrenMixin } from '../utils';
  * @param {BaseNode} [node=figma.root]
  * @returns {ComponentNode[]}
  */
-const getComponents = (node?: BaseNode) => {
+const getComponentNodes = (node?: BaseNode) => {
   const baseNode = node ?? figma.root;
 
   if (!hasChildrenMixin(baseNode)) {
     return [];
   }
 
-  const components = baseNode.findAll((currentNode) => {
+  const componentNodes = baseNode.findAll((currentNode) => {
     if (currentNode.type !== 'COMPONENT') {
       return false;
     }
@@ -24,7 +24,7 @@ const getComponents = (node?: BaseNode) => {
     return true;
   });
 
-  return components.map(enrichNode);
+  return componentNodes.map(enrichNode);
 };
 
-export default getComponents;
+export default getComponentNodes;

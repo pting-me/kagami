@@ -7,7 +7,8 @@
 export const hasChildrenMixin = (
   node: BaseNode
 ): node is BaseNode & ChildrenMixin => {
-  if (!Object.prototype.hasOwnProperty.call(node, 'children')) {
+  // Note that we can't use `hasOwnProperty` to detect mixins
+  if (!Object.keys(Object.getPrototypeOf(node)).includes('children')) {
     return false;
   }
   return true;

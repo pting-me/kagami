@@ -1,13 +1,20 @@
 import { useContext } from 'react';
 import MessageContext from '../MessageContext';
 import NodeList from '../NodeList';
+import postMessageToSandbox from '../postMessageToSandbox';
 
 export function MainLayout() {
-  const { components, componentSets } = useContext(MessageContext);
+  const { componentNodes, componentSetNodes } = useContext(MessageContext);
+
+  const handleClick = () => {
+    postMessageToSandbox({ type: 'download', payload: { componentSetNodes } });
+  };
+
   return (
     <div>
-      <NodeList nodes={components} type="COMPONENT"></NodeList>
-      <NodeList nodes={componentSets} type="COMPONENT_SET"></NodeList>
+      <button onClick={handleClick}>Download as JSON</button>
+      <NodeList nodes={componentNodes} type="COMPONENT"></NodeList>
+      <NodeList nodes={componentSetNodes} type="COMPONENT_SET"></NodeList>
     </div>
   );
 }

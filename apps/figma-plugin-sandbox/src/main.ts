@@ -1,20 +1,20 @@
 import {
   createHandleMessageFromView,
-  getComponents,
-  getComponentSets,
+  getComponentNodes,
+  getComponentSetNodes,
   postMessageToView,
 } from '@hashi/sandbox-features';
 
 figma.showUI(__html__, { themeColors: true, width: 1024, height: 576 });
 
 postMessageToView({
-  type: 'setComponentSets',
-  payload: getComponentSets(),
+  type: 'setComponentSetNodes',
+  payload: getComponentSetNodes(),
 });
 
 postMessageToView({
-  type: 'setComponents',
-  payload: getComponents(),
+  type: 'setComponentNodes',
+  payload: getComponentNodes(),
 });
 
-// figma.ui.onmessage = createHandleMessageFromView(console.log);
+figma.ui.onmessage = createHandleMessageFromView(console.log);

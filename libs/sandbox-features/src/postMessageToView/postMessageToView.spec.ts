@@ -1,11 +1,16 @@
 import postMessageToSandbox from './postMessageToView';
 
-describe('postMessageToSandbox', () => {
-  it('posts message to parent window', () => {
-    // eslint-disable-next-line no-restricted-globals
-    const messageSpy = vi.spyOn(parent, 'postMessage');
+const mockPostMessage = vi.fn();
 
-    postMessageToSandbox('some message');
-    expect(messageSpy).toHaveBeenCalledOnce();
+vi.stubGlobal('figma', {
+  ui: {
+    postMessage: mockPostMessage,
+  },
+});
+
+describe('postMessageToSandbox', () => {
+  it('posts message to sandbox', () => {
+    postMessageToSandbox({ type: 'foo', payload: 'bar' });
+    expect(mockPostMessage).toHaveBeenCalledOnce();
   });
 });

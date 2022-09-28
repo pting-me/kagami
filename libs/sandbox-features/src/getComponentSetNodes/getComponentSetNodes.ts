@@ -5,7 +5,7 @@ import { enrichNode, hasChildrenMixin } from '../utils';
  * @param {BaseNode} [node=figma.root]
  * @returns {ComponentSetNode[]}
  */
-const getComponentSet = (node?: BaseNode) => {
+const getComponentSetNodes = (node?: BaseNode) => {
   const baseNode = node ?? figma.root;
 
   if (!hasChildrenMixin(baseNode)) {
@@ -19,4 +19,4 @@ const getComponentSet = (node?: BaseNode) => {
   return componentSets.map(enrichNode);
 };
 
-export default getComponentSet;
+export default getComponentSetNodes;
