@@ -14,6 +14,7 @@
   },
   "private": true,
   "dependencies": {
+    "@reach/accordion": "^0.17.0",
     "core-js": "^3.6.5",
     "esbuild": "^0.15.9",
     "react": "18.2.0",
