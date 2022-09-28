@@ -5,7 +5,7 @@ import {
   postMessageToView,
 } from '@hashi/sandbox-features';
 
-figma.showUI(__html__, { themeColors: true, width: 1024, height: 576 });
+figma.showUI(__html__, { themeColors: true, width: 240, height: 427 });
 
 postMessageToView({
   type: 'setComponentSetNodes',

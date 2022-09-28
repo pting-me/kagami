@@ -35,7 +35,6 @@ This project encapsulates the logic that is split when building Figma plugins in
 ## Todo
 
 - Add testing environment (like Storybook)
-- Add exporting to JSON
 - Add in templates (determine to use plop or nunjucks or something else)
 - Add functionality to highlight component on click
 - Add functionality to select which components to export
