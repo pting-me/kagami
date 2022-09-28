@@ -15,6 +15,8 @@ function MessageContextWrapper(props: Props) {
     switch (action.type) {
       case 'setComponents':
         return { ...state, components: action.payload };
+      case 'setComponentSets':
+        return { ...state, componentSets: action.payload };
       default:
         return state;
     }

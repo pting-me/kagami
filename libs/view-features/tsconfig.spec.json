@@ -3,7 +3,7 @@
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
     "module": "commonjs",
-    "types": ["vitest/globals", "node"]
+    "types": ["vitest/globals", "node", "@figma/plugin-typings"]
   },
   "include": [
     "**/*.test.ts",

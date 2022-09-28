@@ -1,14 +1,13 @@
-import { ComponentList, MessageContextWrapper } from '@hashi/view-features';
-import postMessageToSandbox from '../postMessageToSandbox';
+import { useContext } from 'react';
+import MessageContext from '../MessageContext';
+import NodeList from '../NodeList';
 
 export function MainLayout() {
-  const handleClick = () => {
-    postMessageToSandbox({ action: 'foo', payload: 'bar' });
-  };
+  const { components, componentSets } = useContext(MessageContext);
   return (
     <div>
-      <ComponentList></ComponentList>
-      <button onClick={handleClick}>Fire event</button>
+      <NodeList nodes={components} type="COMPONENT"></NodeList>
+      <NodeList nodes={componentSets} type="COMPONENT_SET"></NodeList>
     </div>
   );
 }

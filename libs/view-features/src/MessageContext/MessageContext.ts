@@ -1,7 +1,8 @@
 import React from 'react';
 
 export interface ContextState {
-  components: any;
+  components: ComponentNode[];
+  componentSets: ComponentSetNode[];
 }
 
 export interface ContextAction {
@@ -12,7 +13,8 @@ export interface ContextAction {
 export type ContextDispatch = (action: ContextAction) => void;
 
 export const initialContext: ContextState = {
-  components: null,
+  components: [],
+  componentSets: [],
 };
 
 const MessageContext = React.createContext<ContextState>(initialContext);
