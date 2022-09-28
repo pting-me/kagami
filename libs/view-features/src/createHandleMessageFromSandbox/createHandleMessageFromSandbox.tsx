@@ -2,8 +2,8 @@ import { ContextAction } from '../MessageContext/MessageContext';
 
 /**
  * Creates a message handler to be assigned to `window.onmessage`
- * @param callback - Function that will be called when a sandbox message is received
- * @returns - The message handler
+ * @param callback Function that will be called when a message is received from the sandbox
+ * @returns The message handler
  */
 const createHandleMessageFromSandbox = (
   callback: (pluginMessage: ContextAction) => void
@@ -11,7 +11,7 @@ const createHandleMessageFromSandbox = (
   /**
    * Function that will be called when a sandbox message is received
    * Should be assigned to `window.onmessage`
-   * @param ev - `MessageEvent` coming from the sandbox
+   * @param ev `MessageEvent` coming from the sandbox
    */
   const handleMessageFromSandbox = (
     ev: MessageEvent<{ pluginMessage: ContextAction }>
