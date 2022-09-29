@@ -2,7 +2,6 @@
 
 # Hashi specific
 hashi-manifest.json
-/hashi-components
 
 # compiled output
 /dist

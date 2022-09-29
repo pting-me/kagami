@@ -36,7 +36,7 @@ specifiers:
   husky: ^8.0.1
   lint-staged: ^13.0.3
   lodash.camelcase: ^4.3.0
-  lodash.capitalize: ^4.2.1
+  lodash.upperfirst: ^4.3.1
   nx: 14.7.13
   postcss: ^8.4.16
   prettier: ^2.6.2
@@ -98,7 +98,7 @@ devDependencies:
   husky: 8.0.1
   lint-staged: 13.0.3
   lodash.camelcase: 4.3.0
-  lodash.capitalize: 4.2.1
+  lodash.upperfirst: 4.3.1
   nx: 14.7.13
   postcss: 8.4.16
   prettier: 2.7.1
@@ -7596,10 +7596,6 @@ packages:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
     dev: true
 
-  /lodash.capitalize/4.2.1:
-    resolution: {integrity: sha512-kZzYOKspf8XVX5AvmQF94gQW0lejFVgb80G85bU4ZWzoJ6C03PQg3coYAUpSTpQWelrZELd3XWgHzw4Ck5kaIw==}
-    dev: true
-
   /lodash.debounce/4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
     dev: true
@@ -7618,6 +7614,10 @@ packages:
 
   /lodash.uniq/4.5.0:
     resolution: {integrity: sha512-xfBaXQd9ryd9dlSDvnvI0lvxfLJlYAZzXomUYzLKtUeOQvOP5piqAWuGtrhWeqaXK9hhoM/iyJc5AV+XfsX3HQ==}
+    dev: true
+
+  /lodash.upperfirst/4.3.1:
+    resolution: {integrity: sha512-sReKOYJIJf74dhJONhU4e0/shzi1trVbSWDOhKYE5XV2O+H7Sb2Dihwuc7xWxVl+DgFPyTqIN3zMfT9cq5iWDg==}
     dev: true
 
   /lodash/4.17.21:

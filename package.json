@@ -5,7 +5,7 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx run-many --target=build --projects=figma-plugin-view,figma-plugin-sandbox",
-    "generate-components": "hbs tools/handlebars/templates/component.hbs --helper ./tools/handlebars/helpers/*.js --data hashi-manifest.json --extension tsx --output hashi-components",
+    "generate-components": "hbs --helper ./tools/handlebars/helpers/component.js --data ./hashi-manifest.json --extension tmp ./tools/handlebars/templates/component.hbs --output ./tmp/handlebars",
     "prepare": "husky install",
     "test": "nx test"
   },
@@ -57,7 +57,7 @@
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "lodash.camelcase": "^4.3.0",
-    "lodash.capitalize": "^4.2.1",
+    "lodash.upperfirst": "^4.3.1",
     "nx": "14.7.13",
     "postcss": "^8.4.16",
     "prettier": "^2.6.2",

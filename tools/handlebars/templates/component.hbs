@@ -1,1 +1,15 @@
-{{foo}}
+{{#each componentSetNodes}}
+/* BEGIN_FILE: {{pascalcase this.name}}.tsx */
+import { FC } from 'react';
+
+interface Props {
+  /* prop definitions here */
+}
+
+const {{pascalcase this.name}}: FC<Props> = (props: Props) => {
+  return null;
+};
+
+export default {{pascalcase this.name}};
+export { Props as {{pascalcase this.name}}Props };
+{{/each}}
