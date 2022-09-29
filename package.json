@@ -5,6 +5,7 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx run-many --target=build --projects=figma-plugin-view,figma-plugin-sandbox",
+    "generate-components": "hbs tools/handlebars/templates/component.hbs --helper ./tools/handlebars/helpers/*.js --data hashi-manifest.json --extension tsx --output hashi-components",
     "prepare": "husky install",
     "test": "nx test"
   },
@@ -52,8 +53,11 @@
     "eslint-plugin-jsx-a11y": "6.6.1",
     "eslint-plugin-react": "7.31.8",
     "eslint-plugin-react-hooks": "4.6.0",
+    "hbs-cli": "^1.4.1",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
+    "lodash.camelcase": "^4.3.0",
+    "lodash.capitalize": "^4.2.1",
     "nx": "14.7.13",
     "postcss": "^8.4.16",
     "prettier": "^2.6.2",
