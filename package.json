@@ -5,6 +5,7 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx run-many --target=build --projects=figma-plugin-view,figma-plugin-sandbox",
+    "prepare": "husky install",
     "test": "nx test"
   },
   "engines": {
@@ -51,6 +52,7 @@
     "eslint-plugin-jsx-a11y": "6.6.1",
     "eslint-plugin-react": "7.31.8",
     "eslint-plugin-react-hooks": "4.6.0",
+    "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "nx": "14.7.13",
     "postcss": "^8.4.16",
