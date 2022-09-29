@@ -9,7 +9,7 @@ import '@reach/accordion/styles.css';
 const MockExpandIcon = () => (
   <div className="w-4 h-4 flex items-center">
     <div className="plus-icon">+</div>
-    <div className="minus-icon">-</div>
+    <div className="minus-icon">&ndash;</div>
   </div>
 );
 
