@@ -32,19 +32,21 @@ interface Props extends ComponentPropsWithRef<'button'> {
   data: unknown;
 }
 
-const DownloadButton: React.FC<Props> = forwardRef<HTMLButtonElement, Props>((props, ref) => {
-  const { filename, data, children, ...rest } = props;
-  console.log(rest);
+const DownloadButton: React.FC<Props> = forwardRef<HTMLButtonElement, Props>(
+  (props, ref) => {
+    const { filename, data, children, ...rest } = props;
+    console.log(rest);
 
-  const handleClick = () => {
-    saveTemplateAsFile(filename, data);
-  };
+    const handleClick = () => {
+      saveTemplateAsFile(filename, data);
+    };
 
-  return (
-    <button ref={ref} onClick={handleClick} {...rest}>
-      {children}
-    </button>
-  );
-});
+    return (
+      <button ref={ref} onClick={handleClick} {...rest}>
+        {children}
+      </button>
+    );
+  }
+);
 
 export default DownloadButton;
