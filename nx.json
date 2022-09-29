@@ -46,7 +46,7 @@
       "application": {
         "style": "css",
         "linter": "eslint",
-        "babel": true
+        "babel": false
       },
       "component": {
         "style": "css"
