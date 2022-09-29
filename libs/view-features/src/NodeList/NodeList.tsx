@@ -7,14 +7,7 @@ import {
 import '@reach/accordion/styles.css';
 
 const MockExpandIcon = () => (
-  <div
-    style={{
-      width: '16px',
-      height: '16px',
-      display: 'flex',
-      alignItems: 'center',
-    }}
-  >
+  <div className="w-4 h-4 flex items-center">
     <div className="plus-icon">+</div>
     <div className="minus-icon">-</div>
   </div>
@@ -36,8 +29,8 @@ function NodeList(props: {
           <AccordionItem>
             {type === 'COMPONENT_SET' && (
               <>
-                <AccordionButton style={{ width: '100%', height: '32px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                <AccordionButton className="px-4 h-8 w-full hover:bg-hover active:bg-pressed">
+                  <div className="flex items-center">
                     <MockExpandIcon />
                     <div>{node.name}</div>
                   </div>
@@ -52,15 +45,7 @@ function NodeList(props: {
               </>
             )}
             {type === 'COMPONENT' && (
-              <button
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  height: '32px',
-                  width: '100%',
-                }}
-              >
-                <div style={{ width: '16px' }}></div>
+              <button className="px-4 h-8 flex items-center w-full">
                 {node.name}
               </button>
             )}

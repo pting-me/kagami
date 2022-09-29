@@ -9,10 +9,10 @@ export function MainLayout() {
 
   return (
     <div>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <div className="my-4 px-4 flex justify-end">
         <div>
           <DownloadButton
-            style={{ backgroundColor: 'var(--figma-color-bg-brand)' }}
+            className="h-8 px-3 bg-brand rounded-md"
             data={context}
             filename="hashi-manifest.json"
           >
@@ -20,10 +20,15 @@ export function MainLayout() {
           </DownloadButton>
         </div>
       </div>
-      <h1>Component Sets</h1>
-      <NodeList nodes={componentSetNodes} type="COMPONENT_SET"></NodeList>
-      <h1>Components</h1>
-      <NodeList nodes={componentNodes} type="COMPONENT"></NodeList>
+      <div className="mt-4 border-t">
+        <h1 className="p-4 font-bold">Component Sets</h1>
+        <NodeList nodes={componentSetNodes} type="COMPONENT_SET"></NodeList>
+      </div>
+      <div className="mt-4 border-t">
+        <h1 className="p-4 font-bold">Components</h1>
+        <NodeList nodes={componentNodes} type="COMPONENT"></NodeList>
+      </div>
+      <div className="h-4"></div>
     </div>
   );
 }

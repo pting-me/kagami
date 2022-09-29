@@ -2,40 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: var(--figma-color-bg);
+*,
+:before,
+:after {
+  background-color: inherit;
   color: var(--figma-color-text);
+  border-color: var(--figma-color-border);
+}
+
+body {
   font-family: Inter, sans-serif;
   font-size: 11px;
 }
 
-button {
-  color: var(--figma-color-text);
-  background-color: var(--figma-color-bg);
-  border: none;
-  height: 32px;
+svg {
+  fill: var(--figma-color-icon);
 }
 
-button:active {
-  background-color: var(--figma-color-bg-pressed);
-}
-
-button:hover {
-  background-color: var(--figma-color-bg-hover);
-}
-
-[data-reach-accordion-item][data-state="open"] .plus-icon {
+[data-reach-accordion-item][data-state='open'] .plus-icon {
   display: none;
 }
 
-[data-reach-accordion-item][data-state="collapsed"] .plus-icon {
+[data-reach-accordion-item][data-state='collapsed'] .plus-icon {
   display: block;
 }
 
-[data-reach-accordion-item][data-state="open"] .minus-icon {
+[data-reach-accordion-item][data-state='open'] .minus-icon {
   display: block;
 }
 
-[data-reach-accordion-item][data-state="collapsed"] .minus-icon {
+[data-reach-accordion-item][data-state='collapsed'] .minus-icon {
   display: none;
 }
