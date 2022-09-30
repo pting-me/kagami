@@ -9,8 +9,7 @@ export function MainLayout() {
   return (
     <div>
       <div className="my-4">
-        <h1 className="p-4">Hashi</h1>
-        <div className="mt-4 p-4">
+        <div className="px-4">
           Download TypeScript React component scaffolding from your Figma
           component definitions.
         </div>
