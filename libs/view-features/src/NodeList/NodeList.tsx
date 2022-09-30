@@ -30,7 +30,7 @@ function NodeList(props: {
 
   const getComponentFile = useCallback(
     (index: number) => {
-      const node = nodes[0];
+      const node = nodes[index];
       if (!node || !isComponentSetNode(node)) {
         return { filename: 'NO_DATA', downloadData: '' };
       }

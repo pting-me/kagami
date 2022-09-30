@@ -3,7 +3,6 @@ import {
   forwardRef,
   MouseEvent as ReactMouseEvent,
 } from 'react';
-import createComponent from '../createComponent';
 
 /**
  * Adopted from https://stackoverflow.com/questions/19721439/download-json-object-as-a-file-from-browser
