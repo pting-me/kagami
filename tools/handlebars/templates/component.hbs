@@ -3,7 +3,9 @@
 import { FC } from 'react';
 
 interface Props {
-  /* prop definitions here */
+{{#each (mapProperties this.variantGroupProperties)}}
+  {{this.property}}:{{#if this.isBoolean}} boolean;{{/if}}{{#if this.isNumber}} number;{{/if}}{{#if this.isString}}{{#each this.values}} | '{{this}}'{{/each}};{{/if}}
+{{/each}}
 }
 
 const {{pascalcase this.name}}: FC<Props> = (props: Props) => {
