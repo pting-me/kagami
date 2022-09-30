@@ -1,9 +1,10 @@
 import { PropsWithChildren, useReducer } from 'react';
+
 import createHandleMessageFromSandbox from '../createHandleMessageFromSandbox';
 import MessageContext, {
-  initialContext,
   ContextAction,
   ContextState,
+  initialContext,
 } from './MessageContext';
 
 type Props = PropsWithChildren;

@@ -1,8 +1,8 @@
-import { defineConfig } from 'vitest/config';
-import { mergeConfig } from 'vite';
 import path from 'path';
+import { mergeConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 
-import viteConfig, { workspaceRoot, projectName } from './vite.config';
+import viteConfig, { projectName, workspaceRoot } from './vite.config';
 
 export default defineConfig(
   mergeConfig(viteConfig, {

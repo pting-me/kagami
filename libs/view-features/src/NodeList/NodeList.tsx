@@ -1,15 +1,17 @@
 import {
   Accordion,
-  AccordionItem,
   AccordionButton,
+  AccordionItem,
   AccordionPanel,
 } from '@reach/accordion';
 import '@reach/accordion/styles.css';
 import camelCase from 'lodash.camelcase';
 import upperFirst from 'lodash.upperfirst';
 import { useCallback } from 'react';
+
+import { DownloadButton, DownloadIcon } from '@hashi/view-ui';
+
 import createComponent from '../createComponent';
-import DownloadButton, { DownloadIcon } from '../DownloadButton';
 
 const MockExpandIcon = () => (
   <div className="w-4 h-4 flex items-center">

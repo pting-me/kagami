@@ -1,25 +1,35 @@
 import {
   ComponentPropsWithRef,
-  forwardRef,
   MouseEvent as ReactMouseEvent,
+  forwardRef,
 } from 'react';
+
+interface FileOptions {
+  filename: string;
+  data: BlobPart;
+  mimeType?: string;
+}
 
 /**
  * Adopted from https://stackoverflow.com/questions/19721439/download-json-object-as-a-file-from-browser
- * @param filename
- * @param dataObjToWrite
+ * @param {} options
  */
-const saveTemplateAsFile = (filename: string, dataObjToWrite: string) => {
-  const blob = new Blob([dataObjToWrite], {
-    type: 'text/plain',
+const saveFile = (options: FileOptions) => {
+  const {
+    filename,
+    data,
+    mimeType = typeof data === 'string'
+      ? 'text/plain'
+      : 'application/octet-stream',
+  } = options;
+  const blob = new Blob([data], {
+    type: mimeType,
   });
   const link = document.createElement('a');
 
   link.download = filename;
   link.href = window.URL.createObjectURL(blob);
-  link.dataset['downloadurl'] = ['text/plain', link.download, link.href].join(
-    ':'
-  );
+  link.dataset['downloadurl'] = [mimeType, link.download, link.href].join(':');
 
   const evt = new MouseEvent('click', {
     view: window,
@@ -34,15 +44,16 @@ const saveTemplateAsFile = (filename: string, dataObjToWrite: string) => {
 interface Props extends ComponentPropsWithRef<'button'> {
   filename: string;
   data: string;
+  mimeType?: string;
 }
 
 const DownloadButton: React.FC<Props> = forwardRef<HTMLButtonElement, Props>(
   (props, ref) => {
-    const { filename, data, children, ...rest } = props;
+    const { filename, data, mimeType, children, ...rest } = props;
 
     const handleClick = (e: ReactMouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
-      saveTemplateAsFile(filename, data);
+      saveFile({ filename, data, mimeType });
     };
 
     return (

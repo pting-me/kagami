@@ -1,7 +1,8 @@
 import handlebars from 'handlebars';
-import componentTemplate from './component.hbs?raw';
 import camelCase from 'lodash.camelcase';
 import upperFirst from 'lodash.upperfirst';
+
+import componentTemplate from './component.hbs?raw';
 
 const pascalCase = (text: string) => upperFirst(camelCase(text));
 

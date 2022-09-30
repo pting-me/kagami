@@ -1,9 +1,9 @@
 /// <reference types="vitest" />
-import { defineConfig, mergeConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import path from 'path';
+import { defineConfig, mergeConfig } from 'vite';
 import { viteSingleFile } from 'vite-plugin-singlefile';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
-import path from 'path';
 
 import viteConfig from '../../vite.config';
 

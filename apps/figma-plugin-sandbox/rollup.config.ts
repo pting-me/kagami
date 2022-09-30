@@ -1,8 +1,8 @@
-import resolve from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
 import alias from '@rollup/plugin-alias';
-import esbuild from 'rollup-plugin-esbuild';
+import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
 import path from 'path';
+import esbuild from 'rollup-plugin-esbuild';
 
 import { aliasEntries } from '../../vite.config';
 
