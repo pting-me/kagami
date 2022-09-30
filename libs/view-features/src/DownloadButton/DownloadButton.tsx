@@ -1,19 +1,24 @@
-import { ComponentPropsWithRef, forwardRef } from 'react';
+import {
+  ComponentPropsWithRef,
+  forwardRef,
+  MouseEvent as ReactMouseEvent,
+} from 'react';
+import createComponent from '../createComponent';
 
 /**
  * Adopted from https://stackoverflow.com/questions/19721439/download-json-object-as-a-file-from-browser
  * @param filename
  * @param dataObjToWrite
  */
-const saveTemplateAsFile = (filename: string, dataObjToWrite: unknown) => {
-  const blob = new Blob([JSON.stringify(dataObjToWrite)], {
-    type: 'text/json',
+const saveTemplateAsFile = (filename: string, dataObjToWrite: string) => {
+  const blob = new Blob([dataObjToWrite], {
+    type: 'text/plain',
   });
   const link = document.createElement('a');
 
   link.download = filename;
   link.href = window.URL.createObjectURL(blob);
-  link.dataset['downloadurl'] = ['text/json', link.download, link.href].join(
+  link.dataset['downloadurl'] = ['text/plain', link.download, link.href].join(
     ':'
   );
 
@@ -29,15 +34,15 @@ const saveTemplateAsFile = (filename: string, dataObjToWrite: unknown) => {
 
 interface Props extends ComponentPropsWithRef<'button'> {
   filename: string;
-  data: unknown;
+  data: string;
 }
 
 const DownloadButton: React.FC<Props> = forwardRef<HTMLButtonElement, Props>(
   (props, ref) => {
     const { filename, data, children, ...rest } = props;
-    console.log(rest);
 
-    const handleClick = () => {
+    const handleClick = (e: ReactMouseEvent<HTMLButtonElement>) => {
+      e.preventDefault();
       saveTemplateAsFile(filename, data);
     };
 

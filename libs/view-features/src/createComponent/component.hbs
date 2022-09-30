@@ -1,0 +1,15 @@
+import { FC } from 'react';
+
+interface Props {
+{{#each (mapProperties this.variantGroupProperties)}}
+  {{this.property}}:{{#if this.isBoolean}} boolean;{{/if}}{{#if this.isNumber}} number;{{/if}}{{#if this.isString}}{{#each this.values}}
+    | '{{this}}'{{/each}};{{/if}}
+{{/each}}
+}
+
+const {{pascalCase this.name}}: FC<Props> = (props: Props) => {
+  return null;
+};
+
+export default {{pascalCase this.name}};
+export { Props as {{pascalCase this.name}}Props };
