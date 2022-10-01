@@ -1,0 +1,15 @@
+[data-reach-accordion-item][data-state='open'] .collapsed-icon {
+  display: none;
+}
+
+[data-reach-accordion-item][data-state='collapsed'] .collapsed-icon {
+  display: block;
+}
+
+[data-reach-accordion-item][data-state='open'] .open-icon {
+  display: block;
+}
+
+[data-reach-accordion-item][data-state='collapsed'] .open-icon {
+  display: none;
+}
