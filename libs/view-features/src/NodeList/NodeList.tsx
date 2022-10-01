@@ -1,4 +1,9 @@
 import {
+  ArrowDownTrayIcon,
+  ChevronDownIcon,
+  ChevronRightIcon,
+} from '@heroicons/react/20/solid';
+import {
   Accordion,
   AccordionButton,
   AccordionItem,
@@ -9,14 +14,15 @@ import camelCase from 'lodash.camelcase';
 import upperFirst from 'lodash.upperfirst';
 import { useCallback } from 'react';
 
-import { DownloadButton, Icon } from '@hashi/view-ui';
+import { DownloadButton } from '@hashi/view-ui';
 
 import createComponent from '../createComponent';
+import './NodeList.css';
 
-const MockExpandIcon = () => (
+const ExpandIcon = () => (
   <div className="w-4 h-4 flex items-center">
-    <div className="plus-icon">+</div>
-    <div className="minus-icon">&ndash;</div>
+    <ChevronRightIcon className="collapsed-icon" />
+    <ChevronDownIcon className="open-icon" />
   </div>
 );
 
@@ -55,21 +61,21 @@ function NodeList(props: {
           <AccordionItem>
             {type === 'COMPONENT_SET' && (
               <>
-                <AccordionButton className="px-4 h-8 w-full hover:border-y border-brand-hover">
+                <AccordionButton className="pr-2 h-8 w-full border-brand-hover hover:border-y">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
-                      <MockExpandIcon />
+                      <ExpandIcon />
                       <div>{node.name}</div>
                     </div>
                     <div>
                       <DownloadButton
-                        className="flex h-7 w-7 items-center justify-center bg disabled:bg-disabled hover:bg-hover active:bg-pressed"
+                        className="flex h-4 w-4 items-center justify-center bg"
                         aria-label="Download React code"
                         dataBlob={[downloadData]}
                         filename={filename}
                         disabled={!downloadData}
                       >
-                        <Icon iconName="arrow-down-tray" />
+                        <ArrowDownTrayIcon />
                       </DownloadButton>
                     </div>
                   </div>
