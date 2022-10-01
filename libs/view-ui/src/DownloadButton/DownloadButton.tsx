@@ -6,29 +6,37 @@ import {
 
 interface FileOptions {
   filename: string;
-  data: BlobPart;
+  dataBlob: BlobPart[];
   mimeType?: string;
 }
+
+const isPlainText = (dataBlob: BlobPart[]): dataBlob is string[] => {
+  return dataBlob.reduce(
+    (isPlainText, blobPart) => isPlainText && typeof blobPart === 'string',
+    true
+  );
+};
 
 /**
  * Adopted from https://stackoverflow.com/questions/19721439/download-json-object-as-a-file-from-browser
  * @param {} options
  */
-const saveFile = (options: FileOptions) => {
+const downloadFile = (options: FileOptions) => {
   const {
     filename,
-    data,
-    mimeType = typeof data === 'string'
+    dataBlob,
+    mimeType = isPlainText(dataBlob)
       ? 'text/plain'
       : 'application/octet-stream',
   } = options;
-  const blob = new Blob([data], {
+  const blob = new Blob(dataBlob, {
     type: mimeType,
   });
   const link = document.createElement('a');
 
   link.download = filename;
   link.href = window.URL.createObjectURL(blob);
+
   link.dataset['downloadurl'] = [mimeType, link.download, link.href].join(':');
 
   const evt = new MouseEvent('click', {
@@ -38,30 +46,30 @@ const saveFile = (options: FileOptions) => {
   });
 
   link.dispatchEvent(evt);
+  window.URL.revokeObjectURL(link.href);
   link.remove();
 };
 
 interface Props extends ComponentPropsWithRef<'button'> {
   filename: string;
-  data: string;
+  dataBlob: BlobPart[];
   mimeType?: string;
 }
 
-const DownloadButton: React.FC<Props> = forwardRef<HTMLButtonElement, Props>(
-  (props, ref) => {
-    const { filename, data, mimeType, children, ...rest } = props;
+const DownloadButton = forwardRef<HTMLButtonElement, Props>((props, ref) => {
+  const { filename, dataBlob, mimeType, children, ...rest } = props;
 
-    const handleClick = (e: ReactMouseEvent<HTMLButtonElement>) => {
-      e.preventDefault();
-      saveFile({ filename, data, mimeType });
-    };
+  const handleClick = (e: ReactMouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    downloadFile({ filename, dataBlob, mimeType });
+  };
 
-    return (
-      <button ref={ref} onClick={handleClick} {...rest}>
-        {children}
-      </button>
-    );
-  }
-);
+  return (
+    <button onClick={handleClick} ref={ref} {...rest}>
+      {children}
+    </button>
+  );
+});
 
 export default DownloadButton;
+export { Props as DownloadButtonProps };

@@ -9,7 +9,7 @@ import camelCase from 'lodash.camelcase';
 import upperFirst from 'lodash.upperfirst';
 import { useCallback } from 'react';
 
-import { DownloadButton, DownloadIcon } from '@hashi/view-ui';
+import { DownloadButton, Icon } from '@hashi/view-ui';
 
 import createComponent from '../createComponent';
 
@@ -64,11 +64,12 @@ function NodeList(props: {
                     <div>
                       <DownloadButton
                         className="flex h-7 w-7 items-center justify-center bg disabled:bg-disabled hover:bg-hover active:bg-pressed"
-                        data={downloadData}
+                        aria-label="Download React code"
+                        dataBlob={[downloadData]}
                         filename={filename}
                         disabled={!downloadData}
                       >
-                        <DownloadIcon />
+                        <Icon iconName="arrow-down-tray" />
                       </DownloadButton>
                     </div>
                   </div>
