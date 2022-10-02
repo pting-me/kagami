@@ -2,7 +2,6 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
-    "module": "commonjs",
     "types": ["node", "@figma/plugin-typings"]
   },
   "exclude": ["*.config.ts", "**/*.spec.ts", "**/*.test.ts"],

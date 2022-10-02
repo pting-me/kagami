@@ -24,7 +24,7 @@
     {
       "files": ["*.ts", "*.tsx"],
       "parserOptions": {
-        "project": "./tsconfig.eslint.json"
+        "project": "./tsconfig.base.json"
       },
       "extends": [
         "plugin:@nrwl/nx/typescript",
