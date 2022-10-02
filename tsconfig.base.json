@@ -17,7 +17,8 @@
     "paths": {
       "@hashi/sandbox-features": ["libs/sandbox-features/src/index.ts"],
       "@hashi/view-features": ["libs/view-features/src/index.ts"],
-      "@hashi/view-ui": ["libs/view-ui/src/index.ts"]
+      "@hashi/view-ui": ["libs/view-ui/src/index.ts"],
+      "@types/*": ["types/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

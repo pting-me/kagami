@@ -1,5 +1,4 @@
 import react from '@vitejs/plugin-react';
-import path from 'path';
 import { mergeConfig } from 'vite';
 import { defineConfig } from 'vitest/config';
 

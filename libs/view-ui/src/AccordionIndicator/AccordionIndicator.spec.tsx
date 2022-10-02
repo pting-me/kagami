@@ -11,7 +11,7 @@ import { describe, expect, it } from 'vitest';
 import AccordionIndicator from './AccordionIndicator';
 
 describe('AccordionIndicator', () => {
-  it('renders', async () => {
+  it('renders', () => {
     const { baseElement } = render(<AccordionIndicator />);
 
     expect(baseElement).toBeTruthy();

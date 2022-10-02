@@ -1,3 +1,5 @@
+import { describe, expect, it } from 'vitest';
+
 import { hasChildrenMixin } from './utils';
 
 describe('sandbox-features/utils', () => {

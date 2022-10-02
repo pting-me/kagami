@@ -8,7 +8,6 @@ export default defineConfig(
   mergeConfig(viteConfig, {
     test: {
       environment: 'jsdom',
-      globals: true,
       cache: {
         dir: path.resolve(workspaceRoot, './node_modules/.vitest', projectName),
       },

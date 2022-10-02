@@ -1,4 +1,4 @@
-import React from 'react';
+import { createContext } from 'react';
 
 export interface ContextState {
   componentNodes: ComponentNode[];
@@ -17,6 +17,6 @@ export const initialContext: ContextState = {
   componentSetNodes: [],
 };
 
-const MessageContext = React.createContext<ContextState>(initialContext);
+const MessageContext = createContext<ContextState>(initialContext);
 
 export default MessageContext;

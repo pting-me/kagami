@@ -38,7 +38,7 @@ describe('DownloadButton', () => {
     vi.clearAllMocks();
   });
 
-  it('renders', async () => {
+  it('renders', () => {
     const { baseElement } = render(
       <DownloadButton
         dataBlob={['data']}
@@ -52,7 +52,7 @@ describe('DownloadButton', () => {
     expect(baseElement).toBeInTheDocument();
   });
 
-  it('forwards props', async () => {
+  it('forwards props', () => {
     const buttonClassName = 'my-button';
     render(
       <DownloadButton
@@ -69,7 +69,7 @@ describe('DownloadButton', () => {
     expect(button.className).toBe(buttonClassName);
   });
 
-  it('creates url and dispatches click event', async () => {
+  it('creates url and dispatches click event', () => {
     const { mockDispatch, mockClickEvent } = createMocks();
 
     render(

@@ -1,3 +1,5 @@
+import { describe, expect, it } from 'vitest';
+
 import createHandleMessageFromView from './createHandleMessageFromView';
 
 describe.skip('createHandleMessageFromView', () => {
