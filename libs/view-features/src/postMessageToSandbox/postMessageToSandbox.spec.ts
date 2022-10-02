@@ -1,3 +1,5 @@
+import { describe, expect, it, vi } from 'vitest';
+
 import postMessageToSandbox from './postMessageToSandbox';
 
 describe('postMessageToSandbox', () => {

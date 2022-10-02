@@ -1,4 +1,5 @@
 import { act, render, screen } from '@testing-library/react';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import DownloadButton from './DownloadButton';
 
@@ -37,6 +38,20 @@ describe('DownloadButton', () => {
     vi.clearAllMocks();
   });
 
+  it('renders', async () => {
+    const { baseElement } = render(
+      <DownloadButton
+        dataBlob={['data']}
+        filename="file.txt"
+        mimeType="text/plain"
+      >
+        My button
+      </DownloadButton>
+    );
+
+    expect(baseElement).toBeInTheDocument();
+  });
+
   it('forwards props', async () => {
     const buttonClassName = 'my-button';
     render(
@@ -68,7 +83,7 @@ describe('DownloadButton', () => {
     );
 
     const button = screen.getByText('My button');
-    expect(button).toBeTruthy();
+    expect(button).toBeInTheDocument();
     expect(vi.mocked(window.URL.createObjectURL)).not.toHaveBeenCalled();
     expect(mockDispatch).not.toHaveBeenCalled();
 

@@ -17,7 +17,6 @@ import { useCallback } from 'react';
 import { DownloadButton } from '@hashi/view-ui';
 
 import createComponent from '../createComponent';
-import './NodeList.css';
 
 const ExpandIcon = () => (
   <div className="w-4 h-4 flex items-center">

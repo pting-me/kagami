@@ -12,6 +12,7 @@ export default defineConfig(
       cache: {
         dir: path.resolve(workspaceRoot, './node_modules/.vitest', projectName),
       },
+      setupFiles: path.resolve(__dirname, './vitest.setup.ts'),
     },
   })
 );

@@ -4,7 +4,7 @@
     "outDir": "../../dist/out-tsc",
     "module": "commonjs",
     "esModuleInterop": true,
-    "types": ["node", "vitest/globals", "@figma/plugin-typings"]
+    "types": ["node", "@figma/plugin-typings"]
   },
   "include": ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"]
 }
