@@ -2,8 +2,8 @@ import path from 'path';
 import { mergeConfig } from 'vite';
 import { UserConfig, defineConfig } from 'vitest/config';
 
+import { getProjectName, workspaceRoot } from './tools/build/vite.utils';
 import { getViteConfig } from './vite.config';
-import { getProjectName, workspaceRoot } from './vite.utils';
 
 export const getVitestConfig = (projectRoot: string): UserConfig => {
   const projectName = getProjectName(projectRoot) ?? '';
