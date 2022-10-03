@@ -7,5 +7,5 @@
     "esModuleInterop": true,
     "resolveJsonModule": true
   },
-  "include": [".eslintrc.js", "*.config.ts"]
+  "include": ["*.config.ts"]
 }
