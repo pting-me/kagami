@@ -75,7 +75,7 @@ function NodeList(props: {
                   </div>
                 </AccordionButton>
 
-                <AccordionPanel className="pl-4">
+                <AccordionPanel>
                   <NodeList
                     nodes={node.children as ComponentNode[]}
                     type="COMPONENT"
@@ -84,8 +84,10 @@ function NodeList(props: {
               </>
             )}
             {type === 'COMPONENT' && (
-              <button className="px-4 h-8 flex items-center text-left w-full box-border overflow-ellipsis">
-                {node.name}
+              <button className="px-4 h-8 flex items-center text-left w-full border-brand-hover hover:border-y">
+                <div className="box-border overflow-ellipsis whitespace-nowrap overflow-hidden">
+                  {node.name}
+                </div>
               </button>
             )}
           </AccordionItem>

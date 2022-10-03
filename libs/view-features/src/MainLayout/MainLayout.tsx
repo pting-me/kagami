@@ -17,11 +17,22 @@ export function MainLayout() {
       </div>
       <div className="my-4 border-t">
         <h1 className="p-4 font-bold">Component Sets</h1>
-        <NodeList nodes={componentSetNodes} type="COMPONENT_SET"></NodeList>
+        {componentSetNodes?.length ? (
+          <NodeList nodes={componentSetNodes} type="COMPONENT_SET"></NodeList>
+        ) : (
+          <div className="px-4 text-warning">No component sets found.</div>
+        )}
       </div>
       <div className="my-4 border-t">
         <h1 className="p-4 font-bold">Components</h1>
-        <NodeList nodes={componentNodes} type="COMPONENT"></NodeList>
+        <div className="px-4 pb-4 text-secondary">
+          Currently only component sets are available for download.
+        </div>
+        {componentNodes?.length ? (
+          <NodeList nodes={componentNodes} type="COMPONENT"></NodeList>
+        ) : (
+          <div className="px-4 text-warning">No components found.</div>
+        )}
       </div>
     </div>
   );
