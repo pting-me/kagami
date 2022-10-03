@@ -1,0 +1,24 @@
+{
+  "name": "view-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.0-alpha.34",
+    "@storybook/addon-interactions": "^7.0.0-alpha.34",
+    "@storybook/addon-links": "^7.0.0-alpha.34",
+    "@storybook/react": "^7.0.0-alpha.34",
+    "@storybook/react-vite": "^7.0.0-alpha.34",
+    "@storybook/testing-library": "^0.0.13",
+    "storybook": "^7.0.0-alpha.34"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "npx storybook dev -p 6006",
+    "build-storybook": "npx storybook build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}
