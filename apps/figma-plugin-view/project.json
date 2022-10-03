@@ -13,8 +13,7 @@
     "serve": {
       "executor": "nx:run-commands",
       "options": {
-        "cwd": "apps/figma-plugin-view",
-        "command": "vite preview"
+        "command": "sb dev -c apps/figma-plugin-view/.storybook -p 9009"
       }
     },
     "lint": {

@@ -1,16 +1,12 @@
-import path from 'path';
+import { mergeConfig } from 'vite';
 import { defineConfig } from 'vitest/config';
 
-export default defineConfig({
-  test: {
-    environment: 'jsdom',
-    passWithNoTests: true,
-    cache: {
-      dir: path.resolve(
-        __dirname,
-        '../../node_modules/.vitest/figma-plugin-sandbox'
-      ),
+import { getVitestConfig } from '../../vitest.config';
+
+export default defineConfig(
+  mergeConfig(getVitestConfig(__dirname), {
+    test: {
+      passWithNoTests: true,
     },
-  },
-  root: path.resolve(__dirname, 'src'),
-});
+  })
+);

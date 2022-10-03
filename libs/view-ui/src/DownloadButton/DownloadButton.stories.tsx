@@ -3,7 +3,6 @@ import type { Meta, Story } from '@storybook/react';
 import DownloadButton, { DownloadButtonProps } from './DownloadButton';
 
 const meta: Meta<DownloadButtonProps> = {
-  title: 'ViewUi/DownloadButton',
   component: DownloadButton,
   argTypes: {},
 };

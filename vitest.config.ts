@@ -1,11 +1,14 @@
 import path from 'path';
 import { mergeConfig } from 'vite';
-import { defineConfig } from 'vitest/config';
+import { UserConfig, defineConfig } from 'vitest/config';
 
-import viteConfig, { projectName, workspaceRoot } from './vite.config';
+import { getViteConfig } from './vite.config';
+import { getProjectName, workspaceRoot } from './vite.utils';
 
-export default defineConfig(
-  mergeConfig(viteConfig, {
+export const getVitestConfig = (projectRoot: string): UserConfig => {
+  const projectName = getProjectName(projectRoot) ?? '';
+
+  return mergeConfig(getViteConfig(projectRoot), {
     test: {
       environment: 'jsdom',
       cache: {
@@ -13,5 +16,7 @@ export default defineConfig(
       },
       setupFiles: path.resolve(__dirname, './vitest.setup.ts'),
     },
-  })
-);
+  });
+};
+
+export default defineConfig(getViteConfig(workspaceRoot));

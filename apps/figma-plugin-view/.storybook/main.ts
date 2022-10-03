@@ -34,13 +34,16 @@ const processConfig = async (
 
 const storybookConfig: StorybookConfig = {
   stories: [
-    path.resolve(__dirname, '../../../libs/view-*/src/**/*.stories.mdx'),
-    path.resolve(
-      __dirname,
-      '../../../libs/view-*/src/**/*.stories.@(js|jsx|ts|tsx)'
-    ),
-    '../src/**/*.stories.mdx',
-    '../src/**/*.stories.@(js|jsx|ts|tsx)',
+    {
+      directory: path.resolve(__dirname, '../../../libs/view-ui/src'),
+      titlePrefix: 'View UI',
+      files: '**/*.stories.@(mdx|tsx|ts)',
+    },
+    {
+      directory: path.resolve(__dirname, '../../../libs/view-features/src'),
+      titlePrefix: 'View Features',
+      files: '**/*.stories.@(mdx|tsx|ts)',
+    },
   ],
   addons: [
     '@storybook/addon-links',
