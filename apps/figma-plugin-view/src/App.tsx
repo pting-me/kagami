@@ -1,4 +1,4 @@
-import { MainLayout, MessageContextWrapper } from '@hashi/view-features';
+import { MainLayout, MessageContextWrapper } from '@kagami/view-features';
 
 export function App() {
   return (

@@ -1,11 +1,11 @@
 {
-  "name": "hashi",
-  "version": "0.0.0",
+  "name": "kagami",
+  "version": "0.1.0",
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
     "build": "nx run-many --target=build --projects=figma-plugin-view,figma-plugin-sandbox",
-    "generate-components": "hbs --helper ./tools/handlebars/helpers/component.js --data ./hashi-manifest.json --extension tmp ./tools/handlebars/templates/component.hbs --output ./tmp/handlebars",
+    "generate-components": "hbs --helper ./tools/handlebars/helpers/component.js --data ./kagami-manifest.json --extension tmp ./tools/handlebars/templates/component.hbs --output ./tmp/handlebars",
     "prepare": "husky install",
     "test": "nx test"
   },

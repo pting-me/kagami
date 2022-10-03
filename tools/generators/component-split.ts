@@ -20,7 +20,7 @@ const fileContents = componentFile.split(
 fileContents.shift();
 fileContents.forEach((content, index) => {
   fs.writeFileSync(
-    path.resolve(__dirname, `../../dist/hashi-components/${fileNames[index]}`),
+    path.resolve(__dirname, `../../dist/kagami-components/${fileNames[index]}`),
     content
   );
 });

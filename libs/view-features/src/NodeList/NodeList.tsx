@@ -14,8 +14,8 @@ import camelCase from 'lodash.camelcase';
 import upperFirst from 'lodash.upperfirst';
 import { useCallback } from 'react';
 
-import { DownloadButton } from '@hashi/view-ui';
-import { AccordionIndicator } from '@hashi/view-ui';
+import { DownloadButton } from '@kagami/view-ui';
+import { AccordionIndicator } from '@kagami/view-ui';
 
 import createComponent from '../createComponent';
 

@@ -3,7 +3,7 @@ import {
   getComponentNodes,
   getComponentSetNodes,
   postMessageToView,
-} from '@hashi/sandbox-features';
+} from '@kagami/sandbox-features';
 
 figma.showUI(__html__, { themeColors: true, width: 240, height: 427 });
 

@@ -15,9 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@hashi/sandbox-features": ["libs/sandbox-features/src/index.ts"],
-      "@hashi/view-features": ["libs/view-features/src/index.ts"],
-      "@hashi/view-ui": ["libs/view-ui/src/index.ts"],
+      "@kagami/sandbox-features": ["libs/sandbox-features/src/index.ts"],
+      "@kagami/view-features": ["libs/view-features/src/index.ts"],
+      "@kagami/view-ui": ["libs/view-ui/src/index.ts"],
       "@types/*": ["types/*"]
     }
   },
