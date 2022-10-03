@@ -53,7 +53,7 @@ export const enrichNode = (node: BaseNode) => {
       );
       return {
         ...rest,
-        children: children.map((child: ComponentNode) =>
+        children: (children as ComponentNode[]).map((child: ComponentNode) =>
           componentProps.reduce(createPropReducer<ComponentNode>(child), child)
         ),
       };

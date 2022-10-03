@@ -17,7 +17,7 @@ const getComponentNodes = (node?: BaseNode) => {
       return false;
     }
 
-    if (currentNode.parent.type === 'COMPONENT_SET') {
+    if (currentNode.parent?.type === 'COMPONENT_SET') {
       return false;
     }
 

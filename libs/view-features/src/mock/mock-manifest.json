@@ -1,0 +1,329 @@
+{
+  "componentNodes": [
+    { "id": "133:851", "name": "Color palette", "type": "COMPONENT" },
+    { "id": "718:5471", "name": "Tooltip", "type": "COMPONENT" },
+    { "id": "757:294", "name": "Loader", "type": "COMPONENT" },
+    { "id": "718:5515", "name": "Progress bar", "type": "COMPONENT" },
+    { "id": "711:14818", "name": "Confirmation dialog", "type": "COMPONENT" }
+  ],
+  "componentSetNodes": [
+    {
+      "id": "1270:306",
+      "name": "Button",
+      "type": "COMPONENT_SET",
+      "variantGroupProperties": {
+        "Size": { "values": ["small", "default", "large"] },
+        "Variant": { "values": ["default", "primary", "danger", "secondary"] },
+        "Icon": { "values": ["true", "false"] }
+      },
+      "children": [
+        {
+          "id": "308:7",
+          "name": "Size=default, Variant=default, Icon=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "133:900",
+          "name": "Size=default, Variant=primary, Icon=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "308:5",
+          "name": "Size=default, Variant=danger, Icon=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "308:6",
+          "name": "Size=default, Variant=secondary, Icon=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "711:13870",
+          "name": "Size=default, Variant=default, Icon=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "711:13905",
+          "name": "Size=default, Variant=primary, Icon=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "711:13904",
+          "name": "Size=default, Variant=danger, Icon=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "711:13906",
+          "name": "Size=default, Variant=secondary, Icon=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "711:14092",
+          "name": "Size=small, Variant=default, Icon=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "711:14091",
+          "name": "Size=small, Variant=primary, Icon=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "711:14089",
+          "name": "Size=small, Variant=danger, Icon=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "711:14095",
+          "name": "Size=small, Variant=secondary, Icon=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "716:523",
+          "name": "Size=small, Variant=default, Icon=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "716:531",
+          "name": "Size=small, Variant=primary, Icon=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "716:535",
+          "name": "Size=small, Variant=danger, Icon=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "716:527",
+          "name": "Size=small, Variant=secondary, Icon=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "717:480",
+          "name": "Size=large, Variant=default, Icon=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "717:475",
+          "name": "Size=large, Variant=primary, Icon=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "717:473",
+          "name": "Size=large, Variant=danger, Icon=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "717:477",
+          "name": "Size=large, Variant=secondary, Icon=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "717:479",
+          "name": "Size=large, Variant=default, Icon=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "717:474",
+          "name": "Size=large, Variant=primary, Icon=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "717:478",
+          "name": "Size=large, Variant=danger, Icon=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "717:476",
+          "name": "Size=large, Variant=secondary, Icon=true",
+          "type": "COMPONENT"
+        }
+      ]
+    },
+    {
+      "id": "1270:406",
+      "name": "Text button",
+      "type": "COMPONENT_SET",
+      "variantGroupProperties": {
+        "Size": { "values": ["small", "default", "large", "xlarge"] },
+        "Variant": { "values": ["default", "dark", "light"] },
+        "Icon": { "values": ["true", "false"] }
+      },
+      "children": [
+        {
+          "id": "711:14415",
+          "name": "Size=default, Variant=default, Icon=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "711:14457",
+          "name": "Size=default, Variant=dark, Icon=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "711:14455",
+          "name": "Size=default, Variant=light, Icon=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "719:4820",
+          "name": "Size=default, Variant=default, Icon=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "719:4823",
+          "name": "Size=default, Variant=dark, Icon=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "719:4826",
+          "name": "Size=default, Variant=light, Icon=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "711:14527",
+          "name": "Size=small, Variant=default, Icon=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "711:14524",
+          "name": "Size=small, Variant=dark, Icon=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "711:14523",
+          "name": "Size=small, Variant=light, Icon=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "719:4792",
+          "name": "Size=small, Variant=default, Icon=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "719:4795",
+          "name": "Size=small, Variant=dark, Icon=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "719:4798",
+          "name": "Size=small, Variant=light, Icon=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "711:14644",
+          "name": "Size=large, Variant=default, Icon=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "711:14646",
+          "name": "Size=large, Variant=dark, Icon=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "711:14643",
+          "name": "Size=large, Variant=light, Icon=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "719:4848",
+          "name": "Size=large, Variant=default, Icon=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "719:4851",
+          "name": "Size=large, Variant=dark, Icon=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "719:4854",
+          "name": "Size=large, Variant=light, Icon=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "711:14653",
+          "name": "Size=xlarge, Variant=default, Icon=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "711:14652",
+          "name": "Size=xlarge, Variant=dark, Icon=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "711:14651",
+          "name": "Size=xlarge, Variant=light, Icon=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "719:4876",
+          "name": "Size=xlarge, Variant=default, Icon=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "719:4879",
+          "name": "Size=xlarge, Variant=dark, Icon=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "719:4882",
+          "name": "Size=xlarge, Variant=light, Icon=true",
+          "type": "COMPONENT"
+        }
+      ]
+    },
+    {
+      "id": "1270:407",
+      "name": "Select",
+      "type": "COMPONENT_SET",
+      "variantGroupProperties": {
+        "Size": { "values": ["small", "default", "large"] }
+      },
+      "children": [
+        { "id": "82:82", "name": "Size=default", "type": "COMPONENT" },
+        { "id": "711:406", "name": "Size=small", "type": "COMPONENT" },
+        { "id": "711:407", "name": "Size=large", "type": "COMPONENT" }
+      ]
+    },
+    {
+      "id": "1271:1",
+      "name": "Input",
+      "type": "COMPONENT_SET",
+      "variantGroupProperties": {
+        "Size": { "values": ["small", "default", "large"] },
+        "Placeholder": { "values": ["true", "false"] }
+      },
+      "children": [
+        {
+          "id": "711:399",
+          "name": "Size=default,Placeholder=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "1278:726",
+          "name": "Size=default, Placeholder=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "711:401",
+          "name": "Size=small,Placeholder=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "1278:728",
+          "name": "Size=small, Placeholder=false",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "711:398",
+          "name": "Size=large,Placeholder=true",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "1278:730",
+          "name": "Size=large, Placeholder=false",
+          "type": "COMPONENT"
+        }
+      ]
+    }
+  ]
+}

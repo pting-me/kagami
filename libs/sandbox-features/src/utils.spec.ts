@@ -10,7 +10,7 @@ describe('sandbox-features/utils', () => {
 
     class MockNode {
       constructor() {
-        /* do nothing */
+        return this;
       }
     }
 

@@ -1,10 +1,13 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import createHandleMessageFromView from './createHandleMessageFromView';
 
-describe.skip('createHandleMessageFromView', () => {
-  it('handles view message', () => {
-    // const result = createHandleMessageFromView('some message');
-    // expect(result).toBe('some message');
+describe('createHandleMessageFromView', () => {
+  it('creates handler and callback fires correctly', () => {
+    const callback = vi.fn();
+    const handler = createHandleMessageFromView(callback);
+    const mockMessage = { type: 'foo', payload: 'bar' };
+    handler(mockMessage);
+    expect(callback).toBeCalledWith(mockMessage);
   });
 });

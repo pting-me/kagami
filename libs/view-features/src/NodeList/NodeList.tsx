@@ -15,15 +15,9 @@ import upperFirst from 'lodash.upperfirst';
 import { useCallback } from 'react';
 
 import { DownloadButton } from '@hashi/view-ui';
+import { AccordionIndicator } from '@hashi/view-ui';
 
 import createComponent from '../createComponent';
-
-const ExpandIcon = () => (
-  <div className="w-4 h-4 flex items-center">
-    <ChevronRightIcon className="collapsed-icon" />
-    <ChevronDownIcon className="open-icon" />
-  </div>
-);
 
 const isComponentSetNode = (node: BaseNode): node is ComponentSetNode => {
   return node.type === 'COMPONENT_SET';
@@ -57,13 +51,14 @@ function NodeList(props: {
         }
         const { filename, downloadData } = getComponentFile(index);
         return (
-          <AccordionItem>
+          <AccordionItem key={node.id}>
             {type === 'COMPONENT_SET' && (
               <>
+                {/* TODO: Change to something other than button, for DOM validation */}
                 <AccordionButton className="pr-2 h-8 w-full border-brand-hover hover:border-y">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
-                      <ExpandIcon />
+                      <AccordionIndicator />
                       <div>{node.name}</div>
                     </div>
                     <div>
