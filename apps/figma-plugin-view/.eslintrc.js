@@ -1,6 +1,7 @@
 const appTs = require('./tsconfig.app.json');
 const configTs = require('./tsconfig.config.json');
 const specTs = require('./tsconfig.spec.json');
+const storybookTs = require('./.storybook/tsconfig.json');
 const path = require('path');
 
 module.exports = {
@@ -24,6 +25,12 @@ module.exports = {
       files: specTs.include,
       parserOptions: {
         project: path.resolve(__dirname, './tsconfig.spec.json'),
+      },
+    },
+    {
+      files: storybookTs.include,
+      parserOptions: {
+        project: path.resolve(__dirname, './.storybook/tsconfig.json'),
       },
     },
     {

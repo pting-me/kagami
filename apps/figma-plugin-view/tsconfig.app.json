@@ -9,6 +9,7 @@
     "../../node_modules/@nrwl/react/typings/image.d.ts"
   ],
   "exclude": [
+    ".storybook/*.ts",
     ".eslintrc.js",
     "*.config.ts",
     "**/*.spec.ts",
