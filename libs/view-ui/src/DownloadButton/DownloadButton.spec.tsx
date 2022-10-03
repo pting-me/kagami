@@ -1,5 +1,5 @@
-import { act, render, screen } from '@testing-library/react';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { act, cleanup, render, screen } from '@testing-library/react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import DownloadButton from './DownloadButton';
 
@@ -34,8 +34,9 @@ describe('DownloadButton', () => {
     return { mockDispatch, mockClickEvent };
   };
 
-  beforeEach(() => {
+  afterEach(() => {
     vi.clearAllMocks();
+    cleanup();
   });
 
   it('renders', () => {

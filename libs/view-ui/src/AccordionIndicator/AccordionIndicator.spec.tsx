@@ -4,13 +4,17 @@ import {
   AccordionItem,
   AccordionPanel,
 } from '@reach/accordion';
-import { render, screen, waitFor } from '@testing-library/react';
+import { cleanup, render, screen, waitFor } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it } from 'vitest';
 
 import AccordionIndicator from './AccordionIndicator';
 
 describe('AccordionIndicator', () => {
+  afterEach(() => {
+    cleanup();
+  });
+
   it('renders', () => {
     const { baseElement } = render(<AccordionIndicator />);
 
