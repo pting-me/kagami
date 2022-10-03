@@ -4,7 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import path from 'path';
 import esbuild from 'rollup-plugin-esbuild';
 
-import { aliasEntries } from '../../vite.utils';
+import { getAliasEntries } from '../../tools/build/vite.utils';
 
 export default {
   input: path.resolve(__dirname, 'src/main.ts'),
@@ -15,7 +15,7 @@ export default {
   },
   plugins: [
     alias({
-      entries: aliasEntries,
+      entries: getAliasEntries(path.resolve(__dirname, '../..')),
     }),
     resolve(),
     commonjs(),

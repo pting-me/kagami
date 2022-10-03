@@ -1,11 +1,11 @@
 /// <reference types="vitest" />
 import { UserConfig, defineConfig } from 'vite';
 
-import { aliasEntries, workspaceRoot } from './vite.utils';
+import { getAliasEntries, workspaceRoot } from './tools/build/vite.utils';
 
 export const getViteConfig = (projectRoot: string): UserConfig => ({
   resolve: {
-    alias: aliasEntries,
+    alias: getAliasEntries(),
   },
   root: projectRoot,
 });

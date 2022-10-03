@@ -19,7 +19,7 @@ export default defineConfig(
       viteStaticCopy({
         targets: [
           {
-            src: 'assets/**/*',
+            src: path.resolve(__dirname, 'src/assets/**/*'),
             dest: path.resolve(__dirname, '../../dist/figma-plugin'),
           },
         ],
