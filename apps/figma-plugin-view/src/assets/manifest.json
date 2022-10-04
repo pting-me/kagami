@@ -2,7 +2,7 @@
   "name": "Kagami",
   "id": "1158610128178447057",
   "api": "1.0.0",
-  "editorType": ["figma", "figjam"],
+  "editorType": ["figma"],
   "permissions": [],
   "main": "./main.js",
   "ui": "./index.html"
