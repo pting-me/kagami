@@ -1,6 +1,6 @@
 import type { Meta, Story } from '@storybook/react';
 
-import DownloadButton, { DownloadButtonProps } from './DownloadButton';
+import DownloadButton, { type DownloadButtonProps } from './DownloadButton';
 
 const meta: Meta<DownloadButtonProps> = {
   component: DownloadButton,
@@ -13,6 +13,13 @@ const Primary: Story<DownloadButtonProps> = {
     dataBlob: ['This is some data'],
     mimeType: 'text/plain',
     children: 'Download',
+  },
+  argTypes: {
+    children: {
+      table: {
+        disable: true,
+      },
+    },
   },
 };
 

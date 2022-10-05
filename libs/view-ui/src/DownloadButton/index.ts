@@ -1,1 +1,1 @@
-export { default, DownloadButtonProps } from './DownloadButton';
+export { default, type DownloadButtonProps } from './DownloadButton';

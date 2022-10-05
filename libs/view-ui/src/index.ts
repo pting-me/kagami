@@ -1,5 +1,5 @@
 export {
   default as DownloadButton,
-  DownloadButtonProps,
+  type DownloadButtonProps,
 } from './DownloadButton';
 export { default as AccordionIndicator } from './AccordionIndicator';

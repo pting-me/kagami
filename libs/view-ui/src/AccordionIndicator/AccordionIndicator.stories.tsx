@@ -18,13 +18,15 @@ const InsideAccordion: Story = {
     return (
       <Accordion collapsible multiple>
         <AccordionItem>
-          <AccordionButton className="flex">
+          <AccordionButton className="flex py-2">
             <div>
               <AccordionIndicator />
             </div>
-            <div>Button</div>
+            <div className="px-2">Click here to expand the accordion</div>
           </AccordionButton>
-          <AccordionPanel>Content</AccordionPanel>
+          <AccordionPanel className="pl-6 pr-2">
+            The arrow should now be pointing down.
+          </AccordionPanel>
         </AccordionItem>
       </Accordion>
     );

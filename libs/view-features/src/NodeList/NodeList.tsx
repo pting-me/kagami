@@ -1,8 +1,4 @@
-import {
-  ArrowDownTrayIcon,
-  ChevronDownIcon,
-  ChevronRightIcon,
-} from '@heroicons/react/20/solid';
+import { ArrowDownTrayIcon } from '@heroicons/react/20/solid';
 import {
   Accordion,
   AccordionButton,
@@ -14,8 +10,7 @@ import camelCase from 'lodash.camelcase';
 import upperFirst from 'lodash.upperfirst';
 import { useCallback } from 'react';
 
-import { DownloadButton } from '@kagami/view-ui';
-import { AccordionIndicator } from '@kagami/view-ui';
+import { AccordionIndicator, DownloadButton } from '@kagami/view-ui';
 
 import createComponent from '../createComponent';
 
