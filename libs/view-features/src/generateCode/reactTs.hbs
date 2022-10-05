@@ -1,6 +1,6 @@
-import { FC, PropsWithChildren } from 'react';
+import { ComponentPropsWithRef, FC } from 'react';
 
-interface Props extends PropsWithChildren {
+interface Props extends ComponentPropsWithRef<'div'> {
 {{#each (mapProperties this.variantGroupProperties)}}
   {{#if this.isBoolean}}
     {{this.property}}?: boolean;
@@ -25,9 +25,9 @@ const {{pascalCase this.name}}: FC<Props> = (props: Props) => {
         {{#if this.isBoolean}}=false{{/if}}
         {{#if this.hasDefaultValue}}='default'{{/if}}
       ,
-    {{/each}}
+    {{/each}}...rest
   } = props;
-  return <div>{children}</div>;
+  return <div {...rest}>{children}</div>;
 };
 
 export default {{pascalCase this.name}};

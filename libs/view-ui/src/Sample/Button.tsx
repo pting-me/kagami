@@ -1,6 +1,6 @@
-import { FC, PropsWithChildren } from 'react';
+import { ComponentPropsWithRef, FC } from 'react';
 
-interface Props extends PropsWithChildren {
+interface Props extends ComponentPropsWithRef<'div'> {
   size?: 'small' | 'default' | 'large';
   variant?: 'default' | 'primary' | 'danger' | 'secondary';
   icon?: boolean;
@@ -12,8 +12,9 @@ const Button: FC<Props> = (props: Props) => {
     size = 'default',
     variant = 'default',
     icon = false,
+    ...rest
   } = props;
-  return <div>{children}</div>;
+  return <div {...rest}>{children}</div>;
 };
 
 export default Button;
