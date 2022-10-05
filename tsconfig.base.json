@@ -18,7 +18,8 @@
       "@kagami/sandbox-features": ["libs/sandbox-features/src/index.ts"],
       "@kagami/view-features": ["libs/view-features/src/index.ts"],
       "@kagami/view-ui": ["libs/view-ui/src/index.ts"],
-      "@types/*": ["types/*"]
+      "@kagami/types/*": ["types/*.d.ts"],
+      "@kagami/types": ["types/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

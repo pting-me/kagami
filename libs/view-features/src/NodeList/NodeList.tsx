@@ -12,7 +12,8 @@ import { useCallback } from 'react';
 
 import { AccordionIndicator, DownloadButton } from '@kagami/view-ui';
 
-import createComponent from '../createComponent';
+import generateCode from '../generateCode';
+import postMessageToSandbox from '../postMessageToSandbox';
 
 const isComponentSetNode = (node: BaseNode): node is ComponentSetNode => {
   return node.type === 'COMPONENT_SET';
@@ -32,11 +33,15 @@ function NodeList(props: {
       }
 
       const filename = `${upperFirst(camelCase(node.name))}.tsx`;
-      const downloadData = createComponent(node);
+      const downloadData = generateCode(node);
       return { filename, downloadData };
     },
     [nodes]
   );
+
+  const handleComponentClick = (id: string) => () => {
+    postMessageToSandbox({ type: 'focusNode', payload: { id } });
+  };
 
   return (
     <Accordion collapsible multiple>
@@ -79,7 +84,10 @@ function NodeList(props: {
               </>
             )}
             {type === 'COMPONENT' && (
-              <button className="px-4 h-8 flex items-center text-left w-full border-brand-hover hover:border-y">
+              <button
+                className="px-4 h-8 flex items-center text-left w-full border-brand-hover hover:border-y"
+                onClick={handleComponentClick(node.id)}
+              >
                 <div className="box-border overflow-ellipsis whitespace-nowrap overflow-hidden">
                   {node.name}
                 </div>

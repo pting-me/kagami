@@ -75,9 +75,11 @@ specifiers:
   vitest: ^0.23.4
 
 dependencies:
+  '@heroicons/react': 2.0.11_react@18.2.0
   '@reach/accordion': 0.17.0_biqbaboplfbrettd7655fr4n2y
   clsx: 1.2.1
   core-js: 3.25.2
+  prettier: 2.7.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   regenerator-runtime: 0.13.7
@@ -85,7 +87,6 @@ dependencies:
 
 devDependencies:
   '@figma/plugin-typings': 1.52.0
-  '@heroicons/react': 2.0.11_react@18.2.0
   '@nrwl/cli': 14.7.13
   '@nrwl/cypress': 14.7.13_x5hlxdr5ezxypx243sisvtukai
   '@nrwl/eslint-plugin-nx': 14.7.13_c45m3xjvv7dsy5c2zyjwtk66di
@@ -135,7 +136,6 @@ devDependencies:
   lodash.upperfirst: 4.3.1
   nx: 14.7.13
   postcss: 8.4.16
-  prettier: 2.7.1
   react-test-renderer: 18.2.0_react@18.2.0
   rollup: 2.78.0
   rollup-plugin-esbuild: 4.10.1_dz6ldqyswedo7a5454hmm5t5cm
@@ -2774,7 +2774,7 @@ packages:
       react: '>= 16'
     dependencies:
       react: 18.2.0
-    dev: true
+    dev: false
 
   /@humanwhocodes/config-array/0.9.5:
     resolution: {integrity: sha512-ObyMyWxZiCu/yTisA7uzx81s40xR2fD5Cg/2Kq7G02ajkNubJf6BopgDTmDyc3U7sXpNKM8cYOw7s7Tyr+DnCw==}
@@ -14160,7 +14160,6 @@ packages:
     resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
     engines: {node: '>=10.13.0'}
     hasBin: true
-    dev: true
 
   /pretty-bytes/5.6.0:
     resolution: {integrity: sha512-FFw039TmrBqFK8ma/7OL3sDz/VytdtJr044/QUJtH0wK9lb9jLq9tJyIxUwtQJHwar2BqtiA4iCWSwo9JLkzFg==}

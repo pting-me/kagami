@@ -1,0 +1,34 @@
+import { FC, PropsWithChildren } from 'react';
+
+interface Props extends PropsWithChildren {
+{{#each (mapProperties this.variantGroupProperties)}}
+  {{#if this.isBoolean}}
+    {{this.property}}?: boolean;
+  {{/if}}
+  {{#if this.isNumber}}
+    {{this.property}}: number;
+  {{/if}}
+  {{#if this.isString}}
+    {{this.property}}{{#if this.hasDefaultValue}}?{{/if}}:
+    {{#each this.values}}
+    | '{{this}}'
+    {{/each}};
+  {{/if}}
+{{/each}}
+}
+
+const {{pascalCase this.name}}: FC<Props> = (props: Props) => {
+  const {
+    children,
+    {{#each (mapProperties this.variantGroupProperties)}}
+      {{this.property}}
+        {{#if this.isBoolean}}=false{{/if}}
+        {{#if this.hasDefaultValue}}='default'{{/if}}
+      ,
+    {{/each}}
+  } = props;
+  return <div>{children}</div>;
+};
+
+export default {{pascalCase this.name}};
+export type { Props as {{pascalCase this.name}}Props };

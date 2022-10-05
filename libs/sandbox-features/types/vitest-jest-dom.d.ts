@@ -1,1 +1,1 @@
-import '@types/vitest-jest-dom';
+import '@kagami/types/vitest-jest-dom';

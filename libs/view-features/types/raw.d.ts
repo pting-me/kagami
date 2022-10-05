@@ -1,1 +1,1 @@
-import '@types/raw';
+import '@kagami/types/raw';

@@ -1,9 +1,11 @@
 import {
   createHandleMessageFromView,
+  focusNode,
   getComponentNodes,
   getComponentSetNodes,
   postMessageToView,
 } from '@kagami/sandbox-features';
+import type { Message } from '@kagami/types';
 
 figma.showUI(__html__, { themeColors: true, width: 240, height: 427 });
 
@@ -17,4 +19,13 @@ postMessageToView({
   payload: getComponentNodes(),
 });
 
-figma.ui.onmessage = createHandleMessageFromView(console.log);
+figma.ui.onmessage = createHandleMessageFromView((message: Message) => {
+  switch (message.type) {
+    case 'focusNode': {
+      const { payload } = message;
+      focusNode(payload as { id: string });
+      break;
+    }
+    default:
+  }
+});
