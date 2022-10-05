@@ -7,7 +7,6 @@ const { componentSetNodes, componentNodes } = mockManifest;
 
 const meta: Meta = {
   component: NodeList,
-  argTypes: {},
 };
 
 const ComponentSets: Story = {

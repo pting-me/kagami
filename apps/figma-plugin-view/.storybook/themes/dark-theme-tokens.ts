@@ -1,4 +1,4 @@
-import { Token } from './types';
+import { Token } from '../types';
 
 const tokens: Token[] = [
   { key: '--figma-color-bg', value: '#2c2c2c' },

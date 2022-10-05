@@ -10,7 +10,6 @@ import AccordionIndicator from './AccordionIndicator';
 
 const meta: Meta = {
   component: AccordionIndicator,
-  argTypes: {},
 };
 
 const InsideAccordion: Story = {
