@@ -81,6 +81,7 @@
     "rollup": "2.78.0",
     "rollup-plugin-esbuild": "^4.10.1",
     "storybook": "^7.0.0-alpha.34",
+    "storybook-dark-mode": "^1.1.2",
     "stylus": "^0.59.0",
     "tailwindcss": "^3.1.8",
     "ts-node": "10.9.1",

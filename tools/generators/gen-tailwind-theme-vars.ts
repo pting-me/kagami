@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 const xmlFile = fs.readFileSync(
-  path.resolve(__dirname, '../assets/figma-color-tokens.xml'),
+  path.resolve(__dirname, '../assets/figma-tokens--light.xml'),
   'utf8'
 );
 
@@ -40,5 +40,3 @@ tokens?.forEach((token) => {
     flag = flag[section];
   });
 });
-
-console.log(colors);

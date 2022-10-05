@@ -13,7 +13,7 @@ const meta: Meta = {
   argTypes: {},
 };
 
-const Primary: Story = {
+const InsideAccordion: Story = {
   render: () => {
     return (
       <Accordion collapsible multiple>
@@ -32,4 +32,4 @@ const Primary: Story = {
 };
 
 export default meta;
-export { Primary };
+export { InsideAccordion };

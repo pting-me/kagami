@@ -1,0 +1,690 @@
+<ul id="all-color-tokens">
+  <li>
+    --figma-color-bg<span>#2c2c2c</span
+    ><span class="swatch" style="background: rgb(44, 44, 44)"></span>
+  </li>
+  <li>
+    --figma-color-bg-brand<span>#0c8ce9</span
+    ><span class="swatch" style="background: rgb(12, 140, 233)"></span>
+  </li>
+  <li>
+    --figma-color-bg-brand-hover<span>#0a6dc2</span
+    ><span class="swatch" style="background: rgb(10, 109, 194)"></span>
+  </li>
+  <li>
+    --figma-color-bg-brand-pressed<span>#0a6dc2</span
+    ><span class="swatch" style="background: rgb(10, 109, 194)"></span>
+  </li>
+  <li>
+    --figma-color-bg-brand-secondary<span>#105cad</span
+    ><span class="swatch" style="background: rgb(16, 92, 173)"></span>
+  </li>
+  <li>
+    --figma-color-bg-brand-tertiary<span>#394360</span
+    ><span class="swatch" style="background: rgb(57, 67, 96)"></span>
+  </li>
+  <li>
+    --figma-color-bg-component<span>#8a38f5</span
+    ><span class="swatch" style="background: rgb(138, 56, 245)"></span>
+  </li>
+  <li>
+    --figma-color-bg-component-hover<span>#7a2ed6</span
+    ><span class="swatch" style="background: rgb(122, 46, 214)"></span>
+  </li>
+  <li>
+    --figma-color-bg-component-pressed<span>#7a2ed6</span
+    ><span class="swatch" style="background: rgb(122, 46, 214)"></span>
+  </li>
+  <li>
+    --figma-color-bg-component-secondary<span>#652ca8</span
+    ><span class="swatch" style="background: rgb(101, 44, 168)"></span>
+  </li>
+  <li>
+    --figma-color-bg-component-tertiary<span>#473956</span
+    ><span class="swatch" style="background: rgb(71, 57, 86)"></span>
+  </li>
+  <li>
+    --figma-color-bg-danger<span>#e03e1a</span
+    ><span class="swatch" style="background: rgb(224, 62, 26)"></span>
+  </li>
+  <li>
+    --figma-color-bg-danger-hover<span>#c4381c</span
+    ><span class="swatch" style="background: rgb(196, 56, 28)"></span>
+  </li>
+  <li>
+    --figma-color-bg-danger-pressed<span>#c4381c</span
+    ><span class="swatch" style="background: rgb(196, 56, 28)"></span>
+  </li>
+  <li>
+    --figma-color-bg-danger-secondary<span>#963323</span
+    ><span class="swatch" style="background: rgb(150, 51, 35)"></span>
+  </li>
+  <li>
+    --figma-color-bg-danger-tertiary<span>#7c2622</span
+    ><span class="swatch" style="background: rgb(124, 38, 34)"></span>
+  </li>
+  <li>
+    --figma-color-bg-disabled<span>#757575</span
+    ><span class="swatch" style="background: rgb(117, 117, 117)"></span>
+  </li>
+  <li>
+    --figma-color-bg-disabled-secondary<span>#b3b3b3</span
+    ><span class="swatch" style="background: rgb(179, 179, 179)"></span>
+  </li>
+  <li>
+    --figma-color-bg-hover<span>#383838</span
+    ><span class="swatch" style="background: rgb(56, 56, 56)"></span>
+  </li>
+  <li>
+    --figma-color-bg-inverse<span>rgba(255, 255, 255, 1)</span
+    ><span class="swatch" style="background: rgb(255, 255, 255)"></span>
+  </li>
+  <li>
+    --figma-color-bg-onselected<span>#667799</span
+    ><span class="swatch" style="background: rgb(102, 119, 153)"></span>
+  </li>
+  <li>
+    --figma-color-bg-onselected-hover<span>#667799</span
+    ><span class="swatch" style="background: rgb(102, 119, 153)"></span>
+  </li>
+  <li>
+    --figma-color-bg-onselected-pressed<span>#667799</span
+    ><span class="swatch" style="background: rgb(102, 119, 153)"></span>
+  </li>
+  <li>
+    --figma-color-bg-pressed<span>#383838</span
+    ><span class="swatch" style="background: rgb(56, 56, 56)"></span>
+  </li>
+  <li>
+    --figma-color-bg-secondary<span>#383838</span
+    ><span class="swatch" style="background: rgb(56, 56, 56)"></span>
+  </li>
+  <li>
+    --figma-color-bg-selected<span>#4a5878</span
+    ><span class="swatch" style="background: rgb(74, 88, 120)"></span>
+  </li>
+  <li>
+    --figma-color-bg-selected-hover<span>#536383</span
+    ><span class="swatch" style="background: rgb(83, 99, 131)"></span>
+  </li>
+  <li>
+    --figma-color-bg-selected-pressed<span>#536383</span
+    ><span class="swatch" style="background: rgb(83, 99, 131)"></span>
+  </li>
+  <li>
+    --figma-color-bg-selected-secondary<span>#394360</span
+    ><span class="swatch" style="background: rgb(57, 67, 96)"></span>
+  </li>
+  <li>
+    --figma-color-bg-selected-strong<span>#0c8ce9</span
+    ><span class="swatch" style="background: rgb(12, 140, 233)"></span>
+  </li>
+  <li>
+    --figma-color-bg-selected-tertiary<span>#394360</span
+    ><span class="swatch" style="background: rgb(57, 67, 96)"></span>
+  </li>
+  <li>
+    --figma-color-bg-success<span>#198f51</span
+    ><span class="swatch" style="background: rgb(25, 143, 81)"></span>
+  </li>
+  <li>
+    --figma-color-bg-success-hover<span>#078348</span
+    ><span class="swatch" style="background: rgb(7, 131, 72)"></span>
+  </li>
+  <li>
+    --figma-color-bg-success-pressed<span>#078348</span
+    ><span class="swatch" style="background: rgb(7, 131, 72)"></span>
+  </li>
+  <li>
+    --figma-color-bg-success-secondary<span> #0a5c35</span
+    ><span class="swatch" style="background: rgb(10, 92, 53)"></span>
+  </li>
+  <li>
+    --figma-color-bg-success-tertiary<span>#0a4c2d</span
+    ><span class="swatch" style="background: rgb(10, 76, 45)"></span>
+  </li>
+  <li>
+    --figma-color-bg-tertiary<span>#444444</span
+    ><span class="swatch" style="background: rgb(68, 68, 68)"></span>
+  </li>
+  <li>
+    --figma-color-bg-warning<span>#f3c11b</span
+    ><span class="swatch" style="background: rgb(243, 193, 27)"></span>
+  </li>
+  <li>
+    --figma-color-bg-warning-hover<span>#f2b50d</span
+    ><span class="swatch" style="background: rgb(242, 181, 13)"></span>
+  </li>
+  <li>
+    --figma-color-bg-warning-pressed<span> #f2b50d</span
+    ><span class="swatch" style="background: rgb(242, 181, 13)"></span>
+  </li>
+  <li>
+    --figma-color-bg-warning-secondary<span>#e4a711</span
+    ><span class="swatch" style="background: rgb(228, 167, 17)"></span>
+  </li>
+  <li>
+    --figma-color-bg-warning-tertiary<span>#c58011</span
+    ><span class="swatch" style="background: rgb(197, 128, 17)"></span>
+  </li>
+  <li>
+    --figma-color-border<span>#444444</span
+    ><span class="swatch" style="background: rgb(68, 68, 68)"></span>
+  </li>
+  <li>
+    --figma-color-border-brand<span>#105cad</span
+    ><span class="swatch" style="background: rgb(16, 92, 173)"></span>
+  </li>
+  <li>
+    --figma-color-border-brand-strong<span>#7cc4f8</span
+    ><span class="swatch" style="background: rgb(124, 196, 248)"></span>
+  </li>
+  <li>
+    --figma-color-border-component<span>#652ca8</span
+    ><span class="swatch" style="background: rgb(101, 44, 168)"></span>
+  </li>
+  <li>
+    --figma-color-border-component-hover<span>#8a38f5</span
+    ><span class="swatch" style="background: rgb(138, 56, 245)"></span>
+  </li>
+  <li>
+    --figma-color-border-component-strong<span>#d6b6fb</span
+    ><span class="swatch" style="background: rgb(214, 182, 251)"></span>
+  </li>
+  <li>
+    --figma-color-border-danger<span>#963323</span
+    ><span class="swatch" style="background: rgb(150, 51, 35)"></span>
+  </li>
+  <li>
+    --figma-color-border-danger-strong<span>#fca397</span
+    ><span class="swatch" style="background: rgb(252, 163, 151)"></span>
+  </li>
+  <li>
+    --figma-color-border-disabled<span>#444444</span
+    ><span class="swatch" style="background: rgb(68, 68, 68)"></span>
+  </li>
+  <li>
+    --figma-color-border-disabled-strong<span>rgba(255, 255, 255, 0.4)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.4)"></span>
+  </li>
+  <li>
+    --figma-color-border-onbrand<span>#0a6dc2</span
+    ><span class="swatch" style="background: rgb(10, 109, 194)"></span>
+  </li>
+  <li>
+    --figma-color-border-onbrand-strong<span>rgba(255, 255, 255, 1)</span
+    ><span class="swatch" style="background: rgb(255, 255, 255)"></span>
+  </li>
+  <li>
+    --figma-color-border-oncomponent<span>#7a2ed6</span
+    ><span class="swatch" style="background: rgb(122, 46, 214)"></span>
+  </li>
+  <li>
+    --figma-color-border-oncomponent-strong<span>rgba(255, 255, 255, 1)</span
+    ><span class="swatch" style="background: rgb(255, 255, 255)"></span>
+  </li>
+  <li>
+    --figma-color-border-ondanger<span>#c4381c</span
+    ><span class="swatch" style="background: rgb(196, 56, 28)"></span>
+  </li>
+  <li>
+    --figma-color-border-ondanger-strong<span>rgba(255, 255, 255, 1)</span
+    ><span class="swatch" style="background: rgb(255, 255, 255)"></span>
+  </li>
+  <li>
+    --figma-color-border-onselected<span>#667799</span
+    ><span class="swatch" style="background: rgb(102, 119, 153)"></span>
+  </li>
+  <li>
+    --figma-color-border-onselected-strong<span>rgba(255, 255, 255, 0.9)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.9)"></span>
+  </li>
+  <li>
+    --figma-color-border-onsuccess<span>#078348</span
+    ><span class="swatch" style="background: rgb(7, 131, 72)"></span>
+  </li>
+  <li>
+    --figma-color-border-onsuccess-strong<span>rgba(255, 255, 255, 1)</span
+    ><span class="swatch" style="background: rgb(255, 255, 255)"></span>
+  </li>
+  <li>
+    --figma-color-border-onwarning<span>#e4a711</span
+    ><span class="swatch" style="background: rgb(228, 167, 17)"></span>
+  </li>
+  <li>
+    --figma-color-border-onwarning-strong<span>rgba(0, 0, 0, 0.9)</span
+    ><span class="swatch" style="background: rgba(0, 0, 0, 0.9)"></span>
+  </li>
+  <li>
+    --figma-color-border-selected<span>#0c8ce9</span
+    ><span class="swatch" style="background: rgb(12, 140, 233)"></span>
+  </li>
+  <li>
+    --figma-color-border-selected-strong<span>#7cc4f8</span
+    ><span class="swatch" style="background: rgb(124, 196, 248)"></span>
+  </li>
+  <li>
+    --figma-color-border-strong<span>rgba(255, 255, 255, 0.9)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.9)"></span>
+  </li>
+  <li>
+    --figma-color-border-success<span>#0a5c35</span
+    ><span class="swatch" style="background: rgb(10, 92, 53)"></span>
+  </li>
+  <li>
+    --figma-color-border-success-strong<span>#79d297</span
+    ><span class="swatch" style="background: rgb(121, 210, 151)"></span>
+  </li>
+  <li>
+    --figma-color-border-warning<span>#925711</span
+    ><span class="swatch" style="background: rgb(146, 87, 17)"></span>
+  </li>
+  <li>
+    --figma-color-border-warning-strong<span>#f7d15f</span
+    ><span class="swatch" style="background: rgb(247, 209, 95)"></span>
+  </li>
+  <li>
+    --figma-color-icon<span>rgba(255, 255, 255, 1)</span
+    ><span class="swatch" style="background: rgb(255, 255, 255)"></span>
+  </li>
+  <li>
+    --figma-color-icon-brand<span>#7cc4f8</span
+    ><span class="swatch" style="background: rgb(124, 196, 248)"></span>
+  </li>
+  <li>
+    --figma-color-icon-brand-pressed<span>#0c8ce9</span
+    ><span class="swatch" style="background: rgb(12, 140, 233)"></span>
+  </li>
+  <li>
+    --figma-color-icon-brand-secondary<span>#536383</span
+    ><span class="swatch" style="background: rgb(83, 99, 131)"></span>
+  </li>
+  <li>
+    --figma-color-icon-brand-tertiary<span>#394360</span
+    ><span class="swatch" style="background: rgb(57, 67, 96)"></span>
+  </li>
+  <li>
+    --figma-color-icon-component<span>#d1a8ff</span
+    ><span class="swatch" style="background: rgb(209, 168, 255)"></span>
+  </li>
+  <li>
+    --figma-color-icon-component-pressed<span>#d6b6fb</span
+    ><span class="swatch" style="background: rgb(214, 182, 251)"></span>
+  </li>
+  <li>
+    --figma-color-icon-component-secondary<span>#6b5884</span
+    ><span class="swatch" style="background: rgb(107, 88, 132)"></span>
+  </li>
+  <li>
+    --figma-color-icon-component-tertiary<span>#6b5884</span
+    ><span class="swatch" style="background: rgb(107, 88, 132)"></span>
+  </li>
+  <li>
+    --figma-color-icon-danger<span> #e03e1a</span
+    ><span class="swatch" style="background: rgb(224, 62, 26)"></span>
+  </li>
+  <li>
+    --figma-color-icon-danger-hover<span>#fbbcb6</span
+    ><span class="swatch" style="background: rgb(251, 188, 182)"></span>
+  </li>
+  <li>
+    --figma-color-icon-danger-pressed<span>#fbbcb6</span
+    ><span class="swatch" style="background: rgb(251, 188, 182)"></span>
+  </li>
+  <li>
+    --figma-color-icon-danger-secondary<span>#e03e1a</span
+    ><span class="swatch" style="background: rgb(224, 62, 26)"></span>
+  </li>
+  <li>
+    --figma-color-icon-danger-secondary-hover<span>#e03e1a</span
+    ><span class="swatch" style="background: rgb(224, 62, 26)"></span>
+  </li>
+  <li>
+    --figma-color-icon-danger-tertiary<span>#e03e1a</span
+    ><span class="swatch" style="background: rgb(224, 62, 26)"></span>
+  </li>
+  <li>
+    --figma-color-icon-disabled<span>rgba(255, 255, 255, 0.4)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.4)"></span>
+  </li>
+  <li>
+    --figma-color-icon-hover<span>rgba(255, 255, 255, 1)</span
+    ><span class="swatch" style="background: rgb(255, 255, 255)"></span>
+  </li>
+  <li>
+    --figma-color-icon-onbrand<span>rgba(255, 255, 255, 1)</span
+    ><span class="swatch" style="background: rgb(255, 255, 255)"></span>
+  </li>
+  <li>
+    --figma-color-icon-onbrand-secondary<span>rgba(255, 255, 255, 0.8)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.8)"></span>
+  </li>
+  <li>
+    --figma-color-icon-onbrand-tertiary<span>rgba(255, 255, 255, 0.4)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.4)"></span>
+  </li>
+  <li>
+    --figma-color-icon-oncomponent<span>rgba(255, 255, 255, 1)</span
+    ><span class="swatch" style="background: rgb(255, 255, 255)"></span>
+  </li>
+  <li>
+    --figma-color-icon-oncomponent-secondary<span>rgba(255, 255, 255, 0.8)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.8)"></span>
+  </li>
+  <li>
+    --figma-color-icon-oncomponent-tertiary<span>rgba(255, 255, 255, 0.4)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.4)"></span>
+  </li>
+  <li>
+    --figma-color-icon-ondanger<span>rgba(255, 255, 255, 1)</span
+    ><span class="swatch" style="background: rgb(255, 255, 255)"></span>
+  </li>
+  <li>
+    --figma-color-icon-ondanger-secondary<span>rgba(255, 255, 255, 0.8)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.8)"></span>
+  </li>
+  <li>
+    --figma-color-icon-ondanger-tertiary<span>rgba(255, 255, 255, 0.4)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.4)"></span>
+  </li>
+  <li>
+    --figma-color-icon-ondisabled<span>#2c2c2c</span
+    ><span class="swatch" style="background: rgb(44, 44, 44)"></span>
+  </li>
+  <li>
+    --figma-color-icon-oninverse<span>rgba(0, 0, 0, 0.9)</span
+    ><span class="swatch" style="background: rgba(0, 0, 0, 0.9)"></span>
+  </li>
+  <li>
+    --figma-color-icon-onselected<span>rgba(255, 255, 255, 1)</span
+    ><span class="swatch" style="background: rgb(255, 255, 255)"></span>
+  </li>
+  <li>
+    --figma-color-icon-onselected-secondary<span>rgba(255, 255, 255, 0.7)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.7)"></span>
+  </li>
+  <li>
+    --figma-color-icon-onselected-strong<span>rgba(255, 255, 255, 1)</span
+    ><span class="swatch" style="background: rgb(255, 255, 255)"></span>
+  </li>
+  <li>
+    --figma-color-icon-onselected-tertiary<span>rgba(255, 255, 255, 0.4)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.4)"></span>
+  </li>
+  <li>
+    --figma-color-icon-onsuccess<span>rgba(255, 255, 255, 1)</span
+    ><span class="swatch" style="background: rgb(255, 255, 255)"></span>
+  </li>
+  <li>
+    --figma-color-icon-onsuccess-secondary<span>rgba(255, 255, 255, 0.8)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.8)"></span>
+  </li>
+  <li>
+    --figma-color-icon-onsuccess-tertiary<span>rgba(255, 255, 255, 0.4)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.4)"></span>
+  </li>
+  <li>
+    --figma-color-icon-onwarning<span>rgba(0, 0, 0, 0.9)</span
+    ><span class="swatch" style="background: rgba(0, 0, 0, 0.9)"></span>
+  </li>
+  <li>
+    --figma-color-icon-onwarning-secondary<span>rgba(0, 0, 0, 0.5)</span
+    ><span class="swatch" style="background: rgba(0, 0, 0, 0.5)"></span>
+  </li>
+  <li>
+    --figma-color-icon-onwarning-tertiary<span>rgba(0, 0, 0, 0.3)</span
+    ><span class="swatch" style="background: rgba(0, 0, 0, 0.3)"></span>
+  </li>
+  <li>
+    --figma-color-icon-pressed<span>#0a6dc2</span
+    ><span class="swatch" style="background: rgb(10, 109, 194)"></span>
+  </li>
+  <li>
+    --figma-color-icon-secondary<span>rgba(255, 255, 255, 0.7)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.7)"></span>
+  </li>
+  <li>
+    --figma-color-icon-secondary-hover<span>rgba(255, 255, 255, 1)</span
+    ><span class="swatch" style="background: rgb(255, 255, 255)"></span>
+  </li>
+  <li>
+    --figma-color-icon-selected<span>#7cc4f8</span
+    ><span class="swatch" style="background: rgb(124, 196, 248)"></span>
+  </li>
+  <li>
+    --figma-color-icon-selected-secondary<span>#7cc4f8</span
+    ><span class="swatch" style="background: rgb(124, 196, 248)"></span>
+  </li>
+  <li>
+    --figma-color-icon-selected-tertiary<span>#7cc4f8</span
+    ><span class="swatch" style="background: rgb(124, 196, 248)"></span>
+  </li>
+  <li>
+    --figma-color-icon-success<span>#198f51</span
+    ><span class="swatch" style="background: rgb(25, 143, 81)"></span>
+  </li>
+  <li>
+    --figma-color-icon-success-pressed<span>#a1e8b9</span
+    ><span class="swatch" style="background: rgb(161, 232, 185)"></span>
+  </li>
+  <li>
+    --figma-color-icon-success-secondary<span>#198f51</span
+    ><span class="swatch" style="background: rgb(25, 143, 81)"></span>
+  </li>
+  <li>
+    --figma-color-icon-success-tertiary<span>#198f51</span
+    ><span class="swatch" style="background: rgb(25, 143, 81)"></span>
+  </li>
+  <li>
+    --figma-color-icon-tertiary<span>rgba(255, 255, 255, 0.4)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.4)"></span>
+  </li>
+  <li>
+    --figma-color-icon-tertiary-hover<span>rgba(255, 255, 255, 1)</span
+    ><span class="swatch" style="background: rgb(255, 255, 255)"></span>
+  </li>
+  <li>
+    --figma-color-icon-warning<span>#f3c11b</span
+    ><span class="swatch" style="background: rgb(243, 193, 27)"></span>
+  </li>
+  <li>
+    --figma-color-icon-warning-pressed<span>#f7d15f</span
+    ><span class="swatch" style="background: rgb(247, 209, 95)"></span>
+  </li>
+  <li>
+    --figma-color-icon-warning-secondary<span>#f3c11b</span
+    ><span class="swatch" style="background: rgb(243, 193, 27)"></span>
+  </li>
+  <li>
+    --figma-color-icon-warning-tertiary<span>#f3c11b</span
+    ><span class="swatch" style="background: rgb(243, 193, 27)"></span>
+  </li>
+  <li>
+    --figma-color-text<span>rgba(255, 255, 255, 1)</span
+    ><span class="swatch" style="background: rgb(255, 255, 255)"></span>
+  </li>
+  <li>
+    --figma-color-text-brand<span>#7cc4f8</span
+    ><span class="swatch" style="background: rgb(124, 196, 248)"></span>
+  </li>
+  <li>
+    --figma-color-text-brand-secondary<span>#7cc4f8</span
+    ><span class="swatch" style="background: rgb(124, 196, 248)"></span>
+  </li>
+  <li>
+    --figma-color-text-brand-tertiary<span>#7cc4f8</span
+    ><span class="swatch" style="background: rgb(124, 196, 248)"></span>
+  </li>
+  <li>
+    --figma-color-text-component<span>#d1a8ff</span
+    ><span class="swatch" style="background: rgb(209, 168, 255)"></span>
+  </li>
+  <li>
+    --figma-color-text-component-pressed<span>#d6b6fb</span
+    ><span class="swatch" style="background: rgb(214, 182, 251)"></span>
+  </li>
+  <li>
+    --figma-color-text-component-secondary<span>#6b5884</span
+    ><span class="swatch" style="background: rgb(107, 88, 132)"></span>
+  </li>
+  <li>
+    --figma-color-text-component-tertiary<span>#6b5884</span
+    ><span class="swatch" style="background: rgb(107, 88, 132)"></span>
+  </li>
+  <li>
+    --figma-color-text-danger<span>#fca397</span
+    ><span class="swatch" style="background: rgb(252, 163, 151)"></span>
+  </li>
+  <li>
+    --figma-color-text-danger-secondary<span>#fca397</span
+    ><span class="swatch" style="background: rgb(252, 163, 151)"></span>
+  </li>
+  <li>
+    --figma-color-text-danger-tertiary<span>#fca397</span
+    ><span class="swatch" style="background: rgb(252, 163, 151)"></span>
+  </li>
+  <li>
+    --figma-color-text-disabled<span>rgba(255, 255, 255, 0.4)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.4)"></span>
+  </li>
+  <li>
+    --figma-color-text-hover<span>rgba(255, 255, 255, 1)</span
+    ><span class="swatch" style="background: rgb(255, 255, 255)"></span>
+  </li>
+  <li>
+    --figma-color-text-onbrand<span>rgba(255, 255, 255, 1)</span
+    ><span class="swatch" style="background: rgb(255, 255, 255)"></span>
+  </li>
+  <li>
+    --figma-color-text-onbrand-secondary<span>rgba(255, 255, 255, 0.8)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.8)"></span>
+  </li>
+  <li>
+    --figma-color-text-onbrand-tertiary<span>rgba(255, 255, 255, 0.4)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.4)"></span>
+  </li>
+  <li>
+    --figma-color-text-oncomponent<span>rgba(255, 255, 255, 1)</span
+    ><span class="swatch" style="background: rgb(255, 255, 255)"></span>
+  </li>
+  <li>
+    --figma-color-text-oncomponent-secondary<span>rgba(255, 255, 255, 0.8)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.8)"></span>
+  </li>
+  <li>
+    --figma-color-text-oncomponent-tertiary<span>rgba(255, 255, 255, 0.4)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.4)"></span>
+  </li>
+  <li>
+    --figma-color-text-ondanger<span>rgba(255, 255, 255, 1)</span
+    ><span class="swatch" style="background: rgb(255, 255, 255)"></span>
+  </li>
+  <li>
+    --figma-color-text-ondanger-secondary<span>rgba(255, 255, 255, 0.8)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.8)"></span>
+  </li>
+  <li>
+    --figma-color-text-ondanger-tertiary<span>rgba(255, 255, 255, 0.4)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.4)"></span>
+  </li>
+  <li>
+    --figma-color-text-ondisabled<span>#2c2c2c</span
+    ><span class="swatch" style="background: rgb(44, 44, 44)"></span>
+  </li>
+  <li>
+    --figma-color-text-oninverse<span>rgba(0, 0, 0, 0.9)</span
+    ><span class="swatch" style="background: rgba(0, 0, 0, 0.9)"></span>
+  </li>
+  <li>
+    --figma-color-text-onselected<span>rgba(255, 255, 255, 0.9)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.9)"></span>
+  </li>
+  <li>
+    --figma-color-text-onselected-secondary<span>rgba(255, 255, 255, 0.7)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.7)"></span>
+  </li>
+  <li>
+    --figma-color-text-onselected-strong<span>rgba(255, 255, 255, 1)</span
+    ><span class="swatch" style="background: rgb(255, 255, 255)"></span>
+  </li>
+  <li>
+    --figma-color-text-onselected-tertiary<span>rgba(255, 255, 255, 0.4)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.4)"></span>
+  </li>
+  <li>
+    --figma-color-text-onsuccess<span>rgba(255, 255, 255, 1)</span
+    ><span class="swatch" style="background: rgb(255, 255, 255)"></span>
+  </li>
+  <li>
+    --figma-color-text-onsuccess-secondary<span>rgba(255, 255, 255, 0.8)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.8)"></span>
+  </li>
+  <li>
+    --figma-color-text-onsuccess-tertiary<span>rgba(255, 255, 255, 0.4)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.4)"></span>
+  </li>
+  <li>
+    --figma-color-text-onwarning<span>rgba(0, 0, 0, 0.9)</span
+    ><span class="swatch" style="background: rgba(0, 0, 0, 0.9)"></span>
+  </li>
+  <li>
+    --figma-color-text-onwarning-secondary<span>rgba(0, 0, 0, 0.5)</span
+    ><span class="swatch" style="background: rgba(0, 0, 0, 0.5)"></span>
+  </li>
+  <li>
+    --figma-color-text-onwarning-tertiary<span>rgba(0, 0, 0, 0.3)</span
+    ><span class="swatch" style="background: rgba(0, 0, 0, 0.3)"></span>
+  </li>
+  <li>
+    --figma-color-text-secondary<span>rgba(255, 255, 255, 0.7)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.7)"></span>
+  </li>
+  <li>
+    --figma-color-text-secondary-hover<span>rgba(255, 255, 255, 1)</span
+    ><span class="swatch" style="background: rgb(255, 255, 255)"></span>
+  </li>
+  <li>
+    --figma-color-text-selected<span>#7cc4f8</span
+    ><span class="swatch" style="background: rgb(124, 196, 248)"></span>
+  </li>
+  <li>
+    --figma-color-text-selected-secondary<span>#7cc4f8</span
+    ><span class="swatch" style="background: rgb(124, 196, 248)"></span>
+  </li>
+  <li>
+    --figma-color-text-selected-tertiary<span>#7cc4f8</span
+    ><span class="swatch" style="background: rgb(124, 196, 248)"></span>
+  </li>
+  <li>
+    --figma-color-text-success<span>#79d297</span
+    ><span class="swatch" style="background: rgb(121, 210, 151)"></span>
+  </li>
+  <li>
+    --figma-color-text-success-secondary<span>#79d297</span
+    ><span class="swatch" style="background: rgb(121, 210, 151)"></span>
+  </li>
+  <li>
+    --figma-color-text-success-tertiary<span>#79d297</span
+    ><span class="swatch" style="background: rgb(121, 210, 151)"></span>
+  </li>
+  <li>
+    --figma-color-text-tertiary<span>rgba(255, 255, 255, 0.4)</span
+    ><span class="swatch" style="background: rgba(255, 255, 255, 0.4)"></span>
+  </li>
+  <li>
+    --figma-color-text-tertiary-hover<span>rgba(255, 255, 255, 1)</span
+    ><span class="swatch" style="background: rgb(255, 255, 255)"></span>
+  </li>
+  <li>
+    --figma-color-text-warning<span>#f7d15f</span
+    ><span class="swatch" style="background: rgb(247, 209, 95)"></span>
+  </li>
+  <li>
+    --figma-color-text-warning-secondary<span>#f7d15f</span
+    ><span class="swatch" style="background: rgb(247, 209, 95)"></span>
+  </li>
+  <li>
+    --figma-color-text-warning-tertiary<span>#f7d15f</span
+    ><span class="swatch" style="background: rgb(247, 209, 95)"></span>
+  </li>
+</ul>
