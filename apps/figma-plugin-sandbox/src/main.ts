@@ -23,6 +23,7 @@ figma.ui.onmessage = createHandleMessageFromView((message: Message) => {
   switch (message.type) {
     case 'focusNode': {
       const { payload } = message;
+      console.log(payload);
       focusNode(payload as { id: string });
       break;
     }

@@ -20,7 +20,12 @@
         {
           "id": "308:7",
           "name": "Size=default, Variant=default, Icon=false",
-          "type": "COMPONENT"
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Icon": "false",
+            "Size": "default",
+            "Variant": "default"
+          }
         },
         {
           "id": "133:900",

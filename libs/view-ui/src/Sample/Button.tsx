@@ -6,6 +6,30 @@ interface Props extends ComponentPropsWithRef<'div'> {
   icon?: boolean;
 }
 
+type VariantProperties = {
+  [property: string]: unknown;
+} | null;
+
+const serializeProperties = (variantProperties: VariantProperties) => {
+  if (!variantProperties) {
+    return '';
+  }
+
+  const sortedProperties = Object.entries(variantProperties).sort(
+    ([aKey], [bKey]) => {
+      return aKey.localeCompare(bKey);
+    }
+  );
+
+  return sortedProperties.reduce(
+    (str, [currKey, currVal]) =>
+      `${str.toLowerCase()}--${currKey.toLowerCase()}-${String(
+        currVal
+      ).toLowerCase()}`,
+    ''
+  );
+};
+
 const Button: FC<Props> = (props: Props) => {
   const {
     children,
@@ -14,6 +38,7 @@ const Button: FC<Props> = (props: Props) => {
     icon = false,
     ...rest
   } = props;
+  console.log(serializeProperties({ size, variant, icon }));
   return <div {...rest}>{children}</div>;
 };
 

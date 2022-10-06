@@ -6,7 +6,7 @@ import parserTypescript from 'prettier/parser-typescript';
 
 import reactTs from './reactTs.hbs?raw';
 
-const pascalCase = (text: string) => upperFirst(camelCase(text));
+export const pascalCase = (text: string) => upperFirst(camelCase(text));
 
 /**
  * Copied from plugin-api under ComponentSetNode
@@ -15,21 +15,25 @@ interface VariantGroupProperties {
   [property: string]: { values: string[] };
 }
 
-const valuesAreNumbers = (values: string[]) => {
+type VariantProperties = {
+  [property: string]: string;
+} | null;
+
+export const valuesAreNumbers = (values: string[]) => {
   return values.reduce(
     (acc, value) => acc && String(Number(value)) === value,
     true
   );
 };
 
-const valuesHaveDefault = (values: string[]) => {
+export const valuesHaveDefault = (values: string[]) => {
   return values.reduce(
     (acc, value) => acc || value.toLowerCase() === 'default',
     false
   );
 };
 
-const valuesAreBooleans = (values: string[]) => {
+export const valuesAreBooleans = (values: string[]) => {
   if (values.length !== 2) {
     return false;
   }
@@ -43,7 +47,32 @@ const valuesAreBooleans = (values: string[]) => {
   return false;
 };
 
-const mapProperties = (variantGroupProperties: VariantGroupProperties) => {
+export const serializeProperties = (variantProperties: VariantProperties) => {
+  if (!variantProperties) {
+    return '';
+  }
+
+  const sortedProperties = Object.entries(variantProperties).sort(
+    ([aKey], [bKey]) => {
+      return aKey.localeCompare(bKey);
+    }
+  );
+
+  return sortedProperties.reduce(
+    (str, [currKey, currVal]) =>
+      `${str.toLowerCase()}--${currKey.toLowerCase()}-${currVal.toLowerCase()}`,
+    ''
+  );
+};
+
+export const mapComponents = (componentNodes: ComponentNode[]) =>
+  componentNodes.map((node) => ({
+    serialized: serializeProperties(node.variantProperties),
+  }));
+
+export const mapProperties = (
+  variantGroupProperties: VariantGroupProperties
+) => {
   return Object.entries(variantGroupProperties).map(
     ([rawProperty, { values }]) => {
       const property = camelCase(rawProperty);
@@ -70,12 +99,14 @@ const mapProperties = (variantGroupProperties: VariantGroupProperties) => {
   );
 };
 
-const mapValues = (values: string[]) => values.map((value) => camelCase(value));
+export const mapValues = (values: string[]) =>
+  values.map((value) => camelCase(value));
 
 const generateCode = (data: ComponentSetNode) => {
   handlebars.registerHelper({
     camelCase,
     pascalCase,
+    mapComponents,
     mapProperties,
     mapValues,
   });

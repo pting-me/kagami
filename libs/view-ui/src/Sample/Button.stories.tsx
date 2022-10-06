@@ -7,12 +7,13 @@ const meta: Meta<ButtonProps> = {
 };
 
 const Primary: Story<ButtonProps> = {
-  render: () => {
-    return (
-      <Button size="default" variant="default" icon={false}>
-        Button
-      </Button>
-    );
+  args: {
+    size: 'default',
+    variant: 'default',
+    icon: false,
+  },
+  render: (args) => {
+    return <Button {...args}>Button</Button>;
   },
 };
 
