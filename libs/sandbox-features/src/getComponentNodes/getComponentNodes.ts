@@ -1,4 +1,5 @@
-import { enrichNode, hasChildrenMixin } from '../utils';
+import enrichNode from '../enrichNode';
+import hasChildrenMixin from '../hasChildrenMixin';
 
 /**
  * Gets all component nodes that are not part of a component set
