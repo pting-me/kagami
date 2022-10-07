@@ -6,8 +6,6 @@ import esbuild from 'rollup-plugin-esbuild';
 
 import { getAliasEntries } from '../../tools/build/vite.utils';
 
-console.log(process.env.BUILD);
-
 const envEntries: Alias[] = [];
 
 if (process.env.BUILD === 'production') {
