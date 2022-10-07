@@ -1,6 +1,6 @@
-export { default as createHandleMessageFromView } from './createHandleMessageFromView';
-export { default as postMessageToView } from './postMessageToView';
-export { default as getComponentSetNodes } from './getComponentSetNodes';
-export { default as getComponentNodes } from './getComponentNodes';
-export { default as focusNode } from './focusNode';
-export { default as createLogger } from './createLogger';
+export { default as createHandleMessageFromView } from './pubsub/createHandleMessageFromView';
+export { default as postMessageToView } from './pubsub/postMessageToView';
+export { default as getComponentSetNodes } from './lib/getComponentSetNodes';
+export { default as getComponentNodes } from './lib/getComponentNodes';
+export { default as focusNode } from './lib/focusNode';
+export { default as createLogger } from './utils/createLogger';

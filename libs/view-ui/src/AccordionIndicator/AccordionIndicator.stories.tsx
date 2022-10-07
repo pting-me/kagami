@@ -9,6 +9,7 @@ import type { Meta, Story } from '@storybook/react';
 import AccordionIndicator from './AccordionIndicator';
 
 const meta: Meta = {
+  title: 'AccordionIndicator',
   component: AccordionIndicator,
 };
 

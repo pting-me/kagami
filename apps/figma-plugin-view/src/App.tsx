@@ -1,12 +1,12 @@
-import { MainLayout, MessageContextWrapper } from '@kagami/view-features';
+import { MainLayout, ViewContext } from '@kagami/view-features';
 
 import { environment } from './environments/environment';
 
 export function App() {
   return (
-    <MessageContextWrapper environment={environment}>
+    <ViewContext.DefaultProvider environment={environment}>
       <MainLayout></MainLayout>
-    </MessageContextWrapper>
+    </ViewContext.DefaultProvider>
   );
 }
 

@@ -44,6 +44,11 @@ const storybookConfig: StorybookConfig = {
       titlePrefix: 'View Features',
       files: '**/*.stories.@(mdx|tsx|ts)',
     },
+    {
+      directory: path.resolve(__dirname, '../playground'),
+      titlePrefix: 'Playground',
+      files: '**/*.stories.@(mdx|tsx|ts)',
+    },
   ],
   addons: [
     '@storybook/addon-links',

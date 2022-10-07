@@ -28,7 +28,7 @@ module.exports = {
       },
     },
     {
-      files: storybookTs.include,
+      files: storybookTs.include.map((dir) => `./.storybook/${dir}`),
       parserOptions: {
         project: path.resolve(__dirname, './.storybook/tsconfig.json'),
       },
