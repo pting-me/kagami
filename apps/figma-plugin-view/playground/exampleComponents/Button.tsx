@@ -17,10 +17,6 @@ interface BaseProps {
    * @default 1
    */
   buttonId?: number;
-  size2?: 'small' | 'default' | 'large';
-  variant2?: 'default' | 'primary' | 'danger' | 'secondary';
-  icon2?: boolean;
-  buttonId2?: number;
 }
 
 type Props = BaseProps & ComponentPropsWithRef<'div'>;
@@ -295,4 +291,4 @@ const Button: FC<Props> = (props: Props) => {
 };
 
 export default Button;
-export type { BaseProps, Props };
+export type { Props };
