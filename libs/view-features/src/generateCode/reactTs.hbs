@@ -1,7 +1,7 @@
-import { ComponentPropsWithRef, FC } from 'react';
+import { ComponentPropsWithRef, CSSProperties, FC } from 'react';
 
 interface Props extends ComponentPropsWithRef<'div'> {
-{{#each (mapProperties this.variantGroupProperties)}}
+{{#each (mapPropNames this.variantGroupProperties)}}
   {{#if this.isBoolean}}
     {{this.property}}?: boolean;
   {{/if}}
@@ -11,7 +11,7 @@ interface Props extends ComponentPropsWithRef<'div'> {
   {{#if this.isString}}
     {{this.property}}{{#if this.hasDefaultValue}}?{{/if}}:
     {{#each this.values}}
-    | '{{this}}'
+    | '{{camelCase this}}'
     {{/each}};
   {{/if}}
 {{/each}}
@@ -39,10 +39,28 @@ const serializeProperties = (variantProperties: VariantProperties) => {
   );
 };
 
+const getStyles = (serialized: string): CSSProperties => {
+  switch (serialized) {
+    {{#each (mapComponents this.children)}}
+      case '{{this.serialized}}': 
+        return {
+          borderRadius: '{{this.borderRadius}}',
+          backgroundColor: '{{this.backgroundColor}}',
+          borderWidth: '{{this.borderWidth}}',
+          borderColor: '{{this.borderColor}}',
+          borderStyle: '{{this.borderStyle}}',
+          padding: '{{this.padding}}',
+        };
+    {{/each}}
+    default:
+      return {};
+  }
+};
+
 const {{pascalCase this.name}}: FC<Props> = (props: Props) => {
   const {
     children,
-    {{#each (mapProperties this.variantGroupProperties)}}
+    {{#each (mapPropNames this.variantGroupProperties)}}
       {{this.property}}
         {{#if this.isBoolean}}=false{{/if}}
         {{#if this.hasDefaultValue}}='default'{{/if}}
@@ -51,19 +69,12 @@ const {{pascalCase this.name}}: FC<Props> = (props: Props) => {
   } = props;
 
   const serialized = serializeProperties({
-    {{#each (mapProperties this.variantGroupProperties)}}
+    {{#each (mapPropNames this.variantGroupProperties)}}
       {{this.property}},
     {{/each}}
   });
 
-  switch (serialized) {
-    {{#each (mapComponents this.children)}}
-      case '{{this.serialized}}':
-    {{/each}}
-    default:
-  }
-
-  return <div {...rest}>{children}</div>;
+  return <div style={getStyles(serialized)} {...rest}>{children}</div>;
 };
 
 export default {{pascalCase this.name}};

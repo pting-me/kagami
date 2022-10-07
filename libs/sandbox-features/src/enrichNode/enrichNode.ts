@@ -14,7 +14,40 @@ const createPropReducer = <T = BaseNode>(node: T) => {
 
 const enrichNode = (node: BaseNode) => {
   const commonProps: (keyof BaseNode)[] = ['name', 'type'];
-  const componentProps: (keyof ComponentNode)[] = [...commonProps];
+  const componentProps: (keyof ComponentNode)[] = [
+    ...commonProps,
+    'variantProperties',
+
+    // fills
+    'fillStyleId',
+    'fills',
+
+    // strokes
+    'strokeStyleId',
+    'strokes',
+    'strokeTopWeight',
+    'strokeRightWeight',
+    'strokeBottomWeight',
+    'strokeLeftWeight',
+    // TODO support strokeJoin
+    // This seems to be SVG only
+    // 'strokeJoin',
+
+    // border radius
+    'topLeftRadius',
+    'topRightRadius',
+    'bottomRightRadius',
+    'bottomLeftRadius',
+
+    // padding
+    'paddingTop',
+    'paddingRight',
+    'paddingBottom',
+    'paddingLeft',
+
+    'effectStyleId',
+    'gridStyleId',
+  ];
   const componentSetProps: (keyof ComponentSetNode)[] = [
     ...commonProps,
     'children',
@@ -26,7 +59,7 @@ const enrichNode = (node: BaseNode) => {
       return componentProps.reduce(
         createPropReducer<ComponentNode>(node),
         node
-      );
+      ) as ComponentNode;
     }
     case 'COMPONENT_SET': {
       const { children = [], ...rest } = componentSetProps.reduce(
@@ -38,7 +71,7 @@ const enrichNode = (node: BaseNode) => {
         children: (children as ComponentNode[]).map((child: ComponentNode) =>
           componentProps.reduce(createPropReducer<ComponentNode>(child), child)
         ),
-      };
+      } as ComponentSetNode & { children: ComponentNode[] };
     }
     default: {
       return node;

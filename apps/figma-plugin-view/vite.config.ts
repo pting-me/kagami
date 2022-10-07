@@ -7,6 +7,15 @@ import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 import { getViteConfig } from '../../vite.config';
 
+const envEntries = [];
+
+if (process.env['NODE_ENV'] === 'production') {
+  envEntries.push({
+    find: './environments/environment',
+    replacement: './environments/environment.prod',
+  });
+}
+
 export default defineConfig(
   mergeConfig(getViteConfig(__dirname), {
     test: {
@@ -25,6 +34,9 @@ export default defineConfig(
         ],
       }),
     ],
+    resolve: {
+      alias: envEntries,
+    },
     build: {
       minify: 'esbuild',
       emptyOutDir: false,

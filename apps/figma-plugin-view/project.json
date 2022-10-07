@@ -6,8 +6,16 @@
     "build": {
       "executor": "nx:run-commands",
       "options": {
-        "cwd": "apps/figma-plugin-view",
-        "command": "vite build"
+        "cwd": "apps/figma-plugin-view"
+      },
+      "defaultConfiguration": "development",
+      "configurations": {
+        "development": {
+          "command": "vite build --mode development"
+        },
+        "production": {
+          "command": "vite build"
+        }
       }
     },
     "serve": {

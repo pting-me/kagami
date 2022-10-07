@@ -25,7 +25,7 @@ const getComponentNodes = (node?: BaseNode) => {
     return true;
   });
 
-  return componentNodes.map(enrichNode);
+  return componentNodes.map(enrichNode) as ComponentNode[];
 };
 
 export default getComponentNodes;

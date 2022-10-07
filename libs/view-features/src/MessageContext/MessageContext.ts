@@ -1,8 +1,13 @@
 import { createContext } from 'react';
 
+export interface Environment {
+  production: boolean;
+}
+
 export interface ContextState {
   componentNodes: ComponentNode[];
   componentSetNodes: ComponentSetNode[];
+  environment: Environment;
 }
 
 export interface ContextAction {
@@ -13,6 +18,7 @@ export interface ContextAction {
 export type ContextDispatch = (action: ContextAction) => void;
 
 export const initialContext: ContextState = {
+  environment: { production: true },
   componentNodes: [],
   componentSetNodes: [],
 };

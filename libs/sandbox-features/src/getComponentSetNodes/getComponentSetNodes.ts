@@ -17,7 +17,9 @@ const getComponentSetNodes = (node?: BaseNode) => {
     types: ['COMPONENT_SET'],
   });
 
-  return componentSets.map(enrichNode);
+  return componentSets.map(enrichNode) as (ComponentSetNode & {
+    children: ComponentNode[];
+  })[];
 };
 
 export default getComponentSetNodes;

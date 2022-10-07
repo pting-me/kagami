@@ -1,8 +1,10 @@
 import { MainLayout, MessageContextWrapper } from '@kagami/view-features';
 
+import { environment } from './environments/environment';
+
 export function App() {
   return (
-    <MessageContextWrapper>
+    <MessageContextWrapper environment={environment}>
       <MainLayout></MainLayout>
     </MessageContextWrapper>
   );

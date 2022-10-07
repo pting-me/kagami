@@ -4,13 +4,16 @@ import createHandleMessageFromSandbox from '../createHandleMessageFromSandbox';
 import MessageContext, {
   ContextAction,
   ContextState,
+  Environment,
   initialContext,
 } from './MessageContext';
 
-type Props = PropsWithChildren;
+interface Props extends PropsWithChildren {
+  environment: Environment;
+}
 
 function MessageContextWrapper(props: Props) {
-  const { children } = props;
+  const { children, environment } = props;
 
   const reducer = (state: ContextState, action: ContextAction) => {
     switch (action.type) {
@@ -23,7 +26,10 @@ function MessageContextWrapper(props: Props) {
     }
   };
 
-  const [state, dispatch] = useReducer(reducer, initialContext);
+  const [state, dispatch] = useReducer(reducer, {
+    ...initialContext,
+    environment,
+  });
 
   window.onmessage = createHandleMessageFromSandbox(dispatch);
 

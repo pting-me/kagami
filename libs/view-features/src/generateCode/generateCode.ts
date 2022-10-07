@@ -1,7 +1,7 @@
 import handlebars from 'handlebars';
 import camelCase from 'lodash.camelcase';
 import upperFirst from 'lodash.upperfirst';
-import prettier from 'prettier';
+import { format } from 'prettier';
 import parserTypescript from 'prettier/parser-typescript';
 
 import reactTs from './reactTs.hbs?raw';
@@ -65,12 +65,101 @@ export const serializeProperties = (variantProperties: VariantProperties) => {
   );
 };
 
-export const mapComponents = (componentNodes: ComponentNode[]) =>
-  componentNodes.map((node) => ({
-    serialized: serializeProperties(node.variantProperties),
-  }));
+const getBorderRadius = (componentNode: ComponentNode) => {
+  const { topLeftRadius, topRightRadius, bottomRightRadius, bottomLeftRadius } =
+    componentNode;
+  return `${topLeftRadius}px ${topRightRadius}px ${bottomRightRadius}px ${bottomLeftRadius}px`;
+};
 
-export const mapProperties = (
+const getBackgroundColor = (componentNode: ComponentNode) => {
+  if (typeof componentNode.fills === 'symbol') {
+    return '';
+  }
+
+  const visibleBackgrounds = (componentNode.fills ?? []).filter(
+    ({ visible }) => visible
+  );
+  if (visibleBackgrounds.length === 0) {
+    return '';
+  }
+
+  // TODO add support for multiple layers
+  // TODO add support for other background types
+  const firstBackground = visibleBackgrounds[0];
+  if (firstBackground.type !== 'SOLID') {
+    return '';
+  }
+
+  const {
+    color: { r, g, b },
+    opacity,
+  } = firstBackground;
+
+  return `rgba(${Math.round(r * 255)},${Math.round(g * 255)},${Math.round(
+    b * 255
+  )},${opacity ?? 1})`;
+};
+
+const getBorderWidth = (componentNode: ComponentNode) => {
+  const {
+    strokeTopWeight,
+    strokeRightWeight,
+    strokeBottomWeight,
+    strokeLeftWeight,
+  } = componentNode;
+  return `${strokeTopWeight}px ${strokeRightWeight}px ${strokeBottomWeight}px ${strokeLeftWeight}px`;
+};
+
+const getBorder = (componentNode: ComponentNode) => {
+  const visibleStrokes = (componentNode.strokes ?? []).filter(
+    ({ visible }) => visible
+  );
+  if (visibleStrokes.length === 0) {
+    return { style: 'none', color: 'initial' };
+  }
+
+  // TODO add support for multiple layers
+  // TODO add support for other background types(?)
+  const firstStroke = visibleStrokes[0];
+  if (firstStroke.type !== 'SOLID') {
+    return { style: 'none', color: 'initial' };
+  }
+
+  const {
+    color: { r, g, b },
+    opacity,
+  } = firstStroke;
+
+  return {
+    style: 'solid',
+    color: `rgba(${Math.round(r * 255)},${Math.round(g * 255)},${Math.round(
+      b * 255
+    )},${opacity ?? 1});`,
+  };
+};
+
+const getPadding = (componentNode: ComponentNode) => {
+  const { paddingTop, paddingRight, paddingBottom, paddingLeft } =
+    componentNode;
+  return `${paddingTop}px ${paddingRight}px ${paddingBottom}px ${paddingLeft}px`;
+};
+
+export const mapComponents = (componentNodes: ComponentNode[]) =>
+  componentNodes.map((node) => {
+    const { color, style } = getBorder(node);
+
+    return {
+      serialized: serializeProperties(node.variantProperties),
+      borderRadius: getBorderRadius(node),
+      backgroundColor: getBackgroundColor(node),
+      borderWidth: getBorderWidth(node),
+      borderColor: color,
+      borderStyle: style,
+      padding: getPadding(node),
+    };
+  });
+
+export const mapPropNames = (
   variantGroupProperties: VariantGroupProperties
 ) => {
   return Object.entries(variantGroupProperties).map(
@@ -99,20 +188,16 @@ export const mapProperties = (
   );
 };
 
-export const mapValues = (values: string[]) =>
-  values.map((value) => camelCase(value));
-
 const generateCode = (data: ComponentSetNode) => {
   handlebars.registerHelper({
     camelCase,
     pascalCase,
     mapComponents,
-    mapProperties,
-    mapValues,
+    mapPropNames,
   });
   const delegate = handlebars.compile(reactTs);
 
-  return prettier.format(delegate(data), {
+  return format(delegate(data), {
     singleQuote: true,
     parser: 'typescript',
     plugins: [parserTypescript],

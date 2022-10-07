@@ -6,8 +6,16 @@
     "build": {
       "executor": "nx:run-commands",
       "options": {
-        "cwd": "apps/figma-plugin-sandbox",
-        "command": "rollup --config rollup.config.ts --configPlugin rollup-plugin-esbuild"
+        "cwd": "apps/figma-plugin-sandbox"
+      },
+      "defaultConfiguration": "development",
+      "configurations": {
+        "development": {
+          "command": "rollup -c rollup.config.ts --configPlugin rollup-plugin-esbuild"
+        },
+        "production": {
+          "command": "rollup -c rollup.config.ts --configPlugin rollup-plugin-esbuild --environment=BUILD:production"
+        }
       }
     },
     "serve": {

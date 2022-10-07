@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { mockComponentData } from '../mock';
 import {
-  mapProperties,
+  mapPropNames,
   pascalCase,
   serializeProperties,
   valuesAreNumbers,
@@ -16,7 +16,7 @@ describe('generateCode', () => {
   });
   it('mapProperties', () => {
     const { variantGroupProperties } = mockComponentData.componentSetNodes[0];
-    const propertyMap = mapProperties(
+    const propertyMap = mapPropNames(
       mockComponentData.componentSetNodes[0].variantGroupProperties
     );
 
