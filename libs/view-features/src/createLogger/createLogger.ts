@@ -20,7 +20,6 @@ const createLogger = (environment: Environment) => {
     return { ...console, ...fakeConsole } as typeof console;
   }
 
-  console.log('Development mode');
   return console;
 };
 

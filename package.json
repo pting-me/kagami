@@ -5,6 +5,7 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx run-many --target=build --projects=figma-plugin-view,figma-plugin-sandbox",
+    "build-prod": "nx run-many --target=build --projects=figma-plugin-view,figma-plugin-sandbox --configuration=production",
     "prepare": "husky install",
     "test": "nx test"
   },

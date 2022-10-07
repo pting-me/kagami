@@ -17,11 +17,42 @@ interface StoryArgs {
   height: number;
 }
 
-const Primary: Story<StoryArgs> = {
+interface MockManifestProps {
+  componentNodes: ComponentNode[];
+  componentSetNodes: ComponentSetNode[];
+}
+
+const Development: Story<StoryArgs> = {
   render: (args) => {
     const { width, height } = args;
     return (
-      <MessageContext.Provider value={mockManifest as unknown as ContextState}>
+      <MessageContext.Provider
+        value={{
+          ...(mockManifest as unknown as MockManifestProps),
+          environment: { production: false },
+        }}
+      >
+        <div
+          className="border overflow-scroll"
+          style={{ width: `${width}px`, height: `${height}px` }}
+        >
+          <MainLayout />
+        </div>
+      </MessageContext.Provider>
+    );
+  },
+};
+
+const Production: Story<StoryArgs> = {
+  render: (args) => {
+    const { width, height } = args;
+    return (
+      <MessageContext.Provider
+        value={{
+          ...(mockManifest as unknown as MockManifestProps),
+          environment: { production: true },
+        }}
+      >
         <div
           className="border overflow-scroll"
           style={{ width: `${width}px`, height: `${height}px` }}
@@ -34,4 +65,4 @@ const Primary: Story<StoryArgs> = {
 };
 
 export default meta;
-export { Primary };
+export { Development, Production };

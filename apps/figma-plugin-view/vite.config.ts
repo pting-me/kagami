@@ -9,12 +9,25 @@ import { getViteConfig } from '../../vite.config';
 
 const envEntries = [];
 
-if (process.env['NODE_ENV'] === 'production') {
+const isProd = process.env['NODE_ENV'] === 'production';
+
+if (isProd) {
   envEntries.push({
     find: './environments/environment',
     replacement: './environments/environment.prod',
   });
 }
+
+const manifestCopy = isProd
+  ? {
+      src: path.resolve(__dirname, 'src/assets/manifest.prod.json'),
+      dest: path.resolve(__dirname, '../../dist/figma-plugin'),
+      rename: 'manifest.json',
+    }
+  : {
+      src: path.resolve(__dirname, 'src/assets/manifest.json'),
+      dest: path.resolve(__dirname, '../../dist/figma-plugin'),
+    };
 
 export default defineConfig(
   mergeConfig(getViteConfig(__dirname), {
@@ -26,12 +39,7 @@ export default defineConfig(
       react(),
       viteSingleFile(),
       viteStaticCopy({
-        targets: [
-          {
-            src: path.resolve(__dirname, 'src/assets/**/*'),
-            dest: path.resolve(__dirname, '../../dist/figma-plugin'),
-          },
-        ],
+        targets: [manifestCopy],
       }),
     ],
     resolve: {
