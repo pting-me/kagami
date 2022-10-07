@@ -1,0 +1,16 @@
+*,
+:before,
+:after {
+  background-color: initial;
+  color: initial;
+  border-color: initial;
+}
+
+body {
+  font-family: initial;
+  font-size: initial;
+}
+
+svg {
+  fill: initial;
+}

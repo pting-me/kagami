@@ -3,6 +3,7 @@ import type { FC } from 'react';
 
 import PlaygroundDocs from './Playground.mdx';
 import Component, { type Props } from './exampleComponents/Button';
+import './reset.css';
 import createDefaultProps from './utils/createDefaultProps';
 
 const Children: FC = () => {
@@ -27,6 +28,11 @@ const meta: Meta<Props> = {
   },
   argTypes: {
     ref: {
+      table: {
+        disable: true,
+      },
+    },
+    children: {
       table: {
         disable: true,
       },
