@@ -1,11 +1,20 @@
 import type { Meta, Story } from '@storybook/react';
+import type { FC } from 'react';
 
 import PlaygroundDocs from './Playground.mdx';
 import Component, { type Props } from './exampleComponents/Button';
+import createDefaultProps from './utils/createDefaultProps';
 
-const defaultProps: Partial<Props> = {
-  /* add default props here */
-  children: 'Playground Component',
+const Children: FC = () => {
+  // Use this if you want to create a `children` property to pass into the component
+  return <>Playground story</>;
+};
+
+const renderChildren = () => <Children />;
+
+const defaultProps = {
+  ...createDefaultProps<Props>(Component),
+  children: renderChildren(),
 };
 
 const meta: Meta<Props> = {
@@ -14,6 +23,13 @@ const meta: Meta<Props> = {
   parameters: {
     docs: {
       page: PlaygroundDocs,
+    },
+  },
+  argTypes: {
+    ref: {
+      table: {
+        disable: true,
+      },
     },
   },
 };

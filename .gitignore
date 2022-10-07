@@ -1,7 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # Kagami specific
-kagami-manifest.json
+apps/figma-plugin-view/playground/components
 
 # compiled output
 /dist

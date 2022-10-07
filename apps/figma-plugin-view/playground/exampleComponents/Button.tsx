@@ -1,17 +1,29 @@
 import { CSSProperties, ComponentPropsWithRef, FC } from 'react';
 
-/**
- * Props
- */
-interface Props extends ComponentPropsWithRef<'div'> {
+interface BaseProps {
   /**
-   * Test
-   * @default {'default'}
+   * @default 'default'
    */
   size?: 'small' | 'default' | 'large';
+  /**
+   * @default 'default'
+   */
   variant?: 'default' | 'primary' | 'danger' | 'secondary';
+  /**
+   * @default false
+   */
   icon?: boolean;
+  /**
+   * @default 1
+   */
+  buttonId?: number;
+  size2?: 'small' | 'default' | 'large';
+  variant2?: 'default' | 'primary' | 'danger' | 'secondary';
+  icon2?: boolean;
+  buttonId2?: number;
 }
+
+type Props = BaseProps & ComponentPropsWithRef<'div'>;
 
 type VariantProperties = {
   [property: string]: unknown;
@@ -283,4 +295,4 @@ const Button: FC<Props> = (props: Props) => {
 };
 
 export default Button;
-export type { Props };
+export type { BaseProps, Props };
