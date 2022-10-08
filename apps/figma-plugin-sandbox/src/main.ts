@@ -1,7 +1,11 @@
+import camelCase from 'lodash.camelcase';
+import upperFirst from 'lodash.upperfirst';
+
 import {
   createHandleMessageFromView,
   createLogger,
   focusNode,
+  generateCode,
   getComponentNodes,
   getComponentSetNodes,
   postMessageToView,
@@ -16,8 +20,6 @@ logger.log('Sandbox is in development mode.');
 
 figma.showUI(__html__, { themeColors: true, width: 240, height: 427 });
 
-const componentSetNodes = getComponentSetNodes();
-
 postMessageToView({
   type: 'setComponentSetNodes',
   payload: getComponentSetNodes(),
@@ -28,14 +30,9 @@ postMessageToView({
   payload: getComponentNodes(),
 });
 
-logger.log(componentSetNodes);
-const primaryButton = componentSetNodes[3].children[1];
-logger.log(primaryButton.fillStyleId);
-if (typeof primaryButton.fillStyleId === 'symbol') {
-  logger.log('mixed');
-} else {
-  logger.log(figma.getStyleById(primaryButton.fillStyleId));
-}
+const isComponentSetNode = (node: BaseNode): node is ComponentSetNode => {
+  return node.type === 'COMPONENT_SET';
+};
 
 figma.ui.onmessage = createHandleMessageFromView((message: Message) => {
   switch (message.type) {
@@ -44,6 +41,30 @@ figma.ui.onmessage = createHandleMessageFromView((message: Message) => {
       const { id } = payload as Partial<ComponentNode>;
       logger.log(figma.getNodeById(id));
       focusNode({ id });
+      break;
+    }
+    case 'generateCode': {
+      const { payload } = message;
+      const { id } = payload as Partial<ComponentSetNode>;
+      const node = figma.getNodeById(id);
+
+      if (!node || !isComponentSetNode(node)) {
+        postMessageToView({
+          type: 'setFileInfo',
+          payload: { download: false, filename: 'NO_DATA', content: '' },
+        });
+      } else {
+        const filename = `${upperFirst(camelCase(node.name))}.tsx`;
+        const content = generateCode(node);
+        postMessageToView({
+          type: 'setFileInfo',
+          payload: {
+            download: true,
+            filename,
+            content,
+          },
+        });
+      }
       break;
     }
     default:

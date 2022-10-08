@@ -2,7 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
-    "types": ["node"]
+    "types": ["node", "./types/rollup-plugin-string"]
   },
-  "include": ["*.config.ts"]
+  "include": ["*.config.ts", "rollup.config.old.ts"]
 }

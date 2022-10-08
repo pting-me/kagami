@@ -8,7 +8,8 @@ import {
 import '@reach/accordion/styles.css';
 import camelCase from 'lodash.camelcase';
 import upperFirst from 'lodash.upperfirst';
-import { useCallback } from 'react';
+import { execPath } from 'process';
+import { MouseEvent, useCallback, useEffect } from 'react';
 
 import { AccordionIndicator, DownloadButton } from '@kagami/view-ui';
 
@@ -25,19 +26,27 @@ function NodeList(props: {
 }) {
   const { nodes, type } = props;
 
-  const getComponentFile = useCallback(
-    (index: number) => {
-      const node = nodes[index];
-      if (!node || !isComponentSetNode(node)) {
-        return { filename: 'NO_DATA', downloadData: '' };
-      }
+  // const getComponentFile = useCallback(
+  //   (index: number) => {
+  //     const node = nodes[index];
+  //     if (!node || !isComponentSetNode(node)) {
+  //       return { filename: 'NO_DATA', downloadData: '' };
+  //     }
 
-      const filename = `${upperFirst(camelCase(node.name))}.tsx`;
-      const downloadData = generateCode(node);
-      return { filename, downloadData };
-    },
-    [nodes]
-  );
+  //     const filename = `${upperFirst(camelCase(node.name))}.tsx`;
+  //     const downloadData = generateCode(node);
+  //     return { filename, downloadData };
+  //   },
+  //   [nodes]
+  // );
+
+  // useEffect(() => {}, []);
+
+  const handleDownloadClick =
+    (id: string) => (e: MouseEvent<HTMLButtonElement>) => {
+      e.preventDefault();
+      postMessageToSandbox({ type: 'generateCode', payload: { id } });
+    };
 
   const handleComponentClick = (id: string) => () => {
     postMessageToSandbox({ type: 'focusNode', payload: { id } });
@@ -49,7 +58,7 @@ function NodeList(props: {
         if (node.type !== type) {
           return null;
         }
-        const { filename, downloadData } = getComponentFile(index);
+        // const { filename, downloadData } = getComponentFile(index);
         return (
           <AccordionItem key={node.id}>
             {type === 'COMPONENT_SET' && (
@@ -62,15 +71,21 @@ function NodeList(props: {
                       <div>{node.name}</div>
                     </div>
                     <div>
-                      <DownloadButton
+                      <button
+                        className="flex h-4 w-4 items-center justify-center bg"
+                        aria-label="Download React code"
+                        onClick={handleDownloadClick(node.id)}
+                      >
+                        <ArrowDownTrayIcon />
+                      </button>
+                      {/* <DownloadButton
                         className="flex h-4 w-4 items-center justify-center bg"
                         aria-label="Download React code"
                         dataBlob={[downloadData]}
                         filename={filename}
                         disabled={!downloadData}
                       >
-                        <ArrowDownTrayIcon />
-                      </DownloadButton>
+                      </DownloadButton> */}
                     </div>
                   </div>
                 </AccordionButton>

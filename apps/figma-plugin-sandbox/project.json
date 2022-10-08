@@ -11,10 +11,10 @@
       "defaultConfiguration": "development",
       "configurations": {
         "development": {
-          "command": "rollup -c rollup.config.ts --configPlugin rollup-plugin-esbuild"
+          "command": "ts-node esbuild.config.ts"
         },
         "production": {
-          "command": "rollup -c rollup.config.ts --configPlugin rollup-plugin-esbuild --environment=BUILD:production"
+          "command": "ts-node esbuild.config.ts --environment=BUILD:production"
         }
       }
     },

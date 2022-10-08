@@ -7,6 +7,7 @@ import ViewContext, {
   Environment,
   initialContext,
 } from './ViewContext';
+import downloadFile from './downloadFile';
 
 interface Props extends PropsWithChildren {
   environment: Environment;
@@ -21,6 +22,18 @@ const DefaultProvider: FC<Props> = (props: Props) => {
         return { ...state, componentNodes: action.payload };
       case 'setComponentSetNodes':
         return { ...state, componentSetNodes: action.payload };
+      case 'setFileInfo': {
+        const { payload: fileInfo } = action;
+        const newState = { ...state, fileInfo };
+        const { content, download, filename } = fileInfo;
+
+        if (!download) {
+          return newState;
+        }
+
+        downloadFile({ filename, dataBlob: [content] });
+        return newState;
+      }
       default:
         return state;
     }
