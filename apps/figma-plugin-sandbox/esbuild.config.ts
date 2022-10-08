@@ -15,18 +15,22 @@ environment.split(',').forEach((pair: string) => {
   env[key] = value.length === 0 ? String(true) : value.join(':');
 });
 
-const plugins = [];
+const aliasConfig = {
+  './reactTs.hbs?raw': path.resolve(
+    __dirname,
+    '../..',
+    'libs/sandbox-features/src/generators/reactTs.hbs'
+  ),
+};
 
 if (env.BUILD === 'production') {
-  plugins.push(
-    alias({
-      './environments/environment': path.resolve(
-        __dirname,
-        'src/environments/environment.prod.ts'
-      ),
-    })
+  aliasConfig['./environments/environment'] = path.resolve(
+    __dirname,
+    'src/environments/environment.prod.ts'
   );
 }
+
+const plugins = [alias(aliasConfig)];
 
 esbuild
   .build({
@@ -37,6 +41,9 @@ esbuild
     minify: false,
     format: 'iife',
     target: ['chrome58', 'firefox57', 'safari11'],
+    loader: {
+      '.hbs': 'text',
+    },
     define: {
       // Handlebars uses window object
       // https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
