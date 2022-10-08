@@ -26,22 +26,6 @@ function NodeList(props: {
 }) {
   const { nodes, type } = props;
 
-  // const getComponentFile = useCallback(
-  //   (index: number) => {
-  //     const node = nodes[index];
-  //     if (!node || !isComponentSetNode(node)) {
-  //       return { filename: 'NO_DATA', downloadData: '' };
-  //     }
-
-  //     const filename = `${upperFirst(camelCase(node.name))}.tsx`;
-  //     const downloadData = generateCode(node);
-  //     return { filename, downloadData };
-  //   },
-  //   [nodes]
-  // );
-
-  // useEffect(() => {}, []);
-
   const handleDownloadClick =
     (id: string) => (e: MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
@@ -54,41 +38,32 @@ function NodeList(props: {
 
   return (
     <Accordion collapsible multiple>
-      {nodes.map((node, index) => {
+      {nodes.map((node) => {
         if (node.type !== type) {
           return null;
         }
-        // const { filename, downloadData } = getComponentFile(index);
+
         return (
           <AccordionItem key={node.id}>
             {type === 'COMPONENT_SET' && (
               <>
-                {/* TODO: Change to something other than button, for DOM validation */}
-                <AccordionButton className="pr-2 h-8 w-full border-brand-hover hover:border-y">
-                  <div className="flex items-center justify-between">
+                <div className="pr-2 h-8 w-full border-brand-hover hover:border-y flex items-stretch justify-between">
+                  <AccordionButton className="flex-grow">
                     <div className="flex items-center">
                       <AccordionIndicator />
                       <div>{node.name}</div>
                     </div>
-                    <div>
-                      <button
-                        className="flex h-4 w-4 items-center justify-center bg"
-                        aria-label="Download React code"
-                        onClick={handleDownloadClick(node.id)}
-                      >
-                        <ArrowDownTrayIcon />
-                      </button>
-                      {/* <DownloadButton
-                        className="flex h-4 w-4 items-center justify-center bg"
-                        aria-label="Download React code"
-                        dataBlob={[downloadData]}
-                        filename={filename}
-                        disabled={!downloadData}
-                      >
-                      </DownloadButton> */}
+                  </AccordionButton>
+
+                  <button
+                    aria-label="Download React code"
+                    onClick={handleDownloadClick(node.id)}
+                  >
+                    <div className="flex h-4 w-4 items-center justify-center bg">
+                      <ArrowDownTrayIcon />
                     </div>
-                  </div>
-                </AccordionButton>
+                  </button>
+                </div>
 
                 <AccordionPanel>
                   <NodeList
