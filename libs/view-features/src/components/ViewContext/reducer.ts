@@ -1,17 +1,23 @@
-import { ContextAction, ContextState } from './ViewContext';
+import { MessageFromSandbox } from '@kagami/types';
+
+import { ContextState } from './ViewContext';
 import downloadFile from './downloadFile';
 import formatWithPrettier from './formatWithPrettier';
 
-const reducer = (state: ContextState, action: ContextAction) => {
-  switch (action.type) {
+const reducer = (
+  state: ContextState,
+  action: MessageFromSandbox
+): ContextState => {
+  const { type, payload } = action;
+  switch (type) {
     case 'setComponentNodes':
-      return { ...state, componentNodes: action.payload };
+      return { ...state, componentNodes: payload };
     case 'setComponentSetNodes':
-      return { ...state, componentSetNodes: action.payload };
-    case 'setFileInfo': {
-      const { payload: fileInfo } = action;
-      const newState = { ...state, fileInfo };
-      const { content, download, filename } = fileInfo;
+      return { ...state, componentSetNodes: payload };
+    case 'setDownloadInfo': {
+      const { payload: downloadInfo } = action;
+      const newState = { ...state, downloadInfo };
+      const { content, download, filename } = downloadInfo;
 
       if (!download) {
         return newState;
@@ -19,7 +25,7 @@ const reducer = (state: ContextState, action: ContextAction) => {
 
       downloadFile({
         filename,
-        dataBlob: [formatWithPrettier(content as string)],
+        dataBlob: [formatWithPrettier(content)],
       });
       return newState;
     }

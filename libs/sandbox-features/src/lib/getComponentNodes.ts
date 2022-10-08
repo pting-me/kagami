@@ -1,5 +1,5 @@
-import enrichNode from './enrichNode';
 import hasChildrenMixin from './hasChildrenMixin';
+import hydrateNode from './hydrateNode';
 
 /**
  * Gets all component nodes that are not part of a component set
@@ -25,7 +25,7 @@ const getComponentNodes = (node?: BaseNode) => {
     return true;
   });
 
-  return componentNodes.map(enrichNode) as ComponentNode[];
+  return componentNodes.map(hydrateNode) as ComponentNode[];
 };
 
 export default getComponentNodes;

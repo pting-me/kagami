@@ -1,5 +1,5 @@
-import enrichNode from './enrichNode';
 import hasChildrenMixin from './hasChildrenMixin';
+import hydrateNode from './hydrateNode';
 
 /**
  * Gets all component set nodes under the current node
@@ -17,7 +17,7 @@ const getComponentSetNodes = (node?: BaseNode) => {
     types: ['COMPONENT_SET'],
   });
 
-  return componentSets.map(enrichNode) as (ComponentSetNode & {
+  return componentSets.map(hydrateNode) as (ComponentSetNode & {
     children: ComponentNode[];
   })[];
 };

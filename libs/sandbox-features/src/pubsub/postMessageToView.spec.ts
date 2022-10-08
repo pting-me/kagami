@@ -1,5 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 
+import { MessageToView } from '@kagami/types';
+
 import postMessageToSandbox from './postMessageToView';
 
 const mockPostMessage = vi.fn();
@@ -12,7 +14,15 @@ vi.stubGlobal('figma', {
 
 describe('postMessageToSandbox', () => {
   it('posts message to sandbox', () => {
-    postMessageToSandbox({ type: 'foo', payload: 'bar' });
-    expect(mockPostMessage).toHaveBeenCalledOnce();
+    const message: MessageToView = {
+      type: 'setDownloadInfo',
+      payload: {
+        download: false,
+        filename: 'foo',
+        content: 'bar',
+      },
+    };
+    postMessageToSandbox(message);
+    expect(mockPostMessage).toHaveBeenCalledWith(message);
   });
 });

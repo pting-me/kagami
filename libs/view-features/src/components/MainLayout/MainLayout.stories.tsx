@@ -1,14 +1,14 @@
 import type { Meta, Story } from '@storybook/react';
 
-import mockManifest from '../../mock/context.json';
-import ViewContext from '../ViewContext';
+import mockContext from '../../mock/context.json';
+import ViewContext, { ContextState } from '../ViewContext';
 import MainLayout from './MainLayout';
 
 const meta: Meta = {
   title: 'MainLayout',
   component: MainLayout,
   argTypes: {
-    width: { control: 'number', defaultValue: 240 },
+    width: { control: 'number', defaultValue: 320 },
     height: { control: 'number', defaultValue: 427 },
   },
 };
@@ -18,18 +18,13 @@ interface StoryArgs {
   height: number;
 }
 
-interface MockManifestProps {
-  componentNodes: ComponentNode[];
-  componentSetNodes: ComponentSetNode[];
-}
-
 const Development: Story<StoryArgs> = {
   render: (args) => {
     const { width, height } = args;
     return (
       <ViewContext.Provider
         value={{
-          ...(mockManifest as unknown as MockManifestProps),
+          ...(mockContext as unknown as ContextState),
           environment: { production: false },
         }}
       >
@@ -50,7 +45,7 @@ const Production: Story<StoryArgs> = {
     return (
       <ViewContext.Provider
         value={{
-          ...(mockManifest as unknown as MockManifestProps),
+          ...(mockContext as unknown as ContextState),
           environment: { production: true },
         }}
       >

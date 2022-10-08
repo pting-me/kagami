@@ -1,12 +1,9 @@
-interface Message {
-  type: string;
-  payload: unknown;
-}
+import { MessageToSandbox } from '@kagami/types';
 
 /**
  * Publishes a message to the sandbox
  */
-const postMessageToSandbox = (pluginMessage: Message) => {
+const postMessageToSandbox = (pluginMessage: MessageToSandbox) => {
   window.parent.postMessage({ pluginMessage }, '*');
 };
 

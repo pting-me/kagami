@@ -1,1 +1,0 @@
-import '@kagami/types/hbs';

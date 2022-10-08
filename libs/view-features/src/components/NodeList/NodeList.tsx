@@ -6,25 +6,35 @@ import {
   AccordionPanel,
 } from '@reach/accordion';
 import '@reach/accordion/styles.css';
-import camelCase from 'lodash.camelcase';
-import upperFirst from 'lodash.upperfirst';
-import { execPath } from 'process';
-import { MouseEvent, useCallback, useEffect } from 'react';
+import { MouseEvent } from 'react';
 
-import { AccordionIndicator, DownloadButton } from '@kagami/view-ui';
+import {
+  DryBaseNode,
+  HydratedComponentNode,
+  HydratedComponentSetNode,
+} from '@kagami/types';
+import { AccordionIndicator } from '@kagami/view-ui';
 
-import generateCode from '../../generators/generateCode';
 import postMessageToSandbox from '../../pubsub/postMessageToSandbox';
 
-const isComponentSetNode = (node: BaseNode): node is ComponentSetNode => {
-  return node.type === 'COMPONENT_SET';
+type NodeWithChildren<N = DryBaseNode, C = DryBaseNode> = N & {
+  children: C[];
 };
 
+const hasChildren = <N, C>(node: N): node is NodeWithChildren<N, C> => {
+  return Object.prototype.hasOwnProperty.call(node, 'children');
+};
+
+const isComponent = (node: DryBaseNode): node is HydratedComponentNode =>
+  node.type === 'COMPONENT';
+const isComponentSet = (node: DryBaseNode): node is HydratedComponentSetNode =>
+  node.type === 'COMPONENT_SET';
+
 function NodeList(props: {
-  nodes: BaseNode[];
+  nodes: DryBaseNode[];
   type: 'COMPONENT_SET' | 'COMPONENT';
 }) {
-  const { nodes, type } = props;
+  const { nodes, type: specifiedType } = props;
 
   const handleDownloadClick =
     (id: string) => (e: MouseEvent<HTMLButtonElement>) => {
@@ -36,50 +46,57 @@ function NodeList(props: {
     postMessageToSandbox({ type: 'focusNode', payload: { id } });
   };
 
+  if (nodes.length === 0) {
+    return null;
+  }
+
   return (
     <Accordion collapsible multiple>
       {nodes.map((node) => {
-        if (node.type !== type) {
+        const { type, id, name = 'Unknown component' } = node;
+
+        if (type !== specifiedType) {
           return null;
         }
 
         return (
-          <AccordionItem key={node.id}>
-            {type === 'COMPONENT_SET' && (
+          <AccordionItem key={id}>
+            {isComponentSet(node) && (
               <>
                 <div className="pr-2 h-8 w-full border-brand-hover hover:border-y flex items-stretch justify-between">
                   <AccordionButton className="flex-grow">
                     <div className="flex items-center">
                       <AccordionIndicator />
-                      <div>{node.name}</div>
+                      <div>{name}</div>
                     </div>
                   </AccordionButton>
 
                   <button
                     aria-label="Download React code"
-                    onClick={handleDownloadClick(node.id)}
+                    onClick={handleDownloadClick(id)}
                   >
-                    <div className="flex h-4 w-4 items-center justify-center bg">
+                    <div className="flex h-4 w-4 mr-2 items-center justify-center bg">
                       <ArrowDownTrayIcon />
                     </div>
                   </button>
                 </div>
 
-                <AccordionPanel>
-                  <NodeList
-                    nodes={node.children as ComponentNode[]}
-                    type="COMPONENT"
-                  />
-                </AccordionPanel>
+                {hasChildren<HydratedComponentSetNode, HydratedComponentNode>(
+                  node
+                ) && (
+                  <AccordionPanel>
+                    <NodeList nodes={node.children} type="COMPONENT" />
+                  </AccordionPanel>
+                )}
               </>
             )}
-            {type === 'COMPONENT' && (
+            {isComponent(node) && (
               <button
                 className="px-4 h-8 flex items-center text-left w-full border-brand-hover hover:border-y"
-                onClick={handleComponentClick(node.id)}
+                onClick={handleComponentClick(id)}
               >
                 <div className="box-border overflow-ellipsis whitespace-nowrap overflow-hidden">
-                  {node.name}
+                  {name}
                 </div>
               </button>
             )}

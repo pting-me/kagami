@@ -1,7 +1,9 @@
+import { MessageToView } from '@kagami/types';
+
 /**
  * Publishes a message to the view
  */
-const postMessageToView = (pluginMessage: any) => {
+const postMessageToView = (pluginMessage: MessageToView) => {
   figma.ui.postMessage(pluginMessage);
 };
 

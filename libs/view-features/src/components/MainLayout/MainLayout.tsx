@@ -50,7 +50,7 @@ export function MainLayout() {
         </div>
       </div>
       <div className="py-2 border-t">
-        <h1 className="py-2 px-4 font-bold">Components</h1>
+        <h1 className="py-2 px-4 font-bold">Standalone Components</h1>
         <div className="py-2 px-4 text-secondary">
           Currently only component sets are available for download.
         </div>

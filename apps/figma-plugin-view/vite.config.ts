@@ -18,17 +18,6 @@ if (isProd) {
   });
 }
 
-const manifestCopy = isProd
-  ? {
-      src: path.resolve(__dirname, 'src/assets/manifest.prod.json'),
-      dest: path.resolve(__dirname, '../../dist/figma-plugin'),
-      rename: 'manifest.json',
-    }
-  : {
-      src: path.resolve(__dirname, 'src/assets/manifest.json'),
-      dest: path.resolve(__dirname, '../../dist/figma-plugin'),
-    };
-
 export default defineConfig(
   mergeConfig(getViteConfig(__dirname), {
     test: {
@@ -39,7 +28,12 @@ export default defineConfig(
       react(),
       viteSingleFile(),
       viteStaticCopy({
-        targets: [manifestCopy],
+        targets: [
+          {
+            src: path.resolve(__dirname, 'src/assets/manifest.json'),
+            dest: path.resolve(__dirname, '../../dist/figma-plugin'),
+          },
+        ],
       }),
     ],
     resolve: {
