@@ -38,7 +38,14 @@ const meta: Meta<Props> = {
 };
 
 const Default: Story<Props> = {
-  args: defaultProps,
+  args: {
+    ...defaultProps,
+    iconInstance: (
+      <div
+        style={{ backgroundColor: 'white', height: '100%', width: '100%' }}
+      ></div>
+    ),
+  },
   render: (args) => {
     return <Component {...args} />;
   },

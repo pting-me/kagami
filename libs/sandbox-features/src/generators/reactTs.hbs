@@ -6,37 +6,18 @@ import {
   ReactNode,
 } from 'react';
 
-interface NodeProps {
-{{#each this.childNodePropNames}}
-  {{#if (isInstance this.type)}}
-    {{this.name}}?: ReactElement | null;
-  {{/if}}
-  {{#if (isText this.type)}}
-    {{this.name}}?: string;
-  {{/if}}
-{{/each}}
-}
-
-interface Props extends ComponentPropsWithRef<'div'>, NodeProps {
-{{#each (mapPropNames this.componentSetNode.variantGroupProperties)}}
-  {{#if this.isBoolean}}
-    {{this.property}}?: boolean;
-  {{/if}}
-  {{#if this.isNumber}}
-    {{this.property}}: number;
-  {{/if}}
-  {{#if this.isString}}
-    {{this.property}}{{#if this.hasDefaultValue}}?{{/if}}:
-    {{#each this.values}}
-    | '{{camelCase this}}'
-    {{/each}};
-  {{/if}}
-{{/each}}
-}
+// START COMMON SECTION
+// This section is the same for all properties.
+// You may want to put these in a separate file and import them.
 
 type VariantProperties = {
   [property: string]: unknown;
 } | null;
+
+interface ComputedProps {
+  style?: CSSProperties;
+  children?: ReactNode;
+}
 
 const serializeProperties = (variantProperties: VariantProperties) => {
   if (!variantProperties) {
@@ -56,26 +37,46 @@ const serializeProperties = (variantProperties: VariantProperties) => {
   );
 };
 
-interface ComputedProps {
-  style?: CSSProperties;
-  children?: ReactNode;
+// END COMMON SECTION
+
+interface NodeProps {
+{{#each this.childNodeProps}}
+  {{this.name}}?: {{this.reactTsType}}
+{{/each}}
 }
 
-const getProps = (variantProperties: VariantProperties): ComputedProps => {
+interface Props extends ComponentPropsWithRef<'div'>, NodeProps {
+{{#each this.variantProps}}
+  {{this.name}}{{#if this.required}}?{{/if}}: {{{this.reactTsType}}};
+{{/each}}
+}
+
+interface GetPropsOptions {
+  variantProperties: VariantProperties;
+  nodeProps: NodeProps;
+}
+
+const getProps = (options: GetPropsOptions): ComputedProps => {
+  const { variantProperties, nodeProps } = options;
+  const {
+    {{#each this.childNodeProps}}
+      {{this.name}},
+    {{/each}}
+  } = nodeProps;
+
   const serialized = serializeProperties(variantProperties);
   switch (serialized) {
-    {{#each this.mappedComponents}}
-    case '{{this.serialized}}': 
+    {{#each this.components}}
+    case '{{this.serial}}': 
       return {
-        style: {
-          borderRadius: '{{this.borderRadius}}',
-          backgroundColor: '{{this.backgroundColor}}',
-          borderWidth: '{{this.borderWidth}}',
-          borderColor: '{{this.borderColor}}',
-          borderStyle: '{{this.borderStyle}}',
-          padding: '{{this.padding}}',
-        },
-        children: <div></div>,
+        style: {{{this.style}}},
+        children: <>
+          {{#each this.children}}
+          <div style={ {{{this.style}}} }>
+            { {{this.name}}{{#if this.defaultValue}} ?? {{{this.defaultValue}}}{{/if}} }
+          </div>
+          {{/each}}
+        </>,
       };
     {{/each}}
     default:
@@ -83,30 +84,38 @@ const getProps = (variantProperties: VariantProperties): ComputedProps => {
   }
 };
 
-const {{pascalCase this.componentSetNode.name}}: FC<Props> = (props: Props) => {
+const {{this.name}}: FC<Props> = (props: Props) => {
   const {
     children: childrenOverride,
-    {{#each (mapPropNames this.componentSetNode.variantGroupProperties)}}
-      {{this.property}}
-        {{#if this.isBoolean}}=false{{/if}}
-        {{#if this.hasDefaultValue}}='default'{{/if}}
-      ,
-    {{/each}}style: styleOverride,
+    {{#each this.variantProps}}
+      {{this.name}}{{#if this.defaultValue}}={{{this.defaultValue}}}{{/if}},
+    {{/each}}
+    {{#each this.childNodeProps}}
+      {{this.name}},
+    {{/each}}
+    style: styleOverride,
     ...rest
   } = props;
 
   const { style, children } = getProps({
-    size,
-    variant,
-    icon,
+    variantProperties: {
+    {{#each this.variantProps}}
+      {{this.name}},
+    {{/each}}
+    },
+    nodeProps: {
+    {{#each this.childNodeProps}}
+      {{this.name}},
+    {{/each}}
+    },
   });
 
   return (
     <div style={ { ...style, ...styleOverride } } {...rest}>
-      {childrenOverride}
+      {childrenOverride ?? children}
     </div>
   );
 };
 
-export default {{pascalCase this.componentSetNode.name}};
+export default {{this.name}};
 export type { Props };

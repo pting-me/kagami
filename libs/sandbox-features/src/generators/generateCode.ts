@@ -1,21 +1,51 @@
 import handlebars from 'handlebars';
 import camelCase from 'lodash.camelcase';
 import upperFirst from 'lodash.upperfirst';
+import { CSSProperties } from 'react';
 
 import reactTs from './reactTs.hbs?raw';
-
-export const pascalCase = (text: string) => upperFirst(camelCase(text));
 
 /**
  * Copied from plugin-api under ComponentSetNode
  */
-interface VariantGroupProperties {
-  [property: string]: { values: string[] };
-}
-
 type VariantProperties = {
   [property: string]: string;
 } | null;
+
+interface ChildNodePropHbsData {
+  name: string;
+  figmaNodeType: BaseNode['type']; // comes from SceneNode
+  reactTsType: string; // calculated from figmaNodeType
+}
+
+interface VariantPropHbsData {
+  name: string;
+  required: boolean;
+  defaultValue: string;
+  reactTsType: string;
+}
+
+interface ComponentHbsData {
+  serial: string;
+  style: string;
+  children: ComponentChildHbsData[];
+}
+
+interface ComponentChildHbsData {
+  name: string;
+  figmaNodeType: BaseNode['type']; // comes from SceneNode
+  style: string;
+  defaultValue: string;
+}
+
+interface HbsData {
+  childNodeProps: ChildNodePropHbsData[];
+  variantProps: VariantPropHbsData[];
+  components: ComponentHbsData[];
+  name: string;
+}
+
+export const pascalCase = (text: string) => upperFirst(camelCase(text));
 
 export const valuesAreNumbers = (values: string[]) => {
   return values.reduce(
@@ -86,29 +116,27 @@ const hasFillsMixin = (
   return fillsType !== 'undefined' && fillsType !== 'symbol';
 };
 
-const getBackgroundColor = (node: SceneNode) => {
+const getFillColor = (node: SceneNode) => {
   if (!hasFillsMixin(node) || typeof node.fills === 'symbol') {
     return '';
   }
 
-  const visibleBackgrounds = (node.fills ?? []).filter(
-    ({ visible }) => visible
-  );
-  if (visibleBackgrounds.length === 0) {
+  const visibleFills = (node.fills ?? []).filter(({ visible }) => visible);
+  if (visibleFills.length === 0) {
     return '';
   }
 
   // TODO add support for multiple layers
-  // TODO add support for other background types
-  const firstBackground = visibleBackgrounds[0];
-  if (firstBackground.type !== 'SOLID') {
+  // TODO add support for other fill types
+  const firstFill = visibleFills[0];
+  if (firstFill.type !== 'SOLID') {
     return '';
   }
 
   const {
     color: { r = 0, g = 0, b = 0 },
     opacity = 1,
-  } = firstBackground;
+  } = firstFill;
 
   return `rgba(${Math.round(r * 255)},${Math.round(g * 255)},${Math.round(
     b * 255
@@ -146,19 +174,19 @@ const hasMinimalStrokesMixin = (
 
 const getBorder = (node: SceneNode) => {
   if (!hasMinimalStrokesMixin(node)) {
-    return { style: '', color: '' };
+    return { borderStyle: '', borderColor: '' };
   }
 
   const visibleStrokes = (node.strokes ?? []).filter(({ visible }) => visible);
   if (visibleStrokes.length === 0) {
-    return { style: 'none', color: 'initial' };
+    return { borderStyle: 'none', borderColor: 'initial' };
   }
 
   // TODO add support for multiple layers
   // TODO add support for other background types(?)
   const firstStroke = visibleStrokes[0];
   if (firstStroke.type !== 'SOLID') {
-    return { style: 'none', color: 'initial' };
+    return { borderStyle: 'none', borderColor: 'initial' };
   }
 
   const {
@@ -167,10 +195,10 @@ const getBorder = (node: SceneNode) => {
   } = firstStroke;
 
   return {
-    style: 'solid',
-    color: `rgba(${Math.round(r * 255)},${Math.round(g * 255)},${Math.round(
-      b * 255
-    )},${opacity ?? 1});`,
+    borderStyle: 'solid',
+    borderColor: `rgba(${Math.round(r * 255)},${Math.round(
+      g * 255
+    )},${Math.round(b * 255)},${opacity ?? 1});`,
   };
 };
 
@@ -178,20 +206,6 @@ const hasBaseFrameMixin = (
   node: SceneNode
 ): node is SceneNode & BaseFrameMixin => {
   return (node as SceneNode & BaseFrameMixin).paddingTop !== undefined;
-};
-
-const getPadding = (node: SceneNode) => {
-  if (!hasBaseFrameMixin(node)) {
-    return '';
-  }
-
-  const {
-    paddingTop = 0,
-    paddingRight = 0,
-    paddingBottom = 0,
-    paddingLeft = 0,
-  } = node;
-  return `${paddingTop}px ${paddingRight}px ${paddingBottom}px ${paddingLeft}px`;
 };
 
 const isTextNode = (node: SceneNode): node is TextNode => {
@@ -218,14 +232,49 @@ const getFont = (node: SceneNode) => {
   }
 
   const fontFamily =
-    typeof node.fontName === 'symbol' ? '' : node.fontName.family;
+    typeof node.fontName === 'symbol'
+      ? 'sans-serif'
+      : `${node.fontName.family}, sans-serif`;
 
-  const fontSize = typeof node.fontSize === 'symbol' ? '' : node.fontSize;
-  const fontWeight = typeof node.fontWeight === 'symbol' ? '' : node.fontWeight;
+  const fontSize =
+    typeof node.fontSize === 'symbol' ? '' : `${node.fontSize}px`;
+  const fontWeight =
+    typeof node.fontWeight === 'symbol' ? '' : String(node.fontWeight);
 
   const lineHeight = getLineHeight(node.lineHeight);
 
   return { fontFamily, fontSize, fontWeight, lineHeight };
+};
+
+interface ComputeStyleOptions {
+  baseStyle: CSSProperties;
+  boxStyle: CSSProperties;
+  type: SceneNode['type'];
+}
+
+const computeStyle = (options: ComputeStyleOptions) => {
+  const { baseStyle, boxStyle, type } = options;
+  if (type === 'TEXT') {
+    return JSON.stringify(baseStyle);
+  }
+
+  return JSON.stringify({ ...baseStyle, ...boxStyle });
+};
+
+const computeDefaultValue = (node: SceneNode) => {
+  if (node.type === 'TEXT') {
+    return `'${node.characters}'`;
+  }
+
+  if (node.type === 'INSTANCE') {
+    return `
+      <div
+        style={{ backgroundColor: 'white', height: '100%', width: '100%' }}
+      ></div>
+    `;
+  }
+
+  return '';
 };
 
 interface GetChildNodesOptions {
@@ -233,19 +282,21 @@ interface GetChildNodesOptions {
   registeredNames: string[];
 }
 
-const getChildNodes = (options: GetChildNodesOptions) => {
+const getComponentChildren = (options: GetChildNodesOptions) => {
   const { node, registeredNames: baseRegisteredNames } = options;
   const { children } = node;
 
   if (!children?.length) {
-    return null;
+    return [];
   }
 
+  // Array.map creates a new array so we don't have to worry
+  // about altering content
   const registeredNames = baseRegisteredNames.map(camelCase);
 
   return children.map((childNode) => {
     const { name, type } = childNode;
-    const { color, style } = getBorder(childNode);
+    const { borderColor, borderStyle } = getBorder(childNode);
     const { fontFamily, fontSize, fontWeight, lineHeight } = getFont(childNode);
 
     // Get rid of property name conflicts
@@ -253,7 +304,7 @@ const getChildNodes = (options: GetChildNodesOptions) => {
     let newName = camelCase(name);
 
     if (registeredNames.includes(newName)) {
-      newName += 'Node';
+      newName += pascalCase(type);
     }
 
     while (registeredNames.includes(newName)) {
@@ -266,20 +317,31 @@ const getChildNodes = (options: GetChildNodesOptions) => {
 
     registeredNames.push(newName);
 
-    return {
-      type,
-      name: newName,
+    const baseStyle: CSSProperties = {
       borderRadius: getBorderRadius(childNode),
-      backgroundColor: getBackgroundColor(childNode),
+      color: getFillColor(childNode),
       borderWidth: getBorderWidth(node),
-      borderColor: color,
-      borderStyle: style,
-      padding: getPadding(node),
+      borderColor: borderColor,
+      borderStyle: borderStyle,
       fontFamily,
       fontSize,
       fontWeight,
       lineHeight,
     };
+
+    const boxStyle: CSSProperties = {
+      width: `${childNode.width}px`,
+      height: `${childNode.height}px`,
+    };
+
+    const child: ComponentChildHbsData = {
+      name: newName,
+      figmaNodeType: type,
+      style: computeStyle({ baseStyle, boxStyle, type }),
+      defaultValue: computeDefaultValue(childNode),
+    };
+
+    return child;
   });
 };
 
@@ -287,25 +349,39 @@ const getChildNodes = (options: GetChildNodesOptions) => {
 //   return (node as SceneNode & ChildrenMixin).children !== undefined;
 // };
 
-const getChildNodePropNames = (
-  mappedComponents: ReturnType<typeof mapComponents>
-) => {
+const mapFigmaNodeToReact = (type: BaseNode['type']) => {
+  switch (type) {
+    case 'TEXT':
+      return 'string';
+    default:
+      return 'ReactElement | null';
+  }
+};
+
+const getChildNodeProps = (
+  components: ComponentHbsData[]
+): ChildNodePropHbsData[] => {
   const nodes: Record<string, BaseNode['type']> = {};
-  mappedComponents.forEach((mappedComponent) => {
-    const { children } = mappedComponent;
-    if (!children) {
-      return null;
+  components.forEach((component) => {
+    const { children } = component;
+    if (!children.length) {
+      return;
     }
 
     children.forEach((child) => {
-      const { name, type } = child;
-      nodes[name] = type;
+      const { name, figmaNodeType } = child;
+      nodes[name] = figmaNodeType;
     });
   });
-  return Object.entries(nodes).map(([nodeName, nodeType]) => ({
-    name: nodeName,
-    type: nodeType,
-  }));
+
+  return Object.entries(nodes).map(([nodeName, nodeType]) => {
+    const childNodeProp: ChildNodePropHbsData = {
+      name: nodeName,
+      figmaNodeType: nodeType,
+      reactTsType: mapFigmaNodeToReact(nodeType),
+    };
+    return childNodeProp;
+  });
 };
 
 // const getChildNodePropNames = (componentSetNode: ComponentSetNode) => {
@@ -327,54 +403,144 @@ const getChildNodePropNames = (
 //   }));
 // };
 
-export const mapComponents = (componentNodes: ComponentNode[]) =>
-  componentNodes.map((node) => {
-    const { color, style } = getBorder(node);
+const getPadding = (node: SceneNode) => {
+  if (!hasBaseFrameMixin(node)) {
+    return '';
+  }
 
-    const map = {
-      serialized: serializeProperties(node.variantProperties),
+  const {
+    paddingTop = 0,
+    paddingRight = 0,
+    paddingBottom = 0,
+    paddingLeft = 0,
+  } = node;
+  return `${paddingTop}px ${paddingRight}px ${paddingBottom}px ${paddingLeft}px`;
+};
+
+const getBaseFrameStyles = (node: SceneNode) => {
+  if (!hasBaseFrameMixin(node)) {
+    return { padding: '', gap: '' };
+  }
+
+  const padding = getPadding(node);
+
+  const { itemSpacing } = node;
+  const gap = `${itemSpacing}px`;
+
+  // TODO calculate non flex
+  const display = 'flex';
+  const alignItems = 'center';
+
+  return { padding, gap, display, alignItems };
+};
+
+const getComponentData = (componentSetNode: ComponentSetNode) => {
+  const componentNodes = componentSetNode.children as ComponentNode[];
+  const registeredNames = Object.keys(
+    componentSetNode.variantGroupProperties
+  ).map(camelCase);
+
+  return componentNodes.map((node) => {
+    const { borderColor, borderStyle } = getBorder(node);
+    const { padding, gap, display, alignItems } = getBaseFrameStyles(node);
+
+    const style: CSSProperties = {
       borderRadius: getBorderRadius(node),
-      backgroundColor: getBackgroundColor(node),
+      backgroundColor: getFillColor(node),
       borderWidth: getBorderWidth(node),
-      borderColor: color,
-      borderStyle: style,
-      padding: getPadding(node),
-      children: getChildNodes({
+      borderColor,
+      borderStyle,
+      padding,
+      gap,
+      display,
+      alignItems,
+    };
+
+    const map: ComponentHbsData = {
+      serial: serializeProperties(node.variantProperties),
+      style: JSON.stringify(style),
+      children: getComponentChildren({
         node,
-        registeredNames: Object.keys(node.variantProperties ?? {}).map(
-          camelCase
-        ),
+        registeredNames,
       }),
     };
 
     return map;
   });
+};
 
-export const mapPropNames = (
-  variantGroupProperties: VariantGroupProperties
-) => {
+// export const mapComponents = (componentNodes: ComponentNode[]) => {
+//   const registeredNames= Object.keys(node.variantProperties ?? {}).map(
+//     camelCase
+//   )
+// }
+
+// export const mapPropNames = (
+//   variantGroupProperties: VariantGroupProperties
+// ) => {
+//   return Object.entries(variantGroupProperties).map(
+//     ([rawProperty, { values }]) => {
+//       const property = camelCase(rawProperty);
+
+//       if (valuesAreBooleans(values)) {
+//         return {
+//           property,
+//           isBoolean: true,
+//         };
+//       } else if (valuesAreNumbers(values)) {
+//         return {
+//           property,
+//           isNumber: true,
+//         };
+//       }
+
+//       return {
+//         property: camelCase(property),
+//         isString: true,
+//         hasDefaultValue: valuesHaveDefault(values),
+//         values,
+//       };
+//     }
+//   );
+// };
+
+const getVariantProps = (componentSetNode: ComponentSetNode) => {
+  const { variantGroupProperties } = componentSetNode;
+
   return Object.entries(variantGroupProperties).map(
-    ([rawProperty, { values }]) => {
-      const property = camelCase(rawProperty);
+    ([rawPropertyName, { values }]) => {
+      const name = camelCase(rawPropertyName);
 
       if (valuesAreBooleans(values)) {
-        return {
-          property,
-          isBoolean: true,
+        const variantProp: VariantPropHbsData = {
+          name,
+          reactTsType: 'boolean',
+          required: false,
+          defaultValue: 'false',
         };
-      } else if (valuesAreNumbers(values)) {
-        return {
-          property,
-          isNumber: true,
-        };
+        return variantProp;
       }
 
-      return {
-        property: camelCase(property),
-        isString: true,
-        hasDefaultValue: valuesHaveDefault(values),
-        values,
+      if (valuesAreNumbers(values)) {
+        const variantProp: VariantPropHbsData = {
+          name,
+          reactTsType: 'number',
+          required: true,
+          defaultValue: '',
+        };
+        return variantProp;
+      }
+
+      const hasDefault = valuesHaveDefault(values);
+
+      const variantProp: VariantPropHbsData = {
+        name,
+        reactTsType: values.reduce((acc, value) => `${acc} | '${value}'`, ''),
+        required: !hasDefault,
+        defaultValue: hasDefault ? "'default'" : '',
       };
+
+      return variantProp;
     }
   );
 };
@@ -382,43 +548,55 @@ export const mapPropNames = (
 const isInstance = (s: string) => s === 'INSTANCE';
 const isText = (s: string) => s === 'TEXT';
 
-interface HbsData {
-  componentSetNode: ComponentSetNode;
-  mappedComponents: ReturnType<typeof mapComponents>;
-  childNodePropNames: ReturnType<typeof getChildNodePropNames>;
-}
-
 const generateCode = (componentSetNode: ComponentSetNode) => {
-  handlebars.registerHelper({
-    camelCase,
-    pascalCase,
-    mapComponents,
-    mapPropNames,
-    getChildNodePropNames,
-    isInstance,
-    isText,
-  });
-  const delegate = handlebars.compile(reactTs);
-
-  const mappedComponents =
-    mapComponents(componentSetNode.children as ComponentNode[]) ?? [];
-  const childNodePropNames = getChildNodePropNames(mappedComponents);
-
+  const components = getComponentData(componentSetNode);
+  const variantProps = getVariantProps(componentSetNode);
+  const childNodeProps = getChildNodeProps(components);
+  const name = pascalCase(componentSetNode.name);
   const hbsData: HbsData = {
-    componentSetNode,
-    mappedComponents,
-    childNodePropNames,
+    components,
+    variantProps,
+    childNodeProps,
+    name,
   };
-
-  const fileContent = delegate(hbsData, {
-    allowedProtoProperties: {
-      variantGroupProperties: true,
-      children: true,
-      name: true,
-    },
-  });
+  console.log(hbsData);
+  const delegate = handlebars.compile(reactTs);
+  const fileContent = delegate(hbsData);
 
   return fileContent;
 };
+
+// const generateCode = (componentSetNode: ComponentSetNode) => {
+//   handlebars.registerHelper({
+//     camelCase,
+//     pascalCase,
+//     mapComponents,
+//     mapPropNames,
+//     getChildNodePropNames,
+//     isInstance,
+//     isText,
+//   });
+//   const delegate = handlebars.compile(reactTs);
+
+//   const mappedComponents =
+//     mapComponents(componentSetNode.children as ComponentNode[]) ?? [];
+//   const childNodePropNames = getChildNodePropNames(mappedComponents);
+
+//   const hbsData: HbsData = {
+//     componentSetNode,
+//     mappedComponents,
+//     childNodePropNames,
+//   };
+
+//   const fileContent = delegate(hbsData, {
+//     allowedProtoProperties: {
+//       variantGroupProperties: true,
+//       children: true,
+//       name: true,
+//     },
+//   });
+
+//   return fileContent;
+// };
 
 export default generateCode;
