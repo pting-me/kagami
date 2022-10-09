@@ -1,6 +1,18 @@
-import { CSSProperties, ComponentPropsWithRef, FC, ReactNode } from 'react';
+import {
+  CSSProperties,
+  ComponentPropsWithRef,
+  FC,
+  ReactElement,
+  ReactNode,
+} from 'react';
 
-interface Props extends ComponentPropsWithRef<'div'> {
+interface NodeProps {
+  label?: string;
+  secondary?: string;
+  iconNode?: ReactElement | null;
+}
+
+interface Props extends ComponentPropsWithRef<'div'>, NodeProps {
   size?: 'small' | 'default' | 'large';
   variant?: 'default' | 'primary' | 'danger' | 'secondary';
   icon?: boolean;

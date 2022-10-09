@@ -1,7 +1,24 @@
-import { CSSProperties, ComponentPropsWithRef, FC, ReactNode } from 'react';
+import {
+  CSSProperties,
+  ComponentPropsWithRef,
+  FC,
+  ReactElement,
+  ReactNode,
+} from 'react';
 
-interface Props extends ComponentPropsWithRef<'div'> {
-{{#each (mapPropNames this.variantGroupProperties)}}
+interface NodeProps {
+{{#each this.childNodePropNames}}
+  {{#if (isInstance this.type)}}
+    {{this.name}}?: ReactElement | null;
+  {{/if}}
+  {{#if (isText this.type)}}
+    {{this.name}}?: string;
+  {{/if}}
+{{/each}}
+}
+
+interface Props extends ComponentPropsWithRef<'div'>, NodeProps {
+{{#each (mapPropNames this.componentSetNode.variantGroupProperties)}}
   {{#if this.isBoolean}}
     {{this.property}}?: boolean;
   {{/if}}
@@ -47,7 +64,7 @@ interface ComputedProps {
 const getProps = (variantProperties: VariantProperties): ComputedProps => {
   const serialized = serializeProperties(variantProperties);
   switch (serialized) {
-    {{#each (mapComponents this.children)}}
+    {{#each this.mappedComponents}}
     case '{{this.serialized}}': 
       return {
         style: {
@@ -66,10 +83,10 @@ const getProps = (variantProperties: VariantProperties): ComputedProps => {
   }
 };
 
-const {{pascalCase this.name}}: FC<Props> = (props: Props) => {
+const {{pascalCase this.componentSetNode.name}}: FC<Props> = (props: Props) => {
   const {
     children: childrenOverride,
-    {{#each (mapPropNames this.variantGroupProperties)}}
+    {{#each (mapPropNames this.componentSetNode.variantGroupProperties)}}
       {{this.property}}
         {{#if this.isBoolean}}=false{{/if}}
         {{#if this.hasDefaultValue}}='default'{{/if}}
@@ -91,5 +108,5 @@ const {{pascalCase this.name}}: FC<Props> = (props: Props) => {
   );
 };
 
-export default {{pascalCase this.name}};
+export default {{pascalCase this.componentSetNode.name}};
 export type { Props };

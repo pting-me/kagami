@@ -2,12 +2,19 @@ import { useContext } from 'react';
 
 import { DownloadButton } from '@kagami/view-ui';
 
+import useLogger from '../../utils/useLogger';
 import NodeList from '../NodeList';
 import ViewContext from '../ViewContext';
 
 export function MainLayout() {
   const context = useContext(ViewContext);
   const { componentNodes, componentSetNodes } = context;
+
+  const logger = useLogger();
+
+  const handleLogContext = () => {
+    logger.log(context);
+  };
 
   return (
     <div className="pb-4">
@@ -21,15 +28,22 @@ export function MainLayout() {
           <div className="py-2">
             <code>pnpm build-prod</code>
           </div>
-          <div className="py-2">
+          <div className="py-2 flex">
             <DownloadButton
               className="flex h-4 p-4 border border-onwarning rounded items-center justify-center bg"
-              aria-label="Download raw data"
+              aria-label="Download Context"
               dataBlob={[JSON.stringify(context)]}
               filename={'context.json'}
             >
-              Download raw data
+              Download Context
             </DownloadButton>
+            <button
+              className="flex h-4 ml-4 p-4 border border-onwarning rounded items-center justify-center bg"
+              aria-label="Log Context"
+              onClick={handleLogContext}
+            >
+              Log Context
+            </button>
           </div>
         </div>
       )}

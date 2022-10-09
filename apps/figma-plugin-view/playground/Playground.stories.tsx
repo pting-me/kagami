@@ -13,10 +13,7 @@ const Children: FC = () => {
 
 const renderChildren = () => <Children />;
 
-const defaultProps = {
-  ...createDefaultProps<Props>(Component),
-  children: renderChildren(),
-};
+const defaultProps = createDefaultProps<Props>(Component);
 
 const meta: Meta<Props> = {
   title: 'Test Component',
@@ -40,12 +37,22 @@ const meta: Meta<Props> = {
   },
 };
 
-const Primary: Story<Props> = {
-  args: { ...defaultProps },
+const Default: Story<Props> = {
+  args: defaultProps,
+  render: (args) => {
+    return <Component {...args} />;
+  },
+};
+
+const WithChildrenOverride: Story<Props> = {
+  args: {
+    ...defaultProps,
+    children: renderChildren(),
+  },
   render: (args) => {
     return <Component {...args} />;
   },
 };
 
 export default meta;
-export { Primary };
+export { Default, WithChildrenOverride };
