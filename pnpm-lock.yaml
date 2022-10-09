@@ -19,6 +19,7 @@ specifiers:
   '@storybook/addon-interactions': ^7.0.0-alpha.34
   '@storybook/addon-links': ^7.0.0-alpha.34
   '@storybook/core-common': ^7.0.0-alpha.34
+  '@storybook/csf': 0.0.2--canary.0899bb7.0
   '@storybook/react': ^7.0.0-alpha.34
   '@storybook/react-vite': ^7.0.0-alpha.34
   '@storybook/testing-library': ^0.0.13
@@ -105,6 +106,7 @@ devDependencies:
   '@storybook/addon-interactions': 7.0.0-alpha.34_64rn6ld6a6ozslnunvjj25whqa
   '@storybook/addon-links': 7.0.0-alpha.34_biqbaboplfbrettd7655fr4n2y
   '@storybook/core-common': 7.0.0-alpha.34_bb2lpehc4sm6fnn2zwweqmbmoy
+  '@storybook/csf': 0.0.2--canary.0899bb7.0
   '@storybook/react': 7.0.0-alpha.34_bb2lpehc4sm6fnn2zwweqmbmoy
   '@storybook/react-vite': 7.0.0-alpha.34_mknogk4lgb5c554comz4ail26a
   '@storybook/testing-library': 0.0.13_biqbaboplfbrettd7655fr4n2y

@@ -29,6 +29,7 @@ interface ComponentHbsData {
   serial: string;
   style: string;
   children: ComponentChildHbsData[];
+  shouldRenderInFragment: boolean;
 }
 
 interface ComponentChildHbsData {
@@ -269,7 +270,7 @@ const computeDefaultValue = (node: SceneNode) => {
   if (node.type === 'INSTANCE') {
     return `
       <div
-        style={{ backgroundColor: 'white', height: '100%', width: '100%' }}
+        style={{ border: '1px solid rgba(0,0,0,0.25)', height: '100%', width: '100%' }}
       ></div>
     `;
   }
@@ -463,6 +464,7 @@ const getComponentData = (componentSetNode: ComponentSetNode) => {
         node,
         registeredNames,
       }),
+      shouldRenderInFragment: node.children.length > 1,
     };
 
     return map;

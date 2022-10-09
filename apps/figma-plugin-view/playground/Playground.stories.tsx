@@ -3,15 +3,15 @@ import type { FC } from 'react';
 
 import PlaygroundDocs from './Playground.mdx';
 import Component, { type Props } from './exampleComponents/Button';
-import './reset.css';
+import ResetStyleDecorator from './utils/ResetStyleDecorator';
 import createDefaultProps from './utils/createDefaultProps';
 
-const Children: FC = () => {
+const ChildrenOverride: FC = () => {
   // Use this if you want to create a `children` property to pass into the component
   return <>Playground story</>;
 };
 
-const renderChildren = () => <Children />;
+const renderChildrenOverride = () => <ChildrenOverride />;
 
 const defaultProps = createDefaultProps<Props>(Component);
 
@@ -23,6 +23,7 @@ const meta: Meta<Props> = {
       page: PlaygroundDocs,
     },
   },
+  decorators: [ResetStyleDecorator],
   argTypes: {
     ref: {
       table: {
@@ -37,14 +38,9 @@ const meta: Meta<Props> = {
   },
 };
 
-const Default: Story<Props> = {
+const WithNodeProps: Story<Props> = {
   args: {
     ...defaultProps,
-    iconInstance: (
-      <div
-        style={{ backgroundColor: 'white', height: '100%', width: '100%' }}
-      ></div>
-    ),
   },
   render: (args) => {
     return <Component {...args} />;
@@ -54,7 +50,7 @@ const Default: Story<Props> = {
 const WithChildrenOverride: Story<Props> = {
   args: {
     ...defaultProps,
-    children: renderChildren(),
+    children: renderChildrenOverride(),
   },
   render: (args) => {
     return <Component {...args} />;
@@ -62,4 +58,4 @@ const WithChildrenOverride: Story<Props> = {
 };
 
 export default meta;
-export { Default, WithChildrenOverride };
+export { WithNodeProps, WithChildrenOverride };

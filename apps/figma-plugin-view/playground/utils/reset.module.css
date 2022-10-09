@@ -1,16 +1,16 @@
-*,
-:before,
-:after {
+.reset *,
+.reset :before,
+.reset :after {
   background-color: initial;
   color: initial;
   border-color: initial;
 }
 
-body {
+body .reset {
   font-family: initial;
   font-size: initial;
 }
 
-svg {
+.reset svg {
   fill: initial;
 }

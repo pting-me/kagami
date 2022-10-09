@@ -78,23 +78,21 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
           alignItems: 'center',
         },
         children: (
-          <>
-            <div
-              style={{
-                borderRadius: '',
-                color: 'rgba(51,51,51,1)',
-                borderWidth: '0px 0px 0px 0px',
-                borderColor: 'initial',
-                borderStyle: 'none',
-                fontFamily: 'SF Pro Text, sans-serif',
-                fontSize: '13px',
-                fontWeight: '600',
-                lineHeight: '18px',
-              }}
-            >
-              {label ?? 'Default'}
-            </div>
-          </>
+          <div
+            style={{
+              borderRadius: '',
+              color: 'rgba(51,51,51,1)',
+              borderWidth: '0px 0px 0px 0px',
+              borderColor: 'initial',
+              borderStyle: 'none',
+              fontFamily: 'SF Pro Text, sans-serif',
+              fontSize: '13px',
+              fontWeight: '600',
+              lineHeight: '18px',
+            }}
+          >
+            {label ?? 'Default'}
+          </div>
         ),
       };
     case '--icon-false--size-default--variant-primary':
@@ -111,23 +109,21 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
           alignItems: 'center',
         },
         children: (
-          <>
-            <div
-              style={{
-                borderRadius: '',
-                color: 'rgba(255,255,255,1)',
-                borderWidth: '1px 1px 1px 1px',
-                borderColor: 'initial',
-                borderStyle: 'none',
-                fontFamily: 'SF Pro Text, sans-serif',
-                fontSize: '13px',
-                fontWeight: '600',
-                lineHeight: '18px',
-              }}
-            >
-              {label ?? 'Primary'}
-            </div>
-          </>
+          <div
+            style={{
+              borderRadius: '',
+              color: 'rgba(255,255,255,1)',
+              borderWidth: '1px 1px 1px 1px',
+              borderColor: 'initial',
+              borderStyle: 'none',
+              fontFamily: 'SF Pro Text, sans-serif',
+              fontSize: '13px',
+              fontWeight: '600',
+              lineHeight: '18px',
+            }}
+          >
+            {label ?? 'Primary'}
+          </div>
         ),
       };
     case '--icon-false--size-default--variant-danger':
@@ -144,23 +140,21 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
           alignItems: 'center',
         },
         children: (
-          <>
-            <div
-              style={{
-                borderRadius: '',
-                color: 'rgba(255,255,255,1)',
-                borderWidth: '1px 1px 1px 1px',
-                borderColor: 'initial',
-                borderStyle: 'none',
-                fontFamily: 'SF Pro Text, sans-serif',
-                fontSize: '13px',
-                fontWeight: '600',
-                lineHeight: '18px',
-              }}
-            >
-              {label ?? 'Danger'}
-            </div>
-          </>
+          <div
+            style={{
+              borderRadius: '',
+              color: 'rgba(255,255,255,1)',
+              borderWidth: '1px 1px 1px 1px',
+              borderColor: 'initial',
+              borderStyle: 'none',
+              fontFamily: 'SF Pro Text, sans-serif',
+              fontSize: '13px',
+              fontWeight: '600',
+              lineHeight: '18px',
+            }}
+          >
+            {label ?? 'Danger'}
+          </div>
         ),
       };
     case '--icon-false--size-default--variant-secondary':
@@ -177,23 +171,21 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
           alignItems: 'center',
         },
         children: (
-          <>
-            <div
-              style={{
-                borderRadius: '',
-                color: 'rgba(51,51,51,1)',
-                borderWidth: '1px 1px 1px 1px',
-                borderColor: 'initial',
-                borderStyle: 'none',
-                fontFamily: 'SF Pro Text, sans-serif',
-                fontSize: '13px',
-                fontWeight: '600',
-                lineHeight: '18px',
-              }}
-            >
-              {secondary ?? 'Secondary'}
-            </div>
-          </>
+          <div
+            style={{
+              borderRadius: '',
+              color: 'rgba(51,51,51,1)',
+              borderWidth: '1px 1px 1px 1px',
+              borderColor: 'initial',
+              borderStyle: 'none',
+              fontFamily: 'SF Pro Text, sans-serif',
+              fontSize: '13px',
+              fontWeight: '600',
+              lineHeight: '18px',
+            }}
+          >
+            {secondary ?? 'Secondary'}
+          </div>
         ),
       };
     case '--icon-true--size-default--variant-default':
@@ -229,7 +221,7 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
               {iconInstance ?? (
                 <div
                   style={{
-                    backgroundColor: 'white',
+                    border: '1px solid rgba(0,0,0,0.25)',
                     height: '100%',
                     width: '100%',
                   }}
@@ -287,7 +279,7 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
               {iconInstance ?? (
                 <div
                   style={{
-                    backgroundColor: 'white',
+                    border: '1px solid rgba(0,0,0,0.25)',
                     height: '100%',
                     width: '100%',
                   }}
@@ -345,7 +337,7 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
               {iconInstance ?? (
                 <div
                   style={{
-                    backgroundColor: 'white',
+                    border: '1px solid rgba(0,0,0,0.25)',
                     height: '100%',
                     width: '100%',
                   }}
@@ -403,7 +395,7 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
               {iconInstance ?? (
                 <div
                   style={{
-                    backgroundColor: 'white',
+                    border: '1px solid rgba(0,0,0,0.25)',
                     height: '100%',
                     width: '100%',
                   }}
@@ -442,23 +434,21 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
           alignItems: 'center',
         },
         children: (
-          <>
-            <div
-              style={{
-                borderRadius: '',
-                color: 'rgba(51,51,51,1)',
-                borderWidth: '1px 1px 1px 1px',
-                borderColor: 'initial',
-                borderStyle: 'none',
-                fontFamily: 'SF Pro Text, sans-serif',
-                fontSize: '13px',
-                fontWeight: '600',
-                lineHeight: '18px',
-              }}
-            >
-              {label ?? 'Default'}
-            </div>
-          </>
+          <div
+            style={{
+              borderRadius: '',
+              color: 'rgba(51,51,51,1)',
+              borderWidth: '1px 1px 1px 1px',
+              borderColor: 'initial',
+              borderStyle: 'none',
+              fontFamily: 'SF Pro Text, sans-serif',
+              fontSize: '13px',
+              fontWeight: '600',
+              lineHeight: '18px',
+            }}
+          >
+            {label ?? 'Default'}
+          </div>
         ),
       };
     case '--icon-false--size-small--variant-primary':
@@ -475,23 +465,21 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
           alignItems: 'center',
         },
         children: (
-          <>
-            <div
-              style={{
-                borderRadius: '',
-                color: 'rgba(255,255,255,1)',
-                borderWidth: '1px 1px 1px 1px',
-                borderColor: 'initial',
-                borderStyle: 'none',
-                fontFamily: 'SF Pro Text, sans-serif',
-                fontSize: '13px',
-                fontWeight: '600',
-                lineHeight: '18px',
-              }}
-            >
-              {label ?? 'Primary'}
-            </div>
-          </>
+          <div
+            style={{
+              borderRadius: '',
+              color: 'rgba(255,255,255,1)',
+              borderWidth: '1px 1px 1px 1px',
+              borderColor: 'initial',
+              borderStyle: 'none',
+              fontFamily: 'SF Pro Text, sans-serif',
+              fontSize: '13px',
+              fontWeight: '600',
+              lineHeight: '18px',
+            }}
+          >
+            {label ?? 'Primary'}
+          </div>
         ),
       };
     case '--icon-false--size-small--variant-danger':
@@ -508,23 +496,21 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
           alignItems: 'center',
         },
         children: (
-          <>
-            <div
-              style={{
-                borderRadius: '',
-                color: 'rgba(255,255,255,1)',
-                borderWidth: '1px 1px 1px 1px',
-                borderColor: 'initial',
-                borderStyle: 'none',
-                fontFamily: 'SF Pro Text, sans-serif',
-                fontSize: '13px',
-                fontWeight: '600',
-                lineHeight: '18px',
-              }}
-            >
-              {label ?? 'Danger'}
-            </div>
-          </>
+          <div
+            style={{
+              borderRadius: '',
+              color: 'rgba(255,255,255,1)',
+              borderWidth: '1px 1px 1px 1px',
+              borderColor: 'initial',
+              borderStyle: 'none',
+              fontFamily: 'SF Pro Text, sans-serif',
+              fontSize: '13px',
+              fontWeight: '600',
+              lineHeight: '18px',
+            }}
+          >
+            {label ?? 'Danger'}
+          </div>
         ),
       };
     case '--icon-false--size-small--variant-secondary':
@@ -541,23 +527,21 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
           alignItems: 'center',
         },
         children: (
-          <>
-            <div
-              style={{
-                borderRadius: '',
-                color: 'rgba(51,51,51,1)',
-                borderWidth: '1px 1px 1px 1px',
-                borderColor: 'initial',
-                borderStyle: 'none',
-                fontFamily: 'SF Pro Text, sans-serif',
-                fontSize: '13px',
-                fontWeight: '600',
-                lineHeight: '18px',
-              }}
-            >
-              {secondary ?? 'Secondary'}
-            </div>
-          </>
+          <div
+            style={{
+              borderRadius: '',
+              color: 'rgba(51,51,51,1)',
+              borderWidth: '1px 1px 1px 1px',
+              borderColor: 'initial',
+              borderStyle: 'none',
+              fontFamily: 'SF Pro Text, sans-serif',
+              fontSize: '13px',
+              fontWeight: '600',
+              lineHeight: '18px',
+            }}
+          >
+            {secondary ?? 'Secondary'}
+          </div>
         ),
       };
     case '--icon-true--size-small--variant-default':
@@ -593,7 +577,7 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
               {iconInstance ?? (
                 <div
                   style={{
-                    backgroundColor: 'white',
+                    border: '1px solid rgba(0,0,0,0.25)',
                     height: '100%',
                     width: '100%',
                   }}
@@ -651,7 +635,7 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
               {iconInstance ?? (
                 <div
                   style={{
-                    backgroundColor: 'white',
+                    border: '1px solid rgba(0,0,0,0.25)',
                     height: '100%',
                     width: '100%',
                   }}
@@ -709,7 +693,7 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
               {iconInstance ?? (
                 <div
                   style={{
-                    backgroundColor: 'white',
+                    border: '1px solid rgba(0,0,0,0.25)',
                     height: '100%',
                     width: '100%',
                   }}
@@ -767,7 +751,7 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
               {iconInstance ?? (
                 <div
                   style={{
-                    backgroundColor: 'white',
+                    border: '1px solid rgba(0,0,0,0.25)',
                     height: '100%',
                     width: '100%',
                   }}
@@ -806,23 +790,21 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
           alignItems: 'center',
         },
         children: (
-          <>
-            <div
-              style={{
-                borderRadius: '',
-                color: 'rgba(51,51,51,1)',
-                borderWidth: '1px 1px 1px 1px',
-                borderColor: 'initial',
-                borderStyle: 'none',
-                fontFamily: 'SF Pro Text, sans-serif',
-                fontSize: '15px',
-                fontWeight: '600',
-                lineHeight: '18px',
-              }}
-            >
-              {label ?? 'Default'}
-            </div>
-          </>
+          <div
+            style={{
+              borderRadius: '',
+              color: 'rgba(51,51,51,1)',
+              borderWidth: '1px 1px 1px 1px',
+              borderColor: 'initial',
+              borderStyle: 'none',
+              fontFamily: 'SF Pro Text, sans-serif',
+              fontSize: '15px',
+              fontWeight: '600',
+              lineHeight: '18px',
+            }}
+          >
+            {label ?? 'Default'}
+          </div>
         ),
       };
     case '--icon-false--size-large--variant-primary':
@@ -839,23 +821,21 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
           alignItems: 'center',
         },
         children: (
-          <>
-            <div
-              style={{
-                borderRadius: '',
-                color: 'rgba(255,255,255,1)',
-                borderWidth: '1px 1px 1px 1px',
-                borderColor: 'initial',
-                borderStyle: 'none',
-                fontFamily: 'SF Pro Text, sans-serif',
-                fontSize: '15px',
-                fontWeight: '600',
-                lineHeight: '18px',
-              }}
-            >
-              {label ?? 'Primary'}
-            </div>
-          </>
+          <div
+            style={{
+              borderRadius: '',
+              color: 'rgba(255,255,255,1)',
+              borderWidth: '1px 1px 1px 1px',
+              borderColor: 'initial',
+              borderStyle: 'none',
+              fontFamily: 'SF Pro Text, sans-serif',
+              fontSize: '15px',
+              fontWeight: '600',
+              lineHeight: '18px',
+            }}
+          >
+            {label ?? 'Primary'}
+          </div>
         ),
       };
     case '--icon-false--size-large--variant-danger':
@@ -872,23 +852,21 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
           alignItems: 'center',
         },
         children: (
-          <>
-            <div
-              style={{
-                borderRadius: '',
-                color: 'rgba(255,255,255,1)',
-                borderWidth: '1px 1px 1px 1px',
-                borderColor: 'initial',
-                borderStyle: 'none',
-                fontFamily: 'SF Pro Text, sans-serif',
-                fontSize: '15px',
-                fontWeight: '600',
-                lineHeight: '18px',
-              }}
-            >
-              {label ?? 'Danger'}
-            </div>
-          </>
+          <div
+            style={{
+              borderRadius: '',
+              color: 'rgba(255,255,255,1)',
+              borderWidth: '1px 1px 1px 1px',
+              borderColor: 'initial',
+              borderStyle: 'none',
+              fontFamily: 'SF Pro Text, sans-serif',
+              fontSize: '15px',
+              fontWeight: '600',
+              lineHeight: '18px',
+            }}
+          >
+            {label ?? 'Danger'}
+          </div>
         ),
       };
     case '--icon-false--size-large--variant-secondary':
@@ -905,23 +883,21 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
           alignItems: 'center',
         },
         children: (
-          <>
-            <div
-              style={{
-                borderRadius: '',
-                color: 'rgba(51,51,51,1)',
-                borderWidth: '1px 1px 1px 1px',
-                borderColor: 'initial',
-                borderStyle: 'none',
-                fontFamily: 'SF Pro Text, sans-serif',
-                fontSize: '15px',
-                fontWeight: '600',
-                lineHeight: '18px',
-              }}
-            >
-              {secondary ?? 'Secondary'}
-            </div>
-          </>
+          <div
+            style={{
+              borderRadius: '',
+              color: 'rgba(51,51,51,1)',
+              borderWidth: '1px 1px 1px 1px',
+              borderColor: 'initial',
+              borderStyle: 'none',
+              fontFamily: 'SF Pro Text, sans-serif',
+              fontSize: '15px',
+              fontWeight: '600',
+              lineHeight: '18px',
+            }}
+          >
+            {secondary ?? 'Secondary'}
+          </div>
         ),
       };
     case '--icon-true--size-large--variant-default':
@@ -957,7 +933,7 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
               {iconInstance ?? (
                 <div
                   style={{
-                    backgroundColor: 'white',
+                    border: '1px solid rgba(0,0,0,0.25)',
                     height: '100%',
                     width: '100%',
                   }}
@@ -1015,7 +991,7 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
               {iconInstance ?? (
                 <div
                   style={{
-                    backgroundColor: 'white',
+                    border: '1px solid rgba(0,0,0,0.25)',
                     height: '100%',
                     width: '100%',
                   }}
@@ -1073,7 +1049,7 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
               {iconInstance ?? (
                 <div
                   style={{
-                    backgroundColor: 'white',
+                    border: '1px solid rgba(0,0,0,0.25)',
                     height: '100%',
                     width: '100%',
                   }}
@@ -1131,7 +1107,7 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
               {iconInstance ?? (
                 <div
                   style={{
-                    backgroundColor: 'white',
+                    border: '1px solid rgba(0,0,0,0.25)',
                     height: '100%',
                     width: '100%',
                   }}

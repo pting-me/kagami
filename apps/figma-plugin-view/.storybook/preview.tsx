@@ -1,10 +1,11 @@
+import { Parameters } from '@storybook/csf';
 import { themes } from '@storybook/theming';
 
 import '../src/styles.css';
 import DarkModeDocs from './components/DarkModeDocs';
 import ThemeTokenDecorator from './components/ThemeTokenDecorator';
 
-export const parameters = {
+export const parameters: Parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {

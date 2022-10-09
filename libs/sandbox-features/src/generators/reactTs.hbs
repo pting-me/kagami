@@ -70,13 +70,13 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
     case '{{this.serial}}': 
       return {
         style: {{{this.style}}},
-        children: <>
+        children: {{#if this.shouldRenderInFragment}}<>{{/if}}
           {{#each this.children}}
           <div style={ {{{this.style}}} }>
             { {{this.name}}{{#if this.defaultValue}} ?? {{{this.defaultValue}}}{{/if}} }
           </div>
           {{/each}}
-        </>,
+        {{#if this.shouldRenderInFragment}}</>{{/if}},
       };
     {{/each}}
     default:
