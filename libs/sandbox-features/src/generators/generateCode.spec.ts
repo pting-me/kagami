@@ -2,7 +2,6 @@ import { describe, expect, it } from 'vitest';
 
 import { mockComponentData } from '../mock';
 import {
-  mapPropNames,
   pascalCase,
   serializeProperties,
   valuesAreNumbers,
@@ -13,18 +12,6 @@ describe('generateCode', () => {
     expect(pascalCase('foo')).toBe('Foo');
     expect(pascalCase('Bar')).toBe('Bar');
     expect(pascalCase('foo bar baz')).toBe('FooBarBaz');
-  });
-  it('mapProperties', () => {
-    const { variantGroupProperties } = mockComponentData.componentSetNodes[0];
-    const propertyMap = mapPropNames(
-      mockComponentData.componentSetNodes[0].variantGroupProperties
-    );
-
-    expect(propertyMap.length).toBe(
-      Object.entries(variantGroupProperties).length
-    );
-
-    // TODO add other logic
   });
   it('valuesAreNumbers', () => {
     const areNotNumbers = ['001', '1f', 'orly?'];

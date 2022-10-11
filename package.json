@@ -17,14 +17,20 @@
   "private": true,
   "dependencies": {
     "@heroicons/react": "^2.0.11",
+    "@hookform/resolvers": "^2.9.8",
     "@reach/accordion": "^0.17.0",
+    "@reach/combobox": "^0.17.0",
     "clsx": "^1.2.1",
     "core-js": "^3.6.5",
+    "match-sorter": "^6.3.1",
     "prettier": "2.7.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.37.0",
+    "react-use": "^17.4.0",
     "regenerator-runtime": "0.13.7",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@figma/plugin-typings": "^1.52.0",
@@ -47,6 +53,7 @@
     "@storybook/react": "^7.0.0-alpha.34",
     "@storybook/react-vite": "^7.0.0-alpha.34",
     "@storybook/testing-library": "^0.0.13",
+    "@tailwindcss/forms": "^0.5.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "13.4.0",
     "@trivago/prettier-plugin-sort-imports": "^3.3.0",

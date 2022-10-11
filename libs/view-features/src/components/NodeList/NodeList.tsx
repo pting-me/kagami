@@ -1,4 +1,3 @@
-import { ArrowDownTrayIcon } from '@heroicons/react/20/solid';
 import {
   Accordion,
   AccordionButton,
@@ -6,7 +5,6 @@ import {
   AccordionPanel,
 } from '@reach/accordion';
 import '@reach/accordion/styles.css';
-import { MouseEvent } from 'react';
 
 import {
   DryBaseNode,
@@ -16,6 +14,7 @@ import {
 import { AccordionIndicator } from '@kagami/view-ui';
 
 import postMessageToSandbox from '../../pubsub/postMessageToSandbox';
+import DownloadForm from '../DownloadForm';
 
 type NodeWithChildren<N = DryBaseNode, C = DryBaseNode> = N & {
   children: C[];
@@ -35,12 +34,6 @@ function NodeList(props: {
   type: 'COMPONENT_SET' | 'COMPONENT';
 }) {
   const { nodes, type: specifiedType } = props;
-
-  const handleDownloadClick =
-    (id: string) => (e: MouseEvent<HTMLButtonElement>) => {
-      e.preventDefault();
-      postMessageToSandbox({ type: 'generateCode', payload: { id } });
-    };
 
   const handleComponentClick = (id: string) => () => {
     postMessageToSandbox({ type: 'focusNode', payload: { id } });
@@ -63,41 +56,47 @@ function NodeList(props: {
           <AccordionItem key={id}>
             {isComponentSet(node) && (
               <>
-                <div className="pr-2 h-8 w-full border-brand-hover hover:border-y flex items-stretch justify-between">
-                  <AccordionButton className="flex-grow">
+                <div className="h-8 w-full flex items-stretch justify-between">
+                  <AccordionButton className="border border-transparent hover:border-border-component-hover hover:bg-bg-hover flex-grow pr-2">
                     <div className="flex items-center">
-                      <AccordionIndicator />
-                      <div>{name}</div>
+                      <div className="p-0.5">
+                        <AccordionIndicator
+                          className="w-3 h-3"
+                          svgClassName="fill-icon-component"
+                        />
+                      </div>
+                      <h2 className="font-bold text-text-component">{name}</h2>
                     </div>
                   </AccordionButton>
-
-                  <button
-                    aria-label="Download React code"
-                    onClick={handleDownloadClick(id)}
-                  >
-                    <div className="flex h-4 w-4 mr-2 items-center justify-center bg">
-                      <ArrowDownTrayIcon />
-                    </div>
-                  </button>
                 </div>
 
-                {hasChildren<HydratedComponentSetNode, HydratedComponentNode>(
-                  node
-                ) && (
-                  <AccordionPanel>
-                    <NodeList nodes={node.children} type="COMPONENT" />
-                  </AccordionPanel>
-                )}
+                <AccordionPanel className="bg-bg-secondary">
+                  <DownloadForm id={id} />
+                  {hasChildren<HydratedComponentSetNode, HydratedComponentNode>(
+                    node
+                  ) && (
+                    <>
+                      <div className="p-4">
+                        <h2 className="font-bold pb-4">Component variants</h2>
+                        <div>
+                          The following component variants will be included in
+                          your download.
+                        </div>
+                      </div>
+                      <NodeList nodes={node.children} type="COMPONENT" />
+                    </>
+                  )}
+                </AccordionPanel>
               </>
             )}
             {isComponent(node) && (
               <button
-                className="px-4 h-8 flex items-center text-left w-full border-brand-hover hover:border-y"
+                className="px-4 h-8 flex items-center text-left w-full hover:bg-bg-hover border border-transparent hover:border-border-component-hover"
                 onClick={handleComponentClick(id)}
               >
-                <div className="box-border overflow-ellipsis whitespace-nowrap overflow-hidden">
+                <h2 className="box-border overflow-ellipsis whitespace-nowrap overflow-hidden text-text-component">
                   {name}
-                </div>
+                </h2>
               </button>
             )}
           </AccordionItem>

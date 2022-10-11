@@ -53,7 +53,7 @@ figma.ui.onmessage = createHandleMessageFromView((message: MessageFromView) => {
       break;
     }
     case 'generateCode': {
-      const { id } = payload as Partial<ComponentSetNode>;
+      const { id, isForwardRef, elementContext, tagName } = payload;
       const node = figma.getNodeById(id);
 
       if (!node || !isComponentSetNode(node)) {
@@ -63,7 +63,12 @@ figma.ui.onmessage = createHandleMessageFromView((message: MessageFromView) => {
         });
       } else {
         const filename = `${upperFirst(camelCase(node.name))}.tsx`;
-        const content = generateCode(node);
+        const content = generateCode({
+          node,
+          isForwardRef,
+          elementContext,
+          tagName,
+        });
         postMessageToView({
           type: 'setDownloadInfo',
           payload: {

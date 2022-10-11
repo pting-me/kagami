@@ -1,9 +1,9 @@
 import {
   CSSProperties,
   ComponentPropsWithRef,
-  FC,
   ReactElement,
   ReactNode,
+  forwardRef,
 } from 'react';
 
 // START COMMON SECTION
@@ -47,7 +47,7 @@ interface NodeProps {
   iconInstance?: ReactElement | null;
 }
 
-interface Props extends ComponentPropsWithRef<'div'>, NodeProps {
+interface Props extends ComponentPropsWithRef<'button'>, NodeProps {
   size: 'small' | 'default' | 'large';
   variant: 'default' | 'primary' | 'danger' | 'secondary';
   icon: boolean;
@@ -1137,7 +1137,7 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
   }
 };
 
-const Button: FC<Props> = (props: Props) => {
+const Button = forwardRef<HTMLButtonElement, Props>((props: Props, ref) => {
   const {
     children: childrenOverride,
     size = 'default',
@@ -1164,11 +1164,11 @@ const Button: FC<Props> = (props: Props) => {
   });
 
   return (
-    <div style={{ ...style, ...styleOverride }} {...rest}>
+    <button style={{ ...style, ...styleOverride }} {...rest} ref={ref}>
       {childrenOverride ?? children}
-    </div>
+    </button>
   );
-};
+});
 
 export default Button;
 export type { Props };

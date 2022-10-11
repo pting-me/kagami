@@ -11,13 +11,14 @@ const tokens = [...xmlFile.matchAll(/figma-color-([a-z\-]+)/g)].map(
   (matchArray) => matchArray[1]
 );
 
-const colors = {};
+const colors: Record<string, any> = {};
 
 tokens?.forEach((token) => {
   const sections = token.split('-');
 
   // first section isn't need (bg, text, etc)
-  let combinedSection = `${sections.shift()}-`;
+  // let combinedSection = `${sections.shift()}-`;
+  let combinedSection = '';
   let flag = colors;
 
   sections.forEach((section, index) => {
@@ -40,3 +41,5 @@ tokens?.forEach((token) => {
     flag = flag[section];
   });
 });
+
+console.log(colors);

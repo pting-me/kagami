@@ -3,6 +3,13 @@ import camelCase from 'lodash.camelcase';
 import upperFirst from 'lodash.upperfirst';
 import { CSSProperties } from 'react';
 
+import {
+  HtmlElementTag,
+  SvgElementTag,
+  htmlElementTagNameMap,
+  svgElementTagNameMap,
+} from '@kagami/types';
+
 import reactTs from './reactTs.hbs?raw';
 
 /**
@@ -44,6 +51,9 @@ interface HbsData {
   variantProps: VariantPropHbsData[];
   components: ComponentHbsData[];
   name: string;
+  isForwardRef: boolean;
+  elementTypeName: string;
+  tagName: string;
 }
 
 export const pascalCase = (text: string) => upperFirst(camelCase(text));
@@ -346,10 +356,6 @@ const getComponentChildren = (options: GetChildNodesOptions) => {
   });
 };
 
-// const hasChildren = (node: SceneNode): node is SceneNode & ChildrenMixin => {
-//   return (node as SceneNode & ChildrenMixin).children !== undefined;
-// };
-
 const mapFigmaNodeToReact = (type: BaseNode['type']) => {
   switch (type) {
     case 'TEXT':
@@ -384,25 +390,6 @@ const getChildNodeProps = (
     return childNodeProp;
   });
 };
-
-// const getChildNodePropNames = (componentSetNode: ComponentSetNode) => {
-//   const nodes: Record<string, BaseNode['type']> = {};
-//   componentSetNode.children.forEach((componentNode) => {
-//     if (!hasChildren(componentNode)) {
-//       return;
-//     }
-
-//     const { children } = componentNode;
-
-//     children.forEach((childNode) => {
-//       nodes[childNode.name] = childNode.type;
-//     });
-//   });
-//   return Object.entries(nodes).map(([nodeName, nodeType]) => ({
-//     name: nodeName,
-//     type: nodeType,
-//   }));
-// };
 
 const getPadding = (node: SceneNode) => {
   if (!hasBaseFrameMixin(node)) {
@@ -471,41 +458,6 @@ const getComponentData = (componentSetNode: ComponentSetNode) => {
   });
 };
 
-// export const mapComponents = (componentNodes: ComponentNode[]) => {
-//   const registeredNames= Object.keys(node.variantProperties ?? {}).map(
-//     camelCase
-//   )
-// }
-
-// export const mapPropNames = (
-//   variantGroupProperties: VariantGroupProperties
-// ) => {
-//   return Object.entries(variantGroupProperties).map(
-//     ([rawProperty, { values }]) => {
-//       const property = camelCase(rawProperty);
-
-//       if (valuesAreBooleans(values)) {
-//         return {
-//           property,
-//           isBoolean: true,
-//         };
-//       } else if (valuesAreNumbers(values)) {
-//         return {
-//           property,
-//           isNumber: true,
-//         };
-//       }
-
-//       return {
-//         property: camelCase(property),
-//         isString: true,
-//         hasDefaultValue: valuesHaveDefault(values),
-//         values,
-//       };
-//     }
-//   );
-// };
-
 const getVariantProps = (componentSetNode: ComponentSetNode) => {
   const { variantGroupProperties } = componentSetNode;
 
@@ -547,58 +499,44 @@ const getVariantProps = (componentSetNode: ComponentSetNode) => {
   );
 };
 
-const isInstance = (s: string) => s === 'INSTANCE';
-const isText = (s: string) => s === 'TEXT';
+interface GenerateCodeOptions {
+  node: ComponentSetNode;
+  isForwardRef?: boolean;
+  elementContext?: 'html' | 'svg';
+  tagName?: HtmlElementTag | SvgElementTag;
+}
 
-const generateCode = (componentSetNode: ComponentSetNode) => {
-  const components = getComponentData(componentSetNode);
-  const variantProps = getVariantProps(componentSetNode);
+const generateCode = (options: GenerateCodeOptions) => {
+  const {
+    node,
+    isForwardRef = false,
+    elementContext = 'html',
+    tagName = 'div',
+  } = options;
+
+  const elementTypeName =
+    elementContext === 'html'
+      ? htmlElementTagNameMap[tagName as HtmlElementTag]
+      : svgElementTagNameMap[tagName as SvgElementTag];
+
+  const components = getComponentData(node);
+  const variantProps = getVariantProps(node);
   const childNodeProps = getChildNodeProps(components);
-  const name = pascalCase(componentSetNode.name);
+  const name = pascalCase(node.name);
   const hbsData: HbsData = {
     components,
     variantProps,
     childNodeProps,
     name,
+    isForwardRef,
+    elementTypeName,
+    tagName,
   };
-  console.log(hbsData);
+
   const delegate = handlebars.compile(reactTs);
   const fileContent = delegate(hbsData);
 
   return fileContent;
 };
-
-// const generateCode = (componentSetNode: ComponentSetNode) => {
-//   handlebars.registerHelper({
-//     camelCase,
-//     pascalCase,
-//     mapComponents,
-//     mapPropNames,
-//     getChildNodePropNames,
-//     isInstance,
-//     isText,
-//   });
-//   const delegate = handlebars.compile(reactTs);
-
-//   const mappedComponents =
-//     mapComponents(componentSetNode.children as ComponentNode[]) ?? [];
-//   const childNodePropNames = getChildNodePropNames(mappedComponents);
-
-//   const hbsData: HbsData = {
-//     componentSetNode,
-//     mappedComponents,
-//     childNodePropNames,
-//   };
-
-//   const fileContent = delegate(hbsData, {
-//     allowedProtoProperties: {
-//       variantGroupProperties: true,
-//       children: true,
-//       name: true,
-//     },
-//   });
-
-//   return fileContent;
-// };
 
 export default generateCode;

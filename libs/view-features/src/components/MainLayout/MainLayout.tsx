@@ -19,7 +19,7 @@ export function MainLayout() {
   return (
     <div className="pb-4">
       {!context.environment.production && (
-        <div className="px-4 pt-4 pb-2 border-b bg-warning-tertiary">
+        <div className="px-4 pt-4 pb-2 border-b bg-bg-warning-tertiary">
           <h1 className="font-bold">Development Mode</h1>
           <div className="py-2">
             This section only shows up in the development build. To view this in
@@ -30,7 +30,7 @@ export function MainLayout() {
           </div>
           <div className="py-2 flex">
             <DownloadButton
-              className="flex h-4 p-4 border border-onwarning rounded items-center justify-center bg"
+              className="flex h-4 p-4 border border-border-strong rounded items-center justify-center"
               aria-label="Download Context"
               dataBlob={[JSON.stringify(context)]}
               filename={'context.json'}
@@ -38,7 +38,7 @@ export function MainLayout() {
               Download Context
             </DownloadButton>
             <button
-              className="flex h-4 ml-4 p-4 border border-onwarning rounded items-center justify-center bg"
+              className="flex h-4 ml-4 p-4 border border-border-strong rounded items-center justify-center"
               aria-label="Log Context"
               onClick={handleLogContext}
             >
@@ -59,20 +59,22 @@ export function MainLayout() {
           {componentSetNodes?.length ? (
             <NodeList nodes={componentSetNodes} type="COMPONENT_SET"></NodeList>
           ) : (
-            <div className="px-4 text-warning">No component sets found.</div>
+            <div className="px-4 text-text-warning">
+              No component sets found.
+            </div>
           )}
         </div>
       </div>
       <div className="py-2 border-t">
         <h1 className="py-2 px-4 font-bold">Standalone Components</h1>
-        <div className="py-2 px-4 text-secondary">
+        <div className="py-2 px-4 text-text-secondary">
           Currently only component sets are available for download.
         </div>
         <div className="py-2">
           {componentNodes?.length ? (
             <NodeList nodes={componentNodes} type="COMPONENT"></NodeList>
           ) : (
-            <div className="px-4 text-warning">No components found.</div>
+            <div className="px-4 text-text-warning">No components found.</div>
           )}
         </div>
       </div>

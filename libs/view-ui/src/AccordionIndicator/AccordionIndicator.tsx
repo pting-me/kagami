@@ -1,16 +1,32 @@
 import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
-import { FC } from 'react';
+import clsx from 'clsx';
+import { ComponentPropsWithoutRef, FC } from 'react';
 
 import './AccordionIndicator.css';
+
+interface Props extends ComponentPropsWithoutRef<'div'> {
+  svgClassName?: string;
+}
 
 /**
  * Indicator to be used inside @reach/accordion
  */
-const AccordionIndicator: FC = () => (
-  <div className="w-4 h-4 flex items-center">
-    <ChevronRightIcon className="collapsed-icon" aria-label="Collapsed" />
-    <ChevronDownIcon className="open-icon" aria-label="Open" />
-  </div>
-);
+const AccordionIndicator: FC<Props> = (props: Props) => {
+  const { className: baseClassName, svgClassName, ...rest } = props;
+  const className = clsx(baseClassName, 'flex items-center');
+  const collapsedClassName = clsx(
+    svgClassName,
+    'kagami--accordion-indicator-collapsed'
+  );
+  const openClassName = clsx(svgClassName, 'kagami--accordion-indicator-open');
+
+  return (
+    <div className={className} {...rest}>
+      <ChevronRightIcon className={collapsedClassName} aria-label="Collapsed" />
+      <ChevronDownIcon className={openClassName} aria-label="Open" />
+    </div>
+  );
+};
 
 export default AccordionIndicator;
+export { Props as AccordionIndicatorProps };

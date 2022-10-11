@@ -1,0 +1,16 @@
+.kagami--download-form-popover [data-suggested-value] {
+  font-weight: normal;
+}
+
+.kagami--download-form-popover [data-user-value] {
+  font-weight: 700;
+}
+
+.kagami--download-form-popover[data-reach-combobox-popover] {
+  background-color: var(--figma-color-bg);
+  /* border: 1px solid var(--figma-color-border-strong); */
+}
+
+[data-reach-combobox-option][data-highlighted] {
+  background-color: var(--figma-color-bg-hover);
+}

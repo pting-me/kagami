@@ -1,3 +1,4 @@
+import { HtmlElementTag, SvgElementTag } from './dom';
 import { HydratedComponentNode, HydratedComponentSetNode } from './figma';
 
 export interface DownloadInfo {
@@ -40,6 +41,9 @@ export type MessageToSandbox =
       type: 'generateCode';
       payload: {
         id: string;
+        tagName: HtmlElementTag | SvgElementTag;
+        isForwardRef: boolean;
+        elementContext: 'html' | 'svg';
       };
     };
 

@@ -1,15 +1,19 @@
-[data-reach-accordion-item][data-state='open'] .collapsed-icon {
+[data-reach-accordion-item][data-state='open']
+  .kagami--accordion-indicator-collapsed {
   display: none;
 }
 
-[data-reach-accordion-item][data-state='collapsed'] .collapsed-icon {
+[data-reach-accordion-item][data-state='collapsed']
+  .kagami--accordion-indicator-collapsed {
   display: block;
 }
 
-[data-reach-accordion-item][data-state='open'] .open-icon {
+[data-reach-accordion-item][data-state='open']
+  .kagami--accordion-indicator-open {
   display: block;
 }
 
-[data-reach-accordion-item][data-state='collapsed'] .open-icon {
+[data-reach-accordion-item][data-state='collapsed']
+  .kagami--accordion-indicator-open {
   display: none;
 }

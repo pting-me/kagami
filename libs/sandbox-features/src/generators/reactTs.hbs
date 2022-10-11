@@ -1,9 +1,10 @@
 import {
   CSSProperties,
   ComponentPropsWithRef,
-  FC,
+  {{#unless this.isForwardRef}}FC,{{/unless}}
   ReactElement,
   ReactNode,
+  {{#if this.isForwardRef}}forwardRef,{{/if}}
 } from 'react';
 
 // START COMMON SECTION
@@ -45,7 +46,7 @@ interface NodeProps {
 {{/each}}
 }
 
-interface Props extends ComponentPropsWithRef<'div'>, NodeProps {
+interface Props extends ComponentPropsWithRef<'{{this.tagName}}'>, NodeProps {
 {{#each this.variantProps}}
   {{this.name}}{{#if this.required}}?{{/if}}: {{{this.reactTsType}}};
 {{/each}}
@@ -84,7 +85,12 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
   }
 };
 
+{{#if this.isForwardRef}}
+const {{this.name}} = forwardRef<{{this.elementTypeName}}, Props>((props: Props, ref) => {
+{{/if}}
+{{#unless this.isForwardRef}}
 const {{this.name}}: FC<Props> = (props: Props) => {
+{{/unless}}
   const {
     children: childrenOverride,
     {{#each this.variantProps}}
@@ -111,11 +117,11 @@ const {{this.name}}: FC<Props> = (props: Props) => {
   });
 
   return (
-    <div style={ { ...style, ...styleOverride } } {...rest}>
+    <{{this.tagName}} style={ { ...style, ...styleOverride } } {...rest}{{#if this.isForwardRef}} ref={ref}{{/if}}>
       {childrenOverride ?? children}
-    </div>
+    </{{this.tagName}}>
   );
-};
+}{{#if this.isForwardRef}}){{/if}};
 
 export default {{this.name}};
 export type { Props };
