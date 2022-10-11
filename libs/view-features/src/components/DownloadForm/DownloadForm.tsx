@@ -86,7 +86,7 @@ const DownloadForm: FC<Props> = (props: Props) => {
   } = useForm<FormInputs>({
     defaultValues: {
       tagName: '',
-      isForwardRef: true,
+      isForwardRef: false,
       elementContext: 'html',
     },
     resolver: yupResolver(schema),

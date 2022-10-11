@@ -1,8 +1,22 @@
 import { act, render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { mockComponentData } from '../../mock';
 import NodeList from './NodeList';
+
+vi.mock('https://unpkg.com/prettier@2.7.1/esm/parser-typescript.mjs', () => {
+  return {
+    default: vi.fn(),
+  };
+});
+
+vi.mock('https://unpkg.com/prettier@2.7.1/esm/standalone.mjs', () => {
+  return {
+    default: {
+      format: vi.fn().mockImplementation((file: unknown) => file),
+    },
+  };
+});
 
 describe('NodeList', () => {
   it('renders', () => {
@@ -18,7 +32,7 @@ describe('NodeList', () => {
     it.each(componentNodes.map((node) => [node.name]))(
       'should display component name as %s',
       (componentName) => {
-        expect(screen.getByText(componentName)).toBeInTheDocument();
+        expect(screen.getByText(componentName ?? '')).toBeInTheDocument();
       }
     );
   });
@@ -32,14 +46,16 @@ describe('NodeList', () => {
     it.each(componentSetNodes.map((node) => [node.name, node.children]))(
       'should display component name as %s',
       (componentName, childNodes) => {
-        const componentInScreen = screen.getByText(componentName);
+        const componentInScreen = screen.getByText(componentName ?? '');
         expect(componentInScreen).toBeInTheDocument();
 
         act(() => {
           componentInScreen.click();
         });
         // might be repeated
-        expect(screen.getAllByText(childNodes[0].name)[0]).toBeVisible();
+        expect(
+          screen.getAllByText(childNodes?.[0].name ?? '')[0]
+        ).toBeVisible();
 
         rerender(<NodeList nodes={componentSetNodes} type="COMPONENT_SET" />);
       }

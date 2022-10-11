@@ -1,13 +1,13 @@
 {
   "name": "kagami",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
     "build": "nx run-many --target=build --projects=figma-plugin-view,figma-plugin-sandbox",
     "build-prod": "nx run-many --target=build --projects=figma-plugin-view,figma-plugin-sandbox --configuration=production",
     "prepare": "husky install",
-    "test": "nx test"
+    "test": "nx run-many --target=test --projects=sandbox-features,view-features,view-ui"
   },
   "engines": {
     "npm": "please-use-pnpm",

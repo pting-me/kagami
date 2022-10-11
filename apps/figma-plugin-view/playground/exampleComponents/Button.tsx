@@ -1,9 +1,9 @@
 import {
   CSSProperties,
   ComponentPropsWithRef,
+  FC,
   ReactElement,
   ReactNode,
-  forwardRef,
 } from 'react';
 
 // START COMMON SECTION
@@ -101,8 +101,8 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
           borderRadius: '3px 3px 3px 3px',
           backgroundColor: 'rgba(45,127,249,1)',
           borderWidth: '1px 1px 1px 1px',
-          borderColor: 'rgba(0,0,0,1);',
-          borderStyle: 'solid',
+          borderColor: 'initial',
+          borderStyle: 'none',
           padding: '7px 12px 7px 12px',
           gap: '10px',
           display: 'flex',
@@ -1137,7 +1137,7 @@ const getProps = (options: GetPropsOptions): ComputedProps => {
   }
 };
 
-const Button = forwardRef<HTMLButtonElement, Props>((props: Props, ref) => {
+const Button: FC<Props> = (props: Props) => {
   const {
     children: childrenOverride,
     size = 'default',
@@ -1164,11 +1164,11 @@ const Button = forwardRef<HTMLButtonElement, Props>((props: Props, ref) => {
   });
 
   return (
-    <button style={{ ...style, ...styleOverride }} {...rest} ref={ref}>
+    <button style={{ ...style, ...styleOverride }} {...rest}>
       {childrenOverride ?? children}
     </button>
   );
-});
+};
 
 export default Button;
 export type { Props };
