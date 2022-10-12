@@ -30,6 +30,15 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["apps/figma-plugin-sandbox/**/*.ts"]
+      },
+      "defaultConfiguration": "typecheck",
+      "configurations": {
+        "typecheck": {
+          "eslintConfig": "apps/figma-plugin-sandbox/.eslintrc.typecheck.js"
+        },
+        "vanilla": {
+          "eslintConfig": "apps/figma-plugin-sandbox/.eslintrc.json"
+        }
       }
     },
     "test": {

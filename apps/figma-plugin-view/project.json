@@ -25,10 +25,35 @@
       }
     },
     "lint": {
+      "executor": "nx:run-commands",
+      "defaultConfiguration": "all",
+      "configurations": {
+        "all": {
+          "commands": ["nx run figma-plugin-view:lint-only:app", "nx run figma-plugin-view:lint-only:sb"],
+          "parallel": true
+        }
+      }
+    },
+    "lint-only": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["apps/figma-plugin-view/**/*.{ts,tsx,js,jsx}"]
+      "defaultConfiguration": "app",
+      "configurations": {
+        "app": {
+          "lintFilePatterns": ["apps/figma-plugin-view/**/*.{ts,tsx,js,jsx}"],
+          "ignorePath": "apps/figma-plugin-view/.sb.eslintignore",
+          "eslintConfig": "apps/figma-plugin-view/.eslintrc.typecheck.js"
+        },
+        "sb": {
+          "lintFilePatterns": [
+            "apps/figma-plugin-view/.storybook/**/*.{ts,tsx,js,jsx}"
+          ],
+          "eslintConfig": "apps/figma-plugin-view/.storybook/.eslintrc.typecheck.js"
+        },
+        "vanilla": {
+          "lintFilePatterns": ["apps/figma-plugin-view/**/*.{ts,tsx,js,jsx}"],
+          "eslintConfig": "apps/figma-plugin-view/.eslintrc.json"
+        }
       }
     },
     "test": {

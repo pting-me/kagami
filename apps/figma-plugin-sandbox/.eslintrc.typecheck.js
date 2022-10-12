@@ -1,10 +1,10 @@
+const appTs = require('./tsconfig.app.json');
 const configTs = require('./tsconfig.config.json');
-const libTs = require('./tsconfig.lib.json');
 const specTs = require('./tsconfig.spec.json');
 const path = require('path');
 
 module.exports = {
-  extends: ['plugin:@nrwl/nx/react', '../../.eslintrc.json'],
+  extends: ['plugin:@nrwl/nx/react', '../../.eslintrc.typecheck.json'],
   ignorePatterns: ['!**/*'],
   overrides: [
     {
@@ -14,10 +14,10 @@ module.exports = {
       },
     },
     {
-      files: libTs.include,
-      excludedFiles: libTs.exclude,
+      files: appTs.include,
+      excludedFiles: appTs.exclude,
       parserOptions: {
-        project: path.resolve(__dirname, './tsconfig.lib.json'),
+        project: path.resolve(__dirname, './tsconfig.app.json'),
       },
     },
     {
@@ -32,9 +32,7 @@ module.exports = {
     },
     {
       files: ['*.ts', '*.tsx'],
-      rules: {
-        '@typescript-eslint/no-unsafe-assignment': ['warn'],
-      },
+      rules: {},
     },
     {
       files: ['*.js', '*.jsx'],

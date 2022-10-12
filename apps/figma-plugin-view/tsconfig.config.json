@@ -6,7 +6,7 @@
     "types": ["node"],
     "resolveJsonModule": true
   },
-  "include": [".eslintrc.js", "*.config.ts"],
+  "include": [".eslintrc.typecheck.js", "*.config.ts"],
   "files": [
     "../../node_modules/@nrwl/react/typings/cssmodule.d.ts",
     "../../node_modules/@nrwl/react/typings/image.d.ts"

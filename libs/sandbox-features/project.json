@@ -8,6 +8,15 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["libs/sandbox-features/**/*.ts"]
+      },
+      "defaultConfiguration": "typecheck",
+      "configurations": {
+        "typecheck": {
+          "eslintConfig": "libs/sandbox-features/.eslintrc.typecheck.js"
+        },
+        "vanilla": {
+          "eslintConfig": "libs/sandbox-features/.eslintrc.json"
+        }
       }
     },
     "test": {

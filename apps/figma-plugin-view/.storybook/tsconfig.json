@@ -7,5 +7,5 @@
     "resolveJsonModule": true
   },
   "files": [],
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["./main.ts", "**/*.ts", "**/*.tsx"]
 }

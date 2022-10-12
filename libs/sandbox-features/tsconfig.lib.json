@@ -6,6 +6,6 @@
     "declaration": true,
     "types": ["node", "@figma/plugin-typings"]
   },
-  "exclude": [".eslintrc.js", "*.config.ts", "**/*.spec.ts", "**/*.test.ts"],
+  "exclude": [".eslintrc.typecheck.js", "*.config.ts", "**/*.spec.ts", "**/*.test.ts"],
   "include": ["**/*.js", "**/*.ts"]
 }

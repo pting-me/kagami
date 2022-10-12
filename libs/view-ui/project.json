@@ -9,6 +9,15 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["libs/view-ui/**/*.{ts,tsx,js,jsx}"]
+      },
+      "defaultConfiguration": "typecheck",
+      "configurations": {
+        "typecheck": {
+          "eslintConfig": "libs/view-ui/.eslintrc.typecheck.js"
+        },
+        "vanilla": {
+          "eslintConfig": "libs/view-ui/.eslintrc.json"
+        }
       }
     },
     "test": {

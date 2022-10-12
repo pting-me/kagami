@@ -1,11 +1,10 @@
-const appTs = require('./tsconfig.app.json');
 const configTs = require('./tsconfig.config.json');
+const libTs = require('./tsconfig.lib.json');
 const specTs = require('./tsconfig.spec.json');
-const storybookTs = require('./.storybook/tsconfig.json');
 const path = require('path');
 
 module.exports = {
-  extends: ['plugin:@nrwl/nx/react', '../../.eslintrc.json'],
+  extends: ['plugin:@nrwl/nx/react', '../../.eslintrc.typecheck.json'],
   ignorePatterns: ['!**/*'],
   overrides: [
     {
@@ -15,10 +14,10 @@ module.exports = {
       },
     },
     {
-      files: appTs.include,
-      excludedFiles: appTs.exclude,
+      files: libTs.include,
+      excludedFiles: libTs.exclude,
       parserOptions: {
-        project: path.resolve(__dirname, './tsconfig.app.json'),
+        project: path.resolve(__dirname, './tsconfig.lib.json'),
       },
     },
     {
@@ -28,18 +27,14 @@ module.exports = {
       },
     },
     {
-      files: storybookTs.include.map((dir) => `./.storybook/${dir}`),
-      parserOptions: {
-        project: path.resolve(__dirname, './.storybook/tsconfig.json'),
-      },
-    },
-    {
       files: ['*.ts', '*.tsx', '*.js', '*.jsx'],
       rules: {},
     },
     {
       files: ['*.ts', '*.tsx'],
-      rules: {},
+      rules: {
+        '@typescript-eslint/no-unsafe-assignment': ['warn'],
+      },
     },
     {
       files: ['*.js', '*.jsx'],

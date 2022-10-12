@@ -4,7 +4,7 @@ const specTs = require('./tsconfig.spec.json');
 const path = require('path');
 
 module.exports = {
-  extends: ['plugin:@nrwl/nx/react', '../../.eslintrc.json'],
+  extends: ['plugin:@nrwl/nx/react', '../../.eslintrc.typecheck.json'],
   ignorePatterns: ['!**/*'],
   overrides: [
     {

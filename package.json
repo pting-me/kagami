@@ -6,6 +6,7 @@
     "start": "nx serve",
     "build": "nx run-many --target=build --projects=figma-plugin-view,figma-plugin-sandbox",
     "build-prod": "nx run-many --target=build --projects=figma-plugin-view,figma-plugin-sandbox --configuration=production",
+    "lint": "nx run-many --target=lint --projects=figma-plugin-sandbox,figma-plugin-view,sandbox-features,view-features,view-ui",
     "prepare": "husky install",
     "test": "nx run-many --target=test --projects=sandbox-features,view-features,view-ui"
   },

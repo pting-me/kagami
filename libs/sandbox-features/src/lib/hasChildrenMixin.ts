@@ -6,9 +6,10 @@
  */
 const hasChildrenMixin = (node: BaseNode): node is BaseNode & ChildrenMixin => {
   // Note that we can't use `hasOwnProperty` to detect mixins
-  // We're not worried about `any` typing here since we're just checking properties
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-  if (!Object.keys(Object.getPrototypeOf(node)).includes('children')) {
+  // We're not worried about type coercion here since we're just checking properties
+  if (
+    !Object.keys(Object.getPrototypeOf(node) as BaseNode).includes('children')
+  ) {
     return false;
   }
   return true;
