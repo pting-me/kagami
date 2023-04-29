@@ -1,12 +1,10 @@
 {
   "name": "@figma-react-template/sandbox",
-  "packageManager": "yarn@3.5.0",
   "source": "src/main.ts",
   "global": "dist/main.js",
   "types": "dist/types.d.ts",
   "scripts": {
-    "dev": "parcel watch",
-    "build": "parcel build"
+    "build": "esbuild src/main.ts"
   },
   "devDependencies": {
     "@figma/plugin-typings": "^1.63.0",
