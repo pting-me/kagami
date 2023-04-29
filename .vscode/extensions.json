@@ -1,7 +1,5 @@
 {
   "recommendations": [
-    "dozerg.tsimportsorter",
-    "esbenp.prettier-vscode",
     "nrwl.angular-console"
   ]
 }

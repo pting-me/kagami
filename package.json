@@ -4,7 +4,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "nx dev iframe"
+    "dev": "nx dev iframe",
+    "build": "nx run-many iframe"
   },
   "devDependencies": {
     "@parcel/packager-ts": "2.8.3",
