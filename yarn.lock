@@ -236,6 +236,7 @@ __metadata:
     esbuild: ^0.17.18
     eslint: ^8.38.0
     typescript: ^5.0.2
+    yargs: ^17.7.2
   languageName: unknown
   linkType: soft
 
@@ -4706,7 +4707,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yargs@npm:^17.6.2":
+"yargs@npm:^17.6.2, yargs@npm:^17.7.2":
   version: 17.7.2
   resolution: "yargs@npm:17.7.2"
   dependencies:
