@@ -4,9 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "yarn build:dev",
-    "build:dev": "node esbuild.config.cjs --mode=dev",
-    "build:prod": "node esbuild.config.cjs --mode=prod"
+    "dev": "node esbuild.watch.mjs",
+    "build": "yarn build:prod",
+    "build:dev": "node esbuild.build.cjs --mode=dev",
+    "build:prod": "node esbuild.build.cjs --mode=prod"
   },
   "devDependencies": {
     "@figma/plugin-typings": "^1.63.0",

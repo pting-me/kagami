@@ -46,6 +46,3 @@ Thumbs.db
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-
-# Parcel
-.parcel-cache

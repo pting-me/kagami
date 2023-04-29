@@ -1,5 +1,3 @@
-import "./App.css";
-
 import { getTime } from "@figma-react-template/common";
 
 import { sendMessage } from "./messaging/main";

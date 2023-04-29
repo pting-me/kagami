@@ -4,13 +4,12 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "nx dev iframe",
+    "dev": "nx run-many -t dev -p iframe sandbox",
     "build": "nx run-many -t build -p iframe sandbox"
   },
   "devDependencies": {
-    "@parcel/packager-ts": "2.8.3",
-    "@parcel/transformer-typescript-types": "2.8.3",
-    "nx": "16.0.1",
+    "concurrently": "^8.0.1",
+    "nx": "^16.0.1",
     "prettier": "^2.8.8",
     "typescript": ">=3.0.0"
   },

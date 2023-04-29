@@ -1,13 +1,14 @@
-const esbuild = require("esbuild");
-const path = require("node:path");
-const yargs = require("yargs");
+import { fileURLToPath } from "node:url";
+
+import esbuild from "esbuild";
+import yargs from "yargs";
 
 const isDev = yargs.argv.mode === "dev";
 
 esbuild
   .build({
     entryPoints: ["src/main.ts"],
-    outdir: path.resolve(__dirname, "../../dist"),
+    outdir: fileURLToPath(new URL("../../dist", import.meta.url)),
     bundle: true,
     sourcemap: isDev,
     minify: !isDev,
