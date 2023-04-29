@@ -1,3 +1,2 @@
-export function sendMessage(message: unknown) {
-  window.parent.postMessage({ pluginMessage: message }, "*");
-}
+export * from "./sendMessage";
+export * from "./useMessage";

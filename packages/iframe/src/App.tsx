@@ -1,14 +1,17 @@
-import { getTime } from "@figma-react-template/common";
+import { createTimeMessage } from "@figma-react-template/common";
 
-import { sendMessage } from "./messaging/main";
+import { sendMessage, useMessage } from "./messaging/main";
 
 function App() {
+  const message = useMessage();
   return (
-    <>
-      <div>
-        <button onClick={() => sendMessage(getTime())}>Send message</button>
-      </div>
-    </>
+    <div className="container">
+      <h1 className="h">Messaging</h1>
+      <button className="btn" onClick={() => sendMessage(createTimeMessage())}>
+        Send message
+      </button>
+      <div>{message}</div>
+    </div>
   );
 }
 

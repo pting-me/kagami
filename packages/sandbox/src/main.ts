@@ -1,4 +1,5 @@
-import { handleMessage } from "./messaging/main";
+import { handleSelectionChange } from "./events/handleSelectionChange";
+import { handleMessage } from "./messaging/handleMessage";
 
 const { x: x0, y: y0, height: h0 } = figma.viewport.bounds;
 
@@ -12,3 +13,5 @@ const uiOptions: ShowUIOptions = {
 figma.showUI(__html__, uiOptions);
 
 figma.ui.onmessage = handleMessage;
+
+figma.on("selectionchange", handleSelectionChange);

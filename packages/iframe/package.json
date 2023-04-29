@@ -3,9 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "tsc && vite build --mode=dev --watch",
+    "dev": "vite build --mode=dev --watch",
     "build": "yarn build:prod",
-    "build:dev": "tsc && vite build --mode=dev",
+    "build:dev": "vite build --mode=dev",
     "build:prod": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
