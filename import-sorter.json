@@ -1,0 +1,6 @@
+{
+  "autoFormat": "onSave",
+  "quoteMark": "double",
+  "wrappingStyle": "prettier",
+  "groupRules": ["^react(-dom)?", "^node:", {}, "^[@]", "^[./]"]
+}

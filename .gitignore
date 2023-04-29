@@ -1,11 +1,8 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# Kagami specific
-apps/figma-plugin-view/playground/components
-
 # compiled output
-/dist
-/tmp
+dist
+tmp
 /out-tsc
 
 # dependencies
@@ -40,3 +37,15 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Yarn without Zero-installs
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Parcel
+.parcel-cache

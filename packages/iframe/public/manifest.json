@@ -1,0 +1,9 @@
+{
+  "name": "figma-react-template",
+  "id": "0000000000000000000",
+  "api": "1.0.0",
+  "editorType": ["figma"],
+  "permissions": [],
+  "main": "./main.js",
+  "ui": "./index.html"
+}
