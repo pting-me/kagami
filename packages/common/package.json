@@ -1,0 +1,13 @@
+{
+  "name": "@figma-react-template/common",
+  "private": true,
+  "type": "module",
+  "source": "src/main.ts",
+  "main": "src/main.ts",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "eslint": "^8.38.0",
+    "typescript": "^5.0.2"
+  }
+}

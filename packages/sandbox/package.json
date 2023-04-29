@@ -1,8 +1,8 @@
 {
   "name": "@figma-react-template/sandbox",
   "source": "src/main.ts",
-  "global": "dist/main.js",
-  "types": "dist/types.d.ts",
+  "private": true,
+  "type": "module",
   "scripts": {
     "build": "yarn build:dev",
     "build:dev": "node esbuild.config.cjs --mode=dev",

@@ -1,3 +1,5 @@
+import { handleMessage } from "./messaging/main";
+
 const { x: x0, y: y0, height: h0 } = figma.viewport.bounds;
 
 const uiOptions: ShowUIOptions = {
@@ -8,3 +10,5 @@ const uiOptions: ShowUIOptions = {
 };
 
 figma.showUI(__html__, uiOptions);
+
+figma.ui.onmessage = handleMessage;

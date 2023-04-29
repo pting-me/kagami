@@ -1,17 +1,14 @@
 import "./App.css";
 
-import { useState } from "react";
+import { getTime } from "@figma-react-template/common";
+
+import { sendMessage } from "./messaging/main";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+      <div>
+        <button onClick={() => sendMessage(getTime())}>Send message</button>
       </div>
     </>
   );
