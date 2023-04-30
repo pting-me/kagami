@@ -8,8 +8,8 @@ interface MessageData {
 }
 
 export const MessageContext = createContext<
-  MessageEvent<MessageData> | "outside-context" | null
->("outside-context");
+  MessageEvent<MessageData> | null | undefined
+>(undefined);
 
 export function MessageProvider(props: PropsWithChildren) {
   const { children } = props;

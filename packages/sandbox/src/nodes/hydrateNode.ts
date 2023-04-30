@@ -1,9 +1,7 @@
-import { componentProps, componentSetProps } from "./hydrationProps";
+import { componentProps, componentSetProps } from "@kagami/common";
 
 /**
- * Creates a prop reducer that converts an array of property names to values of the given node
- * @param node
- * @returns
+ * Creates a prop reducer that converts an array of property names to values of the given node.
  */
 const createPropReducer = <TNode = BaseNode>(node: TNode) => {
   return (a: Partial<TNode>, v: keyof TNode) =>
@@ -14,6 +12,9 @@ const createPropReducer = <TNode = BaseNode>(node: TNode) => {
     } as Partial<TNode>);
 };
 
+/**
+ * Nodes properties are accessed via proxy, so this will hydrate the node.
+ */
 export function hydrateNode<TNode extends BaseNode>(node: TNode) {
   switch (node.type) {
     case "COMPONENT": {

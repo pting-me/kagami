@@ -3,10 +3,8 @@ import { hydrateNode } from "./hydrateNode";
 
 /**
  * Gets all component nodes that are not part of a component set
- * @param {BaseNode} [node=figma.root]
- * @returns {ComponentNode[]}
  */
-export function getComponentNodes(node?: BaseNode) {
+export function getComponentNodes(node?: BaseNode): ComponentNode[] {
   const baseNode = node ?? figma.root;
 
   if (!hasChildrenMixin(baseNode)) {

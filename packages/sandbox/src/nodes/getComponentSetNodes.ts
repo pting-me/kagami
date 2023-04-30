@@ -3,10 +3,8 @@ import { hydrateNode } from "./hydrateNode";
 
 /**
  * Gets all component set nodes under the current node
- * @param {BaseNode} [node=figma.root]
- * @returns {ComponentSetNode[]}
  */
-export function getComponentSetNodes(node?: BaseNode) {
+export function getComponentSetNodes(node?: BaseNode): ComponentSetNode[] {
   const baseNode = node ?? figma.root;
 
   if (!hasChildrenMixin(baseNode)) {

@@ -2,10 +2,10 @@ import { useEffect } from "react";
 
 import { Button } from "./components/Button/Button";
 import { sendMessage } from "./messaging/sendMessage";
-import { useMessage } from "./messaging/useMessage";
+import { useComponentSetNodes } from "./nodes/useComponentSetNodes";
 
 function App() {
-  const message = useMessage();
+  const componentSetNodes = useComponentSetNodes();
 
   useEffect(() => {
     sendMessage({ type: "iframe/loaded" });
@@ -36,9 +36,7 @@ function App() {
           Click an item in the Figma document to trigger a message. Messages can
           be accessed via the <strong>useMessage</strong> hook.
         </p>
-        <p className="section py-4">
-          {JSON.stringify(message) ?? "No message has been received."}
-        </p>
+        <p className="section py-4">{JSON.stringify(componentSetNodes)}</p>
       </div>
     </>
   );
