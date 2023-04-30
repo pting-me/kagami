@@ -6,16 +6,19 @@ import {
 } from "@kagami/common";
 
 import { MessageProvider } from "../messaging/MessageContext";
+import { sendMessage } from "../messaging/sendMessage";
 import { useMessage } from "../messaging/useMessage";
 
-interface NodesValue {
+interface NodeValue {
   componentNodes: HydratedComponentNode[];
   componentSetNodes: HydratedComponentSetNode[];
+  selectedNodeId: string;
+  setSelectedNodeId: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const NodesContext = createContext<NodesValue | undefined>(undefined);
+export const NodeContext = createContext<NodeValue | undefined>(undefined);
 
-function NodesProviderCore(props: PropsWithChildren) {
+function NodeProviderCore(props: PropsWithChildren) {
   const { children } = props;
 
   const [componentNodes, setComponentNodes] = useState<HydratedComponentNode[]>(
@@ -24,6 +27,8 @@ function NodesProviderCore(props: PropsWithChildren) {
   const [componentSetNodes, setComponentSetNodes] = useState<
     HydratedComponentSetNode[]
   >([]);
+
+  const [selectedNodeId, setSelectedNodeId] = useState<string>("");
 
   const message = useMessage();
 
@@ -37,19 +42,33 @@ function NodesProviderCore(props: PropsWithChildren) {
     }
   }, [message]);
 
+  useEffect(() => {
+    sendMessage({
+      type: "nodes/selected",
+      payload: { id: selectedNodeId },
+    });
+  }, [selectedNodeId]);
+
   return (
-    <NodesContext.Provider value={{ componentNodes, componentSetNodes }}>
+    <NodeContext.Provider
+      value={{
+        componentNodes,
+        componentSetNodes,
+        selectedNodeId,
+        setSelectedNodeId,
+      }}
+    >
       {children}
-    </NodesContext.Provider>
+    </NodeContext.Provider>
   );
 }
 
-export function NodesProvider(props: PropsWithChildren) {
+export function NodeProvider(props: PropsWithChildren) {
   const { children } = props;
 
   return (
     <MessageProvider>
-      <NodesProviderCore>{children}</NodesProviderCore>
+      <NodeProviderCore>{children}</NodeProviderCore>
     </MessageProvider>
   );
 }

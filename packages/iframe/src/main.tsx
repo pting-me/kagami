@@ -4,12 +4,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import App from "./App";
-import { NodesProvider } from "./nodes/NodesContext";
+import { NodeProvider } from "./nodes/NodeContext";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <NodesProvider>
+    <NodeProvider>
       <App />
-    </NodesProvider>
+    </NodeProvider>
   </React.StrictMode>
 );

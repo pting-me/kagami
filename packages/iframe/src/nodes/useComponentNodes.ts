@@ -1,12 +1,12 @@
 import { useContext } from "react";
 
-import { NodesContext } from "./NodesContext";
+import { NodeContext } from "./NodeContext";
 
 export function useComponentNodes() {
-  const nodes = useContext(NodesContext);
+  const nodes = useContext(NodeContext);
 
   if (nodes === undefined) {
-    throw new Error("useComponentNodes must be used within a NodesProvider");
+    throw new Error("useComponentNodes must be used within a NodeProvider");
   }
 
   return nodes.componentNodes;
