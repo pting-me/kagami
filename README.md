@@ -1,6 +1,6 @@
-# Figma React Template
+# Kagami
 
-This is a starting template for building a Figma app using React.
+Kagami is a [Figma plugin](https://www.figma.com/community/plugin/1158610128178447057) for creating React components.
 
 ## Getting started
 
