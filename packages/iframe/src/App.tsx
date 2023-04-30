@@ -1,4 +1,4 @@
-import { createTimeMessage } from "@kagami/common";
+import { useEffect } from "react";
 
 import { Button } from "./components/Button/Button";
 import { sendMessage } from "./messaging/sendMessage";
@@ -6,6 +6,11 @@ import { useMessage } from "./messaging/useMessage";
 
 function App() {
   const message = useMessage();
+
+  useEffect(() => {
+    sendMessage({ type: "iframe/loaded" });
+  }, []);
+
   return (
     <>
       <div className="panel">
@@ -19,12 +24,7 @@ function App() {
           <br /> to see the sent message.
         </p>
         <div className="section single-row my-2">
-          <Button
-            className="flex-1"
-            onClick={() => sendMessage(createTimeMessage())}
-          >
-            Send message
-          </Button>
+          <Button className="flex-1">Do nothing</Button>
         </div>
       </div>
       <hr />
@@ -37,7 +37,7 @@ function App() {
           be accessed via the <strong>useMessage</strong> hook.
         </p>
         <p className="section py-4">
-          {message ?? "No message has been received."}
+          {JSON.stringify(message) ?? "No message has been received."}
         </p>
       </div>
     </>

@@ -1,5 +1,6 @@
-import { handleSelectionChange } from "./events/handleSelectionChange";
 import { handleMessage } from "./messaging/handleMessage";
+import { sendMessage } from "./messaging/sendMessage";
+import { getComponentSetNodes } from "./nodes/getComponentSetNodes";
 
 const { x: x0, y: y0, height: h0 } = figma.viewport.bounds;
 
@@ -14,4 +15,14 @@ figma.showUI(__html__, uiOptions);
 
 figma.ui.onmessage = handleMessage;
 
-figma.on("selectionchange", handleSelectionChange);
+// figma.on("selectionchange", handleSelectionChange);
+const componentSetNodes = getComponentSetNodes();
+console.log(componentSetNodes);
+
+sendMessage({
+  type: "nodes/updateComponentSets",
+  payload: componentSetNodes,
+});
+
+// console.log(getComponentNodes());
+// console.log(getComponentSetNodes());
