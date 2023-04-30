@@ -2,15 +2,13 @@ import { fileURLToPath } from "node:url";
 
 import esbuild from "esbuild";
 
-const isDev = true;
-
 const ctx = esbuild
   .context({
     entryPoints: ["src/main.ts"],
-    outdir: fileURLToPath(new URL("../../dist", import.meta.url)),
+    outdir: fileURLToPath(new URL("../../dist/dev", import.meta.url)),
     bundle: true,
-    sourcemap: isDev,
-    minify: !isDev,
+    sourcemap: true,
+    minify: false,
     format: "iife",
     target: ["chrome58", "safari11"],
     platform: "node",

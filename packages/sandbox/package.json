@@ -5,9 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node esbuild.watch.mjs",
-    "build": "yarn build:prod",
-    "build:dev": "node esbuild.build.cjs --mode=dev",
-    "build:prod": "node esbuild.build.cjs --mode=prod"
+    "build": "node esbuild.build.mjs"
   },
   "dependencies": {
     "@figma-react-template/common": "workspace:*"

@@ -1,4 +1,4 @@
-import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 import { defineConfig } from "vite";
 import { viteSingleFile } from "vite-plugin-singlefile";
@@ -15,7 +15,9 @@ export default defineConfig(({ mode }) => {
     build: {
       minify: isDev ? false : "esbuild",
       emptyOutDir: false,
-      outDir: path.resolve(__dirname, "../../dist/"),
+      outDir: fileURLToPath(
+        new URL(`../../dist/${isDev ? "dev" : "prod"}/`, import.meta.url)
+      ),
     },
   };
 });

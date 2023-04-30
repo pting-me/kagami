@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "nx run-many -t dev -p iframe sandbox",
-    "build": "nx run-many -t build -p iframe sandbox"
+    "build": "rm -rf dist/prod && nx run-many -t build -p iframe sandbox"
   },
   "devDependencies": {
     "concurrently": "^8.0.1",
