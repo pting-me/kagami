@@ -1,3 +1,7 @@
 {
-  "tsImportSorter.configuration.configurationFileName": ".vscode/import-sorter.json"
+  "tsImportSorter.configuration.configurationFileName": ".vscode/import-sorter.json",
+  "files.associations": { "*.css": "tailwindcss" },
+  "editor.quickSuggestions": {
+    "strings": true
+  }
 }

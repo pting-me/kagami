@@ -1,35 +1,27 @@
-@import "./reset.css";
-
-/* color tokens: https://www.figma.com/plugin-docs/css-variables/#list-of-all-available-color-tokens */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  color: var(--figma-color-text);
-  font-family: Inter, sans-serif;
-  font-size: 11px;
+  @apply text-type;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 8px 0;
+body {
+  @apply text-2xs;
+}
+
+.panel {
+  @apply flex flex-col py-2;
+}
+
+.single-row {
+  @apply flex h-8 items-center;
 }
 
 .section {
-  padding: 0 16px 8px 16px;
-}
-
-.section p {
-  padding-bottom: 16px;
+  @apply px-4;
 }
 
 hr {
   border-color: var(--figma-color-border);
-}
-
-.heading {
-  font-weight: 700;
-  height: 32px;
-  display: flex;
-  align-items: center;
 }
