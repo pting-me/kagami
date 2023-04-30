@@ -1,5 +1,5 @@
 {
-  "name": "@figma-react-template/sandbox",
+  "name": "@kagami/sandbox",
   "source": "src/main.ts",
   "private": true,
   "type": "module",
@@ -8,7 +8,7 @@
     "build": "node esbuild.build.mjs"
   },
   "dependencies": {
-    "@figma-react-template/common": "workspace:*"
+    "@kagami/common": "workspace:*"
   },
   "devDependencies": {
     "@figma/plugin-typings": "^1.63.0",

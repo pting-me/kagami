@@ -1,4 +1,4 @@
-import { createSelectionMessage } from "@figma-react-template/common";
+import { createSelectionMessage } from "@kagami/common";
 
 import { sendMessage } from "../messaging/sendMessage";
 

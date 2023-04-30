@@ -1,4 +1,4 @@
-import { MessageForSandbox } from "@figma-react-template/common";
+import { MessageForSandbox } from "@kagami/common";
 
 export function handleMessage(message: MessageForSandbox) {
   console.log(message);

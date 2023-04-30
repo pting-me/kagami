@@ -1,5 +1,5 @@
 {
-  "name": "@figma-react-template/common",
+  "name": "@kagami/common",
   "private": true,
   "type": "module",
   "source": "src/main.ts",

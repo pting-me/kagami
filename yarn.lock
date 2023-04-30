@@ -201,59 +201,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@figma-react-template/common@workspace:*, @figma-react-template/common@workspace:packages/common":
-  version: 0.0.0-use.local
-  resolution: "@figma-react-template/common@workspace:packages/common"
-  dependencies:
-    "@typescript-eslint/eslint-plugin": ^5.57.1
-    "@typescript-eslint/parser": ^5.57.1
-    eslint: ^8.38.0
-    typescript: ^5.0.2
-  languageName: unknown
-  linkType: soft
-
-"@figma-react-template/iframe@workspace:packages/iframe":
-  version: 0.0.0-use.local
-  resolution: "@figma-react-template/iframe@workspace:packages/iframe"
-  dependencies:
-    "@figma-react-template/common": "workspace:*"
-    "@types/node": ^18.16.3
-    "@types/react": ^18.0.28
-    "@types/react-dom": ^18.0.11
-    "@typescript-eslint/eslint-plugin": ^5.57.1
-    "@typescript-eslint/parser": ^5.57.1
-    "@vitejs/plugin-react-swc": ^3.0.0
-    autoprefixer: ^10.4.14
-    clsx: ^1.2.1
-    eslint: ^8.38.0
-    eslint-plugin-react-hooks: ^4.6.0
-    eslint-plugin-react-refresh: ^0.3.4
-    postcss: ^8.4.23
-    postcss-load-config: ^4.0.1
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    typescript: ^5.0.2
-    vite: ^4.3.2
-    vite-plugin-singlefile: ^0.13.5
-    vite-plugin-static-copy: ^0.14.0
-  languageName: unknown
-  linkType: soft
-
-"@figma-react-template/sandbox@workspace:packages/sandbox":
-  version: 0.0.0-use.local
-  resolution: "@figma-react-template/sandbox@workspace:packages/sandbox"
-  dependencies:
-    "@figma-react-template/common": "workspace:*"
-    "@figma/plugin-typings": ^1.63.0
-    "@typescript-eslint/eslint-plugin": ^5.57.1
-    "@typescript-eslint/parser": ^5.57.1
-    esbuild: ^0.17.18
-    eslint: ^8.38.0
-    typescript: ^5.0.2
-    yargs: ^17.7.2
-  languageName: unknown
-  linkType: soft
-
 "@figma/plugin-typings@npm:^1.63.0":
   version: 1.63.0
   resolution: "@figma/plugin-typings@npm:1.63.0"
@@ -292,6 +239,59 @@ __metadata:
   checksum: a824a1ec31591231e4bad5787641f59e9633827d0a2eaae131a288d33c9ef0290bd16fda8da6f7c0fcb014147865d12118df10db57f27f41e20da92369fcb3f1
   languageName: node
   linkType: hard
+
+"@kagami/common@workspace:*, @kagami/common@workspace:packages/common":
+  version: 0.0.0-use.local
+  resolution: "@kagami/common@workspace:packages/common"
+  dependencies:
+    "@typescript-eslint/eslint-plugin": ^5.57.1
+    "@typescript-eslint/parser": ^5.57.1
+    eslint: ^8.38.0
+    typescript: ^5.0.2
+  languageName: unknown
+  linkType: soft
+
+"@kagami/iframe@workspace:packages/iframe":
+  version: 0.0.0-use.local
+  resolution: "@kagami/iframe@workspace:packages/iframe"
+  dependencies:
+    "@kagami/common": "workspace:*"
+    "@types/node": ^18.16.3
+    "@types/react": ^18.0.28
+    "@types/react-dom": ^18.0.11
+    "@typescript-eslint/eslint-plugin": ^5.57.1
+    "@typescript-eslint/parser": ^5.57.1
+    "@vitejs/plugin-react-swc": ^3.0.0
+    autoprefixer: ^10.4.14
+    clsx: ^1.2.1
+    eslint: ^8.38.0
+    eslint-plugin-react-hooks: ^4.6.0
+    eslint-plugin-react-refresh: ^0.3.4
+    postcss: ^8.4.23
+    postcss-load-config: ^4.0.1
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    typescript: ^5.0.2
+    vite: ^4.3.2
+    vite-plugin-singlefile: ^0.13.5
+    vite-plugin-static-copy: ^0.14.0
+  languageName: unknown
+  linkType: soft
+
+"@kagami/sandbox@workspace:packages/sandbox":
+  version: 0.0.0-use.local
+  resolution: "@kagami/sandbox@workspace:packages/sandbox"
+  dependencies:
+    "@figma/plugin-typings": ^1.63.0
+    "@kagami/common": "workspace:*"
+    "@typescript-eslint/eslint-plugin": ^5.57.1
+    "@typescript-eslint/parser": ^5.57.1
+    esbuild: ^0.17.18
+    eslint: ^8.38.0
+    typescript: ^5.0.2
+    yargs: ^17.7.2
+  languageName: unknown
+  linkType: soft
 
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
@@ -1685,17 +1685,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"figma-react-template@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "figma-react-template@workspace:."
-  dependencies:
-    concurrently: ^8.0.1
-    nx: ^16.0.1
-    prettier: ^2.8.8
-    typescript: ">=3.0.0"
-  languageName: unknown
-  linkType: soft
-
 "figures@npm:3.2.0":
   version: 3.2.0
   resolution: "figures@npm:3.2.0"
@@ -2245,6 +2234,17 @@ __metadata:
   checksum: 7af3b8e1ac8fe7f1eccc6263c6ca14e1966fcbc74b618d3c78a0a2075579487547b94f72b7a1114e844a1e15bb00d440e5d1720bfc4612d790a6f285d5ea8354
   languageName: node
   linkType: hard
+
+"kagami@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "kagami@workspace:."
+  dependencies:
+    concurrently: ^8.0.1
+    nx: ^16.0.1
+    prettier: ^2.8.8
+    typescript: ">=3.0.0"
+  languageName: unknown
+  linkType: soft
 
 "levn@npm:^0.4.1":
   version: 0.4.1

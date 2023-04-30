@@ -1,6 +1,6 @@
 import { createContext, PropsWithChildren, useEffect, useState } from "react";
 
-import { MessageForIframe } from "@figma-react-template/common";
+import { MessageForIframe } from "@kagami/common";
 
 interface MessageData {
   pluginMessage: MessageForIframe;

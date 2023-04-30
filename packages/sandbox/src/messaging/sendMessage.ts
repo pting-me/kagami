@@ -1,4 +1,4 @@
-import { MessageForIframe } from "@figma-react-template/common";
+import { MessageForIframe } from "@kagami/common";
 
 export function sendMessage(message: MessageForIframe) {
   figma.ui.postMessage(message);

@@ -1,4 +1,4 @@
-import { createTimeMessage } from "@figma-react-template/common";
+import { createTimeMessage } from "@kagami/common";
 
 import { Button } from "./components/Button/Button";
 import { sendMessage } from "./messaging/sendMessage";
