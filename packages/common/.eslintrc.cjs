@@ -7,6 +7,14 @@ module.exports = {
       extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
       parser: "@typescript-eslint/parser",
       parserOptions: { ecmaVersion: "latest", sourceType: "module" },
+      rules: {
+        "@typescript-eslint/no-empty-interface": [
+          "error",
+          {
+            allowSingleExtends: true,
+          },
+        ],
+      },
     },
     {
       files: ["**/*.{js,cjs,mjs}"],

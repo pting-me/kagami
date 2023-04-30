@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => {
     server: { port: 31337 },
     build: {
       minify: isDev ? false : "esbuild",
-      emptyOutDir: !isDev,
+      emptyOutDir: false,
       outDir: path.resolve(__dirname, "../../dist/"),
     },
   };

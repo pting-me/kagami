@@ -1,20 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 
-import { MessageForIframe } from "@figma-react-template/common";
-
-interface MessageData {
-  pluginMessage: MessageForIframe;
-  pluginId: string;
-}
+import { MessageContext } from "./MessageContext";
 
 export function useMessage() {
-  const [messageEvent, setMessageEvent] = useState<MessageEvent<MessageData>>();
+  const messageEvent = useContext(MessageContext);
 
-  useEffect(() => {
-    window.onmessage = (e: MessageEvent<MessageData>) => {
-      setMessageEvent(e);
-    };
-  }, []);
+  if (messageEvent === "outside-context") {
+    throw new Error("useMessage must be used within a MessageProvider");
+  }
 
   return messageEvent?.data.pluginMessage;
 }

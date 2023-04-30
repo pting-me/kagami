@@ -10,6 +10,14 @@ module.exports = {
         ecmaVersion: "latest",
         sourceType: "module",
       },
+      rules: {
+        "@typescript-eslint/no-empty-interface": [
+          "error",
+          {
+            allowSingleExtends: true,
+          },
+        ],
+      },
     },
     {
       files: ["**/*.{js,cjs}"],

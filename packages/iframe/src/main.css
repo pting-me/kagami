@@ -7,27 +7,27 @@
 }
 
 .container {
-  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px 0;
 }
 
-.h {
+.section {
+  padding: 0 16px;
+}
+
+.section p {
+  padding-bottom: 16px;
+}
+
+hr {
+  border-color: var(--figma-color-border);
+}
+
+.heading {
   font-weight: 700;
   height: 32px;
-}
-
-.btn {
-  text-align: center;
-  height: 32px;
-  line-height: 30px;
-  max-width: 200px;
-  padding: 0 11px;
-  box-sizing: border-box;
-  border-radius: 6px;
-  cursor: default;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid var(--figma-color-text);
-  background-clip: padding-box;
+  display: flex;
+  align-items: center;
 }
