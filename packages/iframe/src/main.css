@@ -1,5 +1,7 @@
 @import "./reset.css";
 
+/* color tokens: https://www.figma.com/plugin-docs/css-variables/#list-of-all-available-color-tokens */
+
 :root {
   color: var(--figma-color-text);
   font-family: Inter, sans-serif;
