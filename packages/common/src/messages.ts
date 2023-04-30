@@ -10,12 +10,10 @@ export type MessageForSandbox = {
 /**
  * This is a message that will be received in the iframe
  */
-export type MessageForIframe =
-  | {
-      type: "nodes/updateComponents";
-      payload: HydratedComponentNode[];
-    }
-  | {
-      type: "nodes/updateComponentSets";
-      payload: HydratedComponentSetNode[];
-    };
+export type MessageForIframe = {
+  type: "nodes/update";
+  payload: {
+    componentNodes: HydratedComponentNode[];
+    componentSetNodes: HydratedComponentSetNode[];
+  };
+};

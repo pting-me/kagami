@@ -11,6 +11,9 @@ module.exports = {
       },
     },
     colors: {
+      transparent: "transparent",
+      black: "#000000",
+      white: "#ffffff",
       fill: {
         DEFAULT: "var(--figma-color-bg)",
         brand: {

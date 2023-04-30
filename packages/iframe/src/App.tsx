@@ -1,11 +1,14 @@
 import { useEffect } from "react";
 
-import { Button } from "./components/Button/Button";
+import { ComponentSetItem } from "./components/ComponentSetItem/ComponentSetItem";
+import { SingleComponentItem } from "./components/SingleComponentItem/SingleComponentItem";
 import { sendMessage } from "./messaging/sendMessage";
+import { useComponentNodes } from "./nodes/useComponentNodes";
 import { useComponentSetNodes } from "./nodes/useComponentSetNodes";
 
 function App() {
   const componentSetNodes = useComponentSetNodes();
+  const componentNodes = useComponentNodes();
 
   useEffect(() => {
     sendMessage({ type: "iframe/loaded" });
@@ -14,29 +17,25 @@ function App() {
   return (
     <>
       <div className="panel">
-        <div className="section single-row">
-          <h1 className="font-bold">Sending messages</h1>
+        <div className="single-row px-4">
+          <h1 className="font-bold">Component Sets</h1>
         </div>
-        <p className="section py-2">
-          Open up the console in
-          <br />
-          <strong>Plugins &gt; Development &gt; Open console</strong>
-          <br /> to see the sent message.
+        <p className="py-2">
+          {componentSetNodes.map((node) => {
+            return <ComponentSetItem key={node.id} node={node} />;
+          })}
         </p>
-        <div className="section single-row my-2">
-          <Button className="flex-1">Do nothing</Button>
-        </div>
       </div>
       <hr />
       <div className="panel">
-        <div className="section single-row">
-          <h1 className="font-bold">Handling received messages</h1>
+        <div className="single-row px-4">
+          <h1 className="font-bold">Standalone Components</h1>
         </div>
-        <p className="section py-4">
-          Click an item in the Figma document to trigger a message. Messages can
-          be accessed via the <strong>useMessage</strong> hook.
+        <p className="py-2">
+          {componentNodes.map((node) => {
+            return <SingleComponentItem key={node.id} node={node} />;
+          })}
         </p>
-        <p className="section py-4">{JSON.stringify(componentSetNodes)}</p>
       </div>
     </>
   );

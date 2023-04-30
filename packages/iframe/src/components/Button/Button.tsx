@@ -12,7 +12,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         className={clsx(
-          "border-stroke-strong box-border flex h-full cursor-default select-none items-center justify-center rounded-md border bg-clip-padding px-3",
+          "border-stroke-strong box-border flex h-full select-none items-center justify-center rounded-md border bg-clip-padding px-3",
           className
         )}
         {...rest}

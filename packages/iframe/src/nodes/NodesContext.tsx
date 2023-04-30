@@ -29,11 +29,9 @@ function NodesProviderCore(props: PropsWithChildren) {
 
   useEffect(() => {
     switch (message?.type) {
-      case "nodes/updateComponents":
-        setComponentNodes(message.payload);
-        return;
-      case "nodes/updateComponentSets":
-        setComponentSetNodes(message.payload);
+      case "nodes/update":
+        setComponentNodes(message.payload.componentNodes);
+        setComponentSetNodes(message.payload.componentSetNodes);
         return;
       default:
     }
