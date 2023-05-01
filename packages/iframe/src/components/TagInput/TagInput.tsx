@@ -6,14 +6,6 @@ import { Combobox } from "@headlessui/react";
 
 import { htmlElementTagNameMap, svgElementTagNameMap } from "./tagNameMap";
 
-const people = [
-  "Durward Reynolds",
-  "Kenton Towne",
-  "Therese Wunsch",
-  "Benedict Kessler",
-  "Katelyn Rohan",
-];
-
 interface Tag {
   label: string;
   type: "svg" | "html";
@@ -51,7 +43,7 @@ export function TagInput() {
     <Combobox value={selectedTag} onChange={setSelectedTag}>
       <div className="relative">
         <Combobox.Input
-          className="hover:border-stroke hover:bg-fill active:bg-fill focus:bg-fill w-24 rounded-sm border border-transparent bg-transparent px-2 py-1 outline-transparent"
+          className="hover:border-stroke hover:bg-fill-input active:bg-fill-input focus:bg-fill-input w-24 rounded-sm border border-transparent bg-transparent px-2 py-1 outline-transparent"
           onChange={(event) => setQuery(event.target.value)}
           displayValue={(tag: Tag) => tag.label}
         />
