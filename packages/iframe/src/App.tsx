@@ -33,6 +33,9 @@ function App() {
         <div className="single-row px-4" onClick={() => setSelectedNodeId("")}>
           <h1 className="font-bold">Standalone Components</h1>
         </div>
+        <p className="py-2 px-4">
+          Standalone components are currently not supported.
+        </p>
         <p className="py-2">
           {componentNodes.map((node) => {
             return <SingleComponentItem key={node.id} node={node} />;
