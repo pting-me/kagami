@@ -16,6 +16,10 @@ module.exports = {
       white: "#ffffff",
       fill: {
         DEFAULT: "var(--figma-color-bg)",
+        input: {
+          DEFAULT: "#111111",
+          selected: "#0a6dc2",
+        },
         brand: {
           DEFAULT: "var(--figma-color-bg-brand)",
           hover: "var(--figma-color-bg-brand-hover)",

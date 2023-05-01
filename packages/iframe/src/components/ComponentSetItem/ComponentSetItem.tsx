@@ -1,5 +1,3 @@
-import clsx from "clsx";
-
 import { Disclosure } from "@headlessui/react";
 import {
   HydratedComponentNode,
@@ -9,6 +7,7 @@ import {
 import { useSelectedNode } from "../../nodes/useSelectedNode";
 import { ComponentItem } from "../ComponentItem/ComponentItem";
 import { CaretIcon } from "../Icon/CaretIcon";
+import { TagInput } from "../TagInput/TagInput";
 
 interface ComponentSetItemProps {
   node: HydratedComponentSetNode;
@@ -17,15 +16,10 @@ interface ComponentSetItemProps {
 export function ComponentSetItem(props: ComponentSetItemProps) {
   const { node } = props;
 
-  const [selectedNodeId, setSelectedNodeId] = useSelectedNode();
+  const [, setSelectedNodeId] = useSelectedNode();
   return (
     <Disclosure>
-      <div
-        className={clsx(
-          selectedNodeId === node.id && "bg-fill-selected",
-          "single-row text-type-component hover:border-stroke-component flex w-full border border-transparent font-bold"
-        )}
-      >
+      <div className={"single-row hover:bg-fill-hover flex w-full"}>
         <Disclosure.Button className="fill-icon-tertiary flex h-full items-center">
           <div className="pl-4 pr-2">
             <CaretIcon />
@@ -37,26 +31,21 @@ export function ComponentSetItem(props: ComponentSetItemProps) {
           }}
           className="flex h-full w-full items-center overflow-hidden pr-4"
         >
-          <div className="overflow-hidden text-ellipsis whitespace-nowrap">
+          <div className="text-type-component overflow-hidden text-ellipsis whitespace-nowrap font-bold">
             {node.name}
           </div>
         </div>
+        <div className="mr-4">
+          <TagInput />
+        </div>
       </div>
-      <Disclosure.Panel
-        className={clsx(
-          selectedNodeId === node.id && "bg-fill-selected-secondary"
-        )}
-      >
+      <Disclosure.Panel>
         {node.children.map((childNode: HydratedComponentNode) => {
           return (
             <ComponentItem
               onClick={() => {
                 setSelectedNodeId(childNode.id);
               }}
-              className={clsx(
-                selectedNodeId === node.id && "bg-fill-selected-secondary",
-                selectedNodeId === childNode.id && "bg-fill-selected"
-              )}
               key={childNode.id}
               node={childNode}
             />

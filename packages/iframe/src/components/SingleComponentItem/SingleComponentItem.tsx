@@ -18,7 +18,7 @@ export function SingleComponentItem(props: SingleComponentItemProps) {
       <div
         className={clsx(
           selectedNodeId === node.id && "bg-fill-selected",
-          "single-row text-type-component hover:border-stroke-component inset-px flex w-full border border-transparent font-bold"
+          "single-row hover:bg-fill-selected-hover flex w-full"
         )}
       >
         <Disclosure.Button className="fill-icon-tertiary flex h-full items-center">
@@ -32,7 +32,7 @@ export function SingleComponentItem(props: SingleComponentItemProps) {
           }}
           className="flex h-full w-full items-center overflow-hidden pr-4"
         >
-          <div className="overflow-hidden text-ellipsis whitespace-nowrap">
+          <div className="text-type-component overflow-hidden text-ellipsis whitespace-nowrap font-bold">
             {node.name}
           </div>
         </div>

@@ -6,7 +6,8 @@ body {
   @apply text-2xs text-type cursor-default select-none;
 }
 
-button {
+button,
+input {
   @apply cursor-default;
 }
 
