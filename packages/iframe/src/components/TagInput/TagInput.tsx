@@ -43,11 +43,11 @@ export function TagInput() {
     <Combobox value={selectedTag} onChange={setSelectedTag}>
       <div className="relative">
         <Combobox.Input
-          className="hover:border-stroke hover:bg-fill-input active:bg-fill-input focus:bg-fill-input w-24 rounded-sm border border-transparent bg-transparent px-2 py-1 outline-transparent"
+          className="hover:border-stroke hover:bg-fill active:bg-fill focus:bg-fill h-7 w-16 rounded-sm border border-transparent bg-transparent px-1.5"
           onChange={(event) => setQuery(event.target.value)}
           displayValue={(tag: Tag) => tag.label}
         />
-        <Combobox.Options className="bg-fill-input absolute z-10 w-full rounded py-2">
+        <Combobox.Options className="bg-fill-input absolute right-0 z-10 rounded py-2">
           {filteredTags.map((tag) => (
             <Combobox.Option
               key={`${tag.label}-${tag.type}`}
@@ -55,14 +55,14 @@ export function TagInput() {
               className={({ active }) =>
                 clsx(
                   active && "bg-fill-input-selected",
-                  "overflow-hidden text-ellipsis whitespace-nowrap px-2 py-1"
+                  "overflow-hidden text-ellipsis whitespace-nowrap px-2 py-1 flex justify-between gap-2"
                 )
               }
             >
-              <span>{tag.label}</span>
-              <span className="text-type-secondary ml-4 italic">
+              <div>{tag.label}</div>
+              <div className="text-type-secondary italic">
                 {tag.type}
-              </span>
+              </div>
             </Combobox.Option>
           ))}
         </Combobox.Options>

@@ -6,9 +6,18 @@ body {
   @apply text-2xs text-type cursor-default select-none;
 }
 
+a,
 button,
 input {
-  @apply cursor-default;
+  @apply outline-stroke-brand cursor-default outline-2;
+}
+
+input {
+  @apply focus-visible:outline focus-visible:outline-2;
+}
+
+form {
+  margin-block-end: unset;
 }
 
 .panel {

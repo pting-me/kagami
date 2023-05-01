@@ -7,7 +7,9 @@ import {
 import { useSelectedNode } from "../../nodes/useSelectedNode";
 import { ComponentItem } from "../ComponentItem/ComponentItem";
 import { CaretIcon } from "../Icon/CaretIcon";
+import { DownloadIcon } from "../Icon/DownloadIcon";
 import { TagInput } from "../TagInput/TagInput";
+import { TemplateInput } from "../TemplateInput/TemplateInput";
 
 interface ComponentSetItemProps {
   node: HydratedComponentSetNode;
@@ -19,7 +21,7 @@ export function ComponentSetItem(props: ComponentSetItemProps) {
   const [, setSelectedNodeId] = useSelectedNode();
   return (
     <Disclosure>
-      <div className={"single-row hover:bg-fill-hover flex w-full"}>
+      <div className="single-row hover:bg-fill-hover w-full">
         <Disclosure.Button className="fill-icon-tertiary flex h-full items-center">
           <div className="pl-4 pr-2">
             <CaretIcon />
@@ -35,9 +37,27 @@ export function ComponentSetItem(props: ComponentSetItemProps) {
             {node.name}
           </div>
         </div>
-        <div className="mr-4">
-          <TagInput />
-        </div>
+        <form
+          className="hover:bg-fill-hover flex w-full"
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
+          <div className="mr-1">
+            <TemplateInput />
+          </div>
+          <div className="mr-1">
+            <TagInput />
+          </div>
+          <div className="mr-4">
+            <button
+              type="submit"
+              className="hover:border-stroke hover:bg-fill flex h-7 w-7 items-center justify-center rounded-sm border border-transparent"
+            >
+              <DownloadIcon />
+            </button>
+          </div>
+        </form>
       </div>
       <Disclosure.Panel>
         {node.children.map((childNode: HydratedComponentNode) => {
