@@ -3,13 +3,9 @@ import { useState } from "react";
 import clsx from "clsx";
 
 import { Combobox } from "@headlessui/react";
+import { Tag } from "@kagami/common";
 
 import { htmlElementTagNameMap, svgElementTagNameMap } from "./tagNameMap";
-
-interface Tag {
-  label: string;
-  type: "svg" | "html";
-}
 
 const tags = [
   ...Object.keys(htmlElementTagNameMap).map((tag) => ({
@@ -40,7 +36,7 @@ export function TagInput() {
           .filter((_, index) => index < 10);
 
   return (
-    <Combobox value={selectedTag} onChange={setSelectedTag}>
+    <Combobox name="tag" value={selectedTag} onChange={setSelectedTag}>
       <div className="relative">
         <Combobox.Input
           className="hover:border-stroke hover:bg-fill active:bg-fill focus:bg-fill h-7 w-16 rounded-sm border border-transparent bg-transparent px-1.5"
@@ -55,14 +51,12 @@ export function TagInput() {
               className={({ active }) =>
                 clsx(
                   active && "bg-fill-input-selected",
-                  "overflow-hidden text-ellipsis whitespace-nowrap px-2 py-1 flex justify-between gap-2"
+                  "flex justify-between gap-2 overflow-hidden text-ellipsis whitespace-nowrap px-2 py-1"
                 )
               }
             >
               <div>{tag.label}</div>
-              <div className="text-type-secondary italic">
-                {tag.type}
-              </div>
+              <div className="text-type-secondary italic">{tag.type}</div>
             </Combobox.Option>
           ))}
         </Combobox.Options>

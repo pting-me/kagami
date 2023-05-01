@@ -1,9 +1,11 @@
 import { Disclosure } from "@headlessui/react";
 import {
+  DownloadRequestedPayload,
   HydratedComponentNode,
   HydratedComponentSetNode,
 } from "@kagami/common";
 
+import { sendMessage } from "../../messaging/sendMessage";
 import { useSelectedNode } from "../../nodes/useSelectedNode";
 import { ComponentItem } from "../ComponentItem/ComponentItem";
 import { CaretIcon } from "../Icon/CaretIcon";
@@ -13,6 +15,11 @@ import { TemplateInput } from "../TemplateInput/TemplateInput";
 
 interface ComponentSetItemProps {
   node: HydratedComponentSetNode;
+}
+
+function isInputElement(el: Element): el is HTMLInputElement {
+  const inputEl = el as unknown as HTMLInputElement;
+  return Boolean(inputEl["name"] && inputEl["value"]);
 }
 
 export function ComponentSetItem(props: ComponentSetItemProps) {
@@ -41,6 +48,33 @@ export function ComponentSetItem(props: ComponentSetItemProps) {
           className="hover:bg-fill-hover flex w-full"
           onSubmit={(e) => {
             e.preventDefault();
+            const formValues: Record<string, string | Record<string, string>> =
+              {};
+            [...(e.target as HTMLFormElement).elements].forEach((el) => {
+              if (isInputElement(el)) {
+                // TODO: generalize
+                const [[, n1, n2]] = [
+                  ...el.name.matchAll(/([^[]+)(?:\[([^\]]+)\]){0,1}/g),
+                ];
+
+                if (!n2) {
+                  formValues[n1] = el.value;
+                } else {
+                  if (!formValues[n1]) {
+                    formValues[n1] = {};
+                  }
+                  if (typeof formValues[n1] !== "object") {
+                    throw new Error("Unexpected value in form");
+                  }
+                  (formValues[n1] as Record<string, string>)[n2] = el.value;
+                }
+              }
+            });
+
+            sendMessage({
+              type: "nodes/downloadRequested",
+              payload: formValues as unknown as DownloadRequestedPayload,
+            });
           }}
         >
           <div className="mr-1">

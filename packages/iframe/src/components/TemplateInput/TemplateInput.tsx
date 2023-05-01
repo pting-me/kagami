@@ -3,14 +3,9 @@ import { useState } from "react";
 import clsx from "clsx";
 
 import { Listbox } from "@headlessui/react";
+import { Template } from "@kagami/common";
 
 import { ChevronIcon } from "../Icon/ChevronIcon";
-
-interface Template {
-  framework: string;
-  type: string;
-  language: string;
-}
 
 const templates: Template[] = [
   { framework: "React", type: "simple", language: "TypeScript" },
@@ -23,7 +18,11 @@ export function TemplateInput() {
   );
 
   return (
-    <Listbox value={selectedTemplate} onChange={setSelectedTemplate}>
+    <Listbox
+      name="template"
+      value={selectedTemplate}
+      onChange={setSelectedTemplate}
+    >
       <div className="relative whitespace-nowrap">
         <Listbox.Button className="hover:bg-fill focus:bg-fill hover:border-stroke focus:border-stroke fill-icon-tertiary hover:fill-icon flex h-7 items-center justify-between rounded-sm bg-transparent px-1.5">
           <div className="pr-1">{selectedTemplate.type}</div>

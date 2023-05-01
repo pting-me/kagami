@@ -16,8 +16,11 @@ export function handleMessage(message: MessageForSandbox) {
         payload: { componentNodes, componentSetNodes },
       });
       return;
-    case "nodes/selected": {
+    case "nodes/selected":
       focusNode(message.payload);
-    }
+      return;
+    case "nodes/downloadRequested":
+      console.log(message.payload);
+      return;
   }
 }
