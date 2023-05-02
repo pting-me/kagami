@@ -30,14 +30,14 @@ export function TemplateInput() {
             <ChevronIcon />
           </div>
         </Listbox.Button>
-        <Listbox.Options className="bg-fill-input absolute right-0 z-10 rounded py-2 outline-none">
+        <Listbox.Options className="bg-fill-secondary absolute right-0 z-10 rounded py-2 outline-none">
           {templates.map((template) => (
             <Listbox.Option
               key={JSON.stringify(template)}
               value={template}
               className={({ active }) =>
                 clsx(
-                  active && "bg-fill-input-selected",
+                  active && "bg-fill-brand-hover",
                   "overflow-hidden text-ellipsis whitespace-nowrap px-2 py-1"
                 )
               }

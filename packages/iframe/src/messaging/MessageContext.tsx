@@ -5,6 +5,8 @@ import { MessageForIframe } from "@kagami/common";
 interface MessageData {
   pluginMessage: MessageForIframe;
   pluginId: string;
+  /** For React Devtools */
+  source?: string;
 }
 
 export const MessageContext = createContext<
@@ -19,6 +21,15 @@ export function MessageProvider(props: PropsWithChildren) {
 
   useEffect(() => {
     window.onmessage = (e: MessageEvent<MessageData>) => {
+      // TODO: This breaks React devtools, need a way to queue messaging
+      if (e.data.source?.startsWith("react")) {
+        return;
+      }
+
+      if (e.data.pluginMessage.type !== "nodes/update") {
+        return;
+      }
+
       setMessageEvent(e);
     };
   }, []);

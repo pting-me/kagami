@@ -9,7 +9,7 @@ export function CaretIcon() {
       viewBox="0 0 6 6"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M5 3L1 0v6l4-3z" fill-rule="nonzero" stroke="none"></path>
+      <path d="M5 3L1 0v6l4-3z" fillRule="nonzero" stroke="none"></path>
     </svg>
   );
 }

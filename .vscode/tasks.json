@@ -6,7 +6,28 @@
       "script": "dev",
       "problemMatcher": [],
       "label": "npm: dev",
-      "detail": "nx dev",
+      "group": {
+        "kind": "build"
+      },
+      "presentation": {
+        "group": "build"
+      }
+    },
+    {
+      "type": "npm",
+      "script": "mock",
+      "problemMatcher": [],
+      "label": "npm: mock",
+      "group": {
+        "kind": "build"
+      },
+      "presentation": {
+        "group": "build"
+      }
+    },
+    {
+      "label": "mock + dev",
+      "dependsOn": ["npm: dev", "npm: mock"],
       "group": {
         "kind": "build",
         "isDefault": true

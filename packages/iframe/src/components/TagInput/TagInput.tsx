@@ -43,14 +43,14 @@ export function TagInput() {
           onChange={(event) => setQuery(event.target.value)}
           displayValue={(tag: Tag) => tag.label}
         />
-        <Combobox.Options className="bg-fill-input absolute right-0 z-10 rounded py-2">
+        <Combobox.Options className="bg-fill-secondary absolute right-0 z-10 rounded py-2">
           {filteredTags.map((tag) => (
             <Combobox.Option
               key={`${tag.label}-${tag.type}`}
               value={tag}
               className={({ active }) =>
                 clsx(
-                  active && "bg-fill-input-selected",
+                  active && "bg-fill-brand-hover",
                   "flex justify-between gap-2 overflow-hidden text-ellipsis whitespace-nowrap px-2 py-1"
                 )
               }
