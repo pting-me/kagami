@@ -1,0 +1,872 @@
+{
+  "componentNodes": [
+    {
+      "id": "718:5471",
+      "name": "Tooltip",
+      "type": "COMPONENT",
+      "variantProperties": null,
+      "fillStyleId": "S:a40a406e1a2c81e319f1e0c039a5bb8f72ac74d3,",
+      "fills": [
+        {
+          "type": "SOLID",
+          "visible": true,
+          "opacity": 1,
+          "blendMode": "NORMAL",
+          "color": {
+            "r": 0.20000000298023224,
+            "g": 0.20000000298023224,
+            "b": 0.20000000298023224
+          }
+        }
+      ],
+      "strokeStyleId": "",
+      "strokes": [],
+      "strokeTopWeight": 1,
+      "strokeRightWeight": 1,
+      "strokeBottomWeight": 1,
+      "strokeLeftWeight": 1,
+      "topLeftRadius": 3,
+      "topRightRadius": 3,
+      "bottomRightRadius": 3,
+      "bottomLeftRadius": 3,
+      "effectStyleId": "",
+      "gridStyleId": ""
+    }
+  ],
+  "componentSetNodes": [
+    {
+      "id": "1270:306",
+      "name": "Button",
+      "type": "COMPONENT_SET",
+      "variantGroupProperties": {
+        "Size": { "values": ["small", "default", "large"] },
+        "Variant": { "values": ["default", "primary", "danger", "secondary"] },
+        "Icon": { "values": ["true", "false"] }
+      },
+      "children": [
+        {
+          "id": "308:7",
+          "name": "Size=default, Variant=default, Icon=false",
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Size": "default",
+            "Variant": "default",
+            "Icon": "false"
+          },
+          "fillStyleId": "S:65c24a20f447e9c8c24ee754c237799f39876559,",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.949999988079071,
+                "g": 0.949999988079071,
+                "b": 0.949999988079071
+              }
+            }
+          ],
+          "strokeStyleId": "",
+          "strokes": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": { "r": 0, "g": 0, "b": 0 }
+            }
+          ],
+          "strokeTopWeight": 0,
+          "strokeRightWeight": 0,
+          "strokeBottomWeight": 0,
+          "strokeLeftWeight": 0,
+          "topLeftRadius": 3,
+          "topRightRadius": 3,
+          "bottomRightRadius": 3,
+          "bottomLeftRadius": 3,
+          "effectStyleId": "",
+          "gridStyleId": ""
+        },
+        {
+          "id": "133:900",
+          "name": "Size=default, Variant=primary, Icon=false",
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Size": "default",
+            "Variant": "primary",
+            "Icon": "false"
+          },
+          "fillStyleId": "",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": { "r": 1, "g": 1, "b": 1 }
+            },
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 0.20000000298023224,
+              "blendMode": "NORMAL",
+              "color": { "r": 0, "g": 0, "b": 0 }
+            },
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 0.20000000298023224,
+              "blendMode": "NORMAL",
+              "color": { "r": 0, "g": 0, "b": 0 }
+            }
+          ],
+          "strokeStyleId": "S:c5922c6d2a2c12abd83888e19b8e7f2400e55d12,",
+          "strokes": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.46666666865348816,
+                "g": 0.8196078538894653,
+                "b": 0.9529411792755127
+              }
+            }
+          ],
+          "strokeTopWeight": 1,
+          "strokeRightWeight": 1,
+          "strokeBottomWeight": 1,
+          "strokeLeftWeight": 1,
+          "topLeftRadius": 3,
+          "topRightRadius": 3,
+          "bottomRightRadius": 3,
+          "bottomLeftRadius": 3,
+          "effectStyleId": "",
+          "gridStyleId": ""
+        },
+        {
+          "id": "308:5",
+          "name": "Size=default, Variant=danger, Icon=false",
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Size": "default",
+            "Variant": "danger",
+            "Icon": "false"
+          },
+          "fillStyleId": "S:221c2a36eaf9715431835b39ec5d5728938a2869,",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.9372549057006836,
+                "g": 0.1882352977991104,
+                "b": 0.3803921639919281
+              }
+            }
+          ],
+          "strokeStyleId": "",
+          "strokes": [],
+          "strokeTopWeight": 1,
+          "strokeRightWeight": 1,
+          "strokeBottomWeight": 1,
+          "strokeLeftWeight": 1,
+          "topLeftRadius": 3,
+          "topRightRadius": 3,
+          "bottomRightRadius": 3,
+          "bottomLeftRadius": 3,
+          "effectStyleId": "",
+          "gridStyleId": ""
+        },
+        {
+          "id": "308:6",
+          "name": "Size=default, Variant=secondary, Icon=false",
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Size": "default",
+            "Variant": "secondary",
+            "Icon": "false"
+          },
+          "fillStyleId": "",
+          "fills": [],
+          "strokeStyleId": "",
+          "strokes": [],
+          "strokeTopWeight": 1,
+          "strokeRightWeight": 1,
+          "strokeBottomWeight": 1,
+          "strokeLeftWeight": 1,
+          "topLeftRadius": 3,
+          "topRightRadius": 3,
+          "bottomRightRadius": 3,
+          "bottomLeftRadius": 3,
+          "effectStyleId": "",
+          "gridStyleId": ""
+        },
+        {
+          "id": "711:13870",
+          "name": "Size=default, Variant=default, Icon=true",
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Size": "default",
+            "Variant": "default",
+            "Icon": "true"
+          },
+          "fillStyleId": "S:65c24a20f447e9c8c24ee754c237799f39876559,",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.949999988079071,
+                "g": 0.949999988079071,
+                "b": 0.949999988079071
+              }
+            }
+          ],
+          "strokeStyleId": "",
+          "strokes": [],
+          "strokeTopWeight": 1,
+          "strokeRightWeight": 1,
+          "strokeBottomWeight": 1,
+          "strokeLeftWeight": 1,
+          "topLeftRadius": 3,
+          "topRightRadius": 3,
+          "bottomRightRadius": 3,
+          "bottomLeftRadius": 3,
+          "effectStyleId": "",
+          "gridStyleId": ""
+        },
+        {
+          "id": "711:13905",
+          "name": "Size=default, Variant=primary, Icon=true",
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Size": "default",
+            "Variant": "primary",
+            "Icon": "true"
+          },
+          "fillStyleId": "S:0116f467fa5760e4a4dde9c28e1fc76f3a20cf91,",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.1764705926179886,
+                "g": 0.49803921580314636,
+                "b": 0.9764705896377563
+              }
+            }
+          ],
+          "strokeStyleId": "",
+          "strokes": [],
+          "strokeTopWeight": 1,
+          "strokeRightWeight": 1,
+          "strokeBottomWeight": 1,
+          "strokeLeftWeight": 1,
+          "topLeftRadius": 3,
+          "topRightRadius": 3,
+          "bottomRightRadius": 3,
+          "bottomLeftRadius": 3,
+          "effectStyleId": "",
+          "gridStyleId": ""
+        },
+        {
+          "id": "711:13904",
+          "name": "Size=default, Variant=danger, Icon=true",
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Size": "default",
+            "Variant": "danger",
+            "Icon": "true"
+          },
+          "fillStyleId": "S:221c2a36eaf9715431835b39ec5d5728938a2869,",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.9372549057006836,
+                "g": 0.1882352977991104,
+                "b": 0.3803921639919281
+              }
+            }
+          ],
+          "strokeStyleId": "",
+          "strokes": [],
+          "strokeTopWeight": 1,
+          "strokeRightWeight": 1,
+          "strokeBottomWeight": 1,
+          "strokeLeftWeight": 1,
+          "topLeftRadius": 3,
+          "topRightRadius": 3,
+          "bottomRightRadius": 3,
+          "bottomLeftRadius": 3,
+          "effectStyleId": "",
+          "gridStyleId": ""
+        },
+        {
+          "id": "711:13906",
+          "name": "Size=default, Variant=secondary, Icon=true",
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Size": "default",
+            "Variant": "secondary",
+            "Icon": "true"
+          },
+          "fillStyleId": "",
+          "fills": [],
+          "strokeStyleId": "",
+          "strokes": [],
+          "strokeTopWeight": 1,
+          "strokeRightWeight": 1,
+          "strokeBottomWeight": 1,
+          "strokeLeftWeight": 1,
+          "topLeftRadius": 3,
+          "topRightRadius": 3,
+          "bottomRightRadius": 3,
+          "bottomLeftRadius": 3,
+          "effectStyleId": "",
+          "gridStyleId": ""
+        },
+        {
+          "id": "711:14092",
+          "name": "Size=small, Variant=default, Icon=false",
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Size": "small",
+            "Variant": "default",
+            "Icon": "false"
+          },
+          "fillStyleId": "S:65c24a20f447e9c8c24ee754c237799f39876559,",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.949999988079071,
+                "g": 0.949999988079071,
+                "b": 0.949999988079071
+              }
+            }
+          ],
+          "strokeStyleId": "",
+          "strokes": [],
+          "strokeTopWeight": 1,
+          "strokeRightWeight": 1,
+          "strokeBottomWeight": 1,
+          "strokeLeftWeight": 1,
+          "topLeftRadius": 3,
+          "topRightRadius": 3,
+          "bottomRightRadius": 3,
+          "bottomLeftRadius": 3,
+          "effectStyleId": "",
+          "gridStyleId": ""
+        },
+        {
+          "id": "711:14091",
+          "name": "Size=small, Variant=primary, Icon=false",
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Size": "small",
+            "Variant": "primary",
+            "Icon": "false"
+          },
+          "fillStyleId": "S:0116f467fa5760e4a4dde9c28e1fc76f3a20cf91,",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.1764705926179886,
+                "g": 0.49803921580314636,
+                "b": 0.9764705896377563
+              }
+            }
+          ],
+          "strokeStyleId": "",
+          "strokes": [],
+          "strokeTopWeight": 1,
+          "strokeRightWeight": 1,
+          "strokeBottomWeight": 1,
+          "strokeLeftWeight": 1,
+          "topLeftRadius": 3,
+          "topRightRadius": 3,
+          "bottomRightRadius": 3,
+          "bottomLeftRadius": 3,
+          "effectStyleId": "",
+          "gridStyleId": ""
+        },
+        {
+          "id": "711:14089",
+          "name": "Size=small, Variant=danger, Icon=false",
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Size": "small",
+            "Variant": "danger",
+            "Icon": "false"
+          },
+          "fillStyleId": "S:221c2a36eaf9715431835b39ec5d5728938a2869,",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.9372549057006836,
+                "g": 0.1882352977991104,
+                "b": 0.3803921639919281
+              }
+            }
+          ],
+          "strokeStyleId": "",
+          "strokes": [],
+          "strokeTopWeight": 1,
+          "strokeRightWeight": 1,
+          "strokeBottomWeight": 1,
+          "strokeLeftWeight": 1,
+          "topLeftRadius": 3,
+          "topRightRadius": 3,
+          "bottomRightRadius": 3,
+          "bottomLeftRadius": 3,
+          "effectStyleId": "",
+          "gridStyleId": ""
+        },
+        {
+          "id": "711:14095",
+          "name": "Size=small, Variant=secondary, Icon=false",
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Size": "small",
+            "Variant": "secondary",
+            "Icon": "false"
+          },
+          "fillStyleId": "",
+          "fills": [],
+          "strokeStyleId": "",
+          "strokes": [],
+          "strokeTopWeight": 1,
+          "strokeRightWeight": 1,
+          "strokeBottomWeight": 1,
+          "strokeLeftWeight": 1,
+          "topLeftRadius": 3,
+          "topRightRadius": 3,
+          "bottomRightRadius": 3,
+          "bottomLeftRadius": 3,
+          "effectStyleId": "",
+          "gridStyleId": ""
+        },
+        {
+          "id": "716:523",
+          "name": "Size=small, Variant=default, Icon=true",
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Size": "small",
+            "Variant": "default",
+            "Icon": "true"
+          },
+          "fillStyleId": "S:65c24a20f447e9c8c24ee754c237799f39876559,",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.949999988079071,
+                "g": 0.949999988079071,
+                "b": 0.949999988079071
+              }
+            }
+          ],
+          "strokeStyleId": "",
+          "strokes": [],
+          "strokeTopWeight": 1,
+          "strokeRightWeight": 1,
+          "strokeBottomWeight": 1,
+          "strokeLeftWeight": 1,
+          "topLeftRadius": 3,
+          "topRightRadius": 3,
+          "bottomRightRadius": 3,
+          "bottomLeftRadius": 3,
+          "effectStyleId": "",
+          "gridStyleId": ""
+        },
+        {
+          "id": "716:531",
+          "name": "Size=small, Variant=primary, Icon=true",
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Size": "small",
+            "Variant": "primary",
+            "Icon": "true"
+          },
+          "fillStyleId": "S:0116f467fa5760e4a4dde9c28e1fc76f3a20cf91,",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.1764705926179886,
+                "g": 0.49803921580314636,
+                "b": 0.9764705896377563
+              }
+            }
+          ],
+          "strokeStyleId": "",
+          "strokes": [],
+          "strokeTopWeight": 1,
+          "strokeRightWeight": 1,
+          "strokeBottomWeight": 1,
+          "strokeLeftWeight": 1,
+          "topLeftRadius": 3,
+          "topRightRadius": 3,
+          "bottomRightRadius": 3,
+          "bottomLeftRadius": 3,
+          "effectStyleId": "",
+          "gridStyleId": ""
+        },
+        {
+          "id": "716:535",
+          "name": "Size=small, Variant=danger, Icon=true",
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Size": "small",
+            "Variant": "danger",
+            "Icon": "true"
+          },
+          "fillStyleId": "S:221c2a36eaf9715431835b39ec5d5728938a2869,",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.9372549057006836,
+                "g": 0.1882352977991104,
+                "b": 0.3803921639919281
+              }
+            }
+          ],
+          "strokeStyleId": "",
+          "strokes": [],
+          "strokeTopWeight": 1,
+          "strokeRightWeight": 1,
+          "strokeBottomWeight": 1,
+          "strokeLeftWeight": 1,
+          "topLeftRadius": 3,
+          "topRightRadius": 3,
+          "bottomRightRadius": 3,
+          "bottomLeftRadius": 3,
+          "effectStyleId": "",
+          "gridStyleId": ""
+        },
+        {
+          "id": "716:527",
+          "name": "Size=small, Variant=secondary, Icon=true",
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Size": "small",
+            "Variant": "secondary",
+            "Icon": "true"
+          },
+          "fillStyleId": "",
+          "fills": [],
+          "strokeStyleId": "",
+          "strokes": [],
+          "strokeTopWeight": 1,
+          "strokeRightWeight": 1,
+          "strokeBottomWeight": 1,
+          "strokeLeftWeight": 1,
+          "topLeftRadius": 3,
+          "topRightRadius": 3,
+          "bottomRightRadius": 3,
+          "bottomLeftRadius": 3,
+          "effectStyleId": "",
+          "gridStyleId": ""
+        },
+        {
+          "id": "717:480",
+          "name": "Size=large, Variant=default, Icon=false",
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Size": "large",
+            "Variant": "default",
+            "Icon": "false"
+          },
+          "fillStyleId": "S:65c24a20f447e9c8c24ee754c237799f39876559,",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.949999988079071,
+                "g": 0.949999988079071,
+                "b": 0.949999988079071
+              }
+            }
+          ],
+          "strokeStyleId": "",
+          "strokes": [],
+          "strokeTopWeight": 1,
+          "strokeRightWeight": 1,
+          "strokeBottomWeight": 1,
+          "strokeLeftWeight": 1,
+          "topLeftRadius": 3,
+          "topRightRadius": 3,
+          "bottomRightRadius": 3,
+          "bottomLeftRadius": 3,
+          "effectStyleId": "",
+          "gridStyleId": ""
+        },
+        {
+          "id": "717:475",
+          "name": "Size=large, Variant=primary, Icon=false",
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Size": "large",
+            "Variant": "primary",
+            "Icon": "false"
+          },
+          "fillStyleId": "S:0116f467fa5760e4a4dde9c28e1fc76f3a20cf91,",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.1764705926179886,
+                "g": 0.49803921580314636,
+                "b": 0.9764705896377563
+              }
+            }
+          ],
+          "strokeStyleId": "",
+          "strokes": [],
+          "strokeTopWeight": 1,
+          "strokeRightWeight": 1,
+          "strokeBottomWeight": 1,
+          "strokeLeftWeight": 1,
+          "topLeftRadius": 3,
+          "topRightRadius": 3,
+          "bottomRightRadius": 3,
+          "bottomLeftRadius": 3,
+          "effectStyleId": "",
+          "gridStyleId": ""
+        },
+        {
+          "id": "717:473",
+          "name": "Size=large, Variant=danger, Icon=false",
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Size": "large",
+            "Variant": "danger",
+            "Icon": "false"
+          },
+          "fillStyleId": "S:221c2a36eaf9715431835b39ec5d5728938a2869,",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.9372549057006836,
+                "g": 0.1882352977991104,
+                "b": 0.3803921639919281
+              }
+            }
+          ],
+          "strokeStyleId": "",
+          "strokes": [],
+          "strokeTopWeight": 1,
+          "strokeRightWeight": 1,
+          "strokeBottomWeight": 1,
+          "strokeLeftWeight": 1,
+          "topLeftRadius": 3,
+          "topRightRadius": 3,
+          "bottomRightRadius": 3,
+          "bottomLeftRadius": 3,
+          "effectStyleId": "",
+          "gridStyleId": ""
+        },
+        {
+          "id": "717:477",
+          "name": "Size=large, Variant=secondary, Icon=false",
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Size": "large",
+            "Variant": "secondary",
+            "Icon": "false"
+          },
+          "fillStyleId": "",
+          "fills": [],
+          "strokeStyleId": "",
+          "strokes": [],
+          "strokeTopWeight": 1,
+          "strokeRightWeight": 1,
+          "strokeBottomWeight": 1,
+          "strokeLeftWeight": 1,
+          "topLeftRadius": 3,
+          "topRightRadius": 3,
+          "bottomRightRadius": 3,
+          "bottomLeftRadius": 3,
+          "effectStyleId": "",
+          "gridStyleId": ""
+        },
+        {
+          "id": "717:479",
+          "name": "Size=large, Variant=default, Icon=true",
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Size": "large",
+            "Variant": "default",
+            "Icon": "true"
+          },
+          "fillStyleId": "S:65c24a20f447e9c8c24ee754c237799f39876559,",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.949999988079071,
+                "g": 0.949999988079071,
+                "b": 0.949999988079071
+              }
+            }
+          ],
+          "strokeStyleId": "",
+          "strokes": [],
+          "strokeTopWeight": 1,
+          "strokeRightWeight": 1,
+          "strokeBottomWeight": 1,
+          "strokeLeftWeight": 1,
+          "topLeftRadius": 3,
+          "topRightRadius": 3,
+          "bottomRightRadius": 3,
+          "bottomLeftRadius": 3,
+          "effectStyleId": "",
+          "gridStyleId": ""
+        },
+        {
+          "id": "717:474",
+          "name": "Size=large, Variant=primary, Icon=true",
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Size": "large",
+            "Variant": "primary",
+            "Icon": "true"
+          },
+          "fillStyleId": "S:0116f467fa5760e4a4dde9c28e1fc76f3a20cf91,",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.1764705926179886,
+                "g": 0.49803921580314636,
+                "b": 0.9764705896377563
+              }
+            }
+          ],
+          "strokeStyleId": "",
+          "strokes": [],
+          "strokeTopWeight": 1,
+          "strokeRightWeight": 1,
+          "strokeBottomWeight": 1,
+          "strokeLeftWeight": 1,
+          "topLeftRadius": 3,
+          "topRightRadius": 3,
+          "bottomRightRadius": 3,
+          "bottomLeftRadius": 3,
+          "effectStyleId": "",
+          "gridStyleId": ""
+        },
+        {
+          "id": "717:478",
+          "name": "Size=large, Variant=danger, Icon=true",
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Size": "large",
+            "Variant": "danger",
+            "Icon": "true"
+          },
+          "fillStyleId": "S:221c2a36eaf9715431835b39ec5d5728938a2869,",
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.9372549057006836,
+                "g": 0.1882352977991104,
+                "b": 0.3803921639919281
+              }
+            }
+          ],
+          "strokeStyleId": "",
+          "strokes": [],
+          "strokeTopWeight": 1,
+          "strokeRightWeight": 1,
+          "strokeBottomWeight": 1,
+          "strokeLeftWeight": 1,
+          "topLeftRadius": 3,
+          "topRightRadius": 3,
+          "bottomRightRadius": 3,
+          "bottomLeftRadius": 3,
+          "effectStyleId": "",
+          "gridStyleId": ""
+        },
+        {
+          "id": "717:476",
+          "name": "Size=large, Variant=secondary, Icon=true",
+          "type": "COMPONENT",
+          "variantProperties": {
+            "Size": "large",
+            "Variant": "secondary",
+            "Icon": "true"
+          },
+          "fillStyleId": "",
+          "fills": [],
+          "strokeStyleId": "",
+          "strokes": [],
+          "strokeTopWeight": 1,
+          "strokeRightWeight": 1,
+          "strokeBottomWeight": 1,
+          "strokeLeftWeight": 1,
+          "topLeftRadius": 3,
+          "topRightRadius": 3,
+          "bottomRightRadius": 3,
+          "bottomLeftRadius": 3,
+          "effectStyleId": "",
+          "gridStyleId": ""
+        }
+      ]
+    }
+  ]
+}
