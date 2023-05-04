@@ -3,14 +3,14 @@ import { componentProps, componentSetProps } from "@kagami/common";
 /**
  * Creates a prop reducer that converts an array of property names to values of the given node.
  */
-const createPropReducer = <TNode = BaseNode>(node: TNode) => {
+function createPropReducer<TNode = BaseNode>(node: TNode) {
   return (a: Partial<TNode>, v: keyof TNode) =>
     ({
       ...a,
       [v]: node[v],
       // TypeScript converts the keyof T to string, so we want to cast to Partial here
     } as Partial<TNode>);
-};
+}
 
 /**
  * Nodes properties are accessed via proxy, so this will hydrate the node.

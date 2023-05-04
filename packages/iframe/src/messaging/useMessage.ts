@@ -3,11 +3,11 @@ import { useContext } from "react";
 import { MessageContext } from "./MessageContext";
 
 export function useMessage() {
-  const messageEvent = useContext(MessageContext);
+  const context = useContext(MessageContext);
 
-  if (messageEvent === undefined) {
+  if (context === null) {
     throw new Error("useMessage must be used within a MessageProvider");
   }
 
-  return messageEvent?.data.pluginMessage;
+  return context;
 }

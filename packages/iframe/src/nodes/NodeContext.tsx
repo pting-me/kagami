@@ -7,11 +7,16 @@ import {
 
 import { MessageProvider } from "../messaging/MessageContext";
 import { sendMessage } from "../messaging/sendMessage";
-import { useMessage } from "../messaging/useMessage";
 
 interface NodeValue {
   componentNodes: HydratedComponentNode[];
+  setComponentNodes: React.Dispatch<
+    React.SetStateAction<HydratedComponentNode[]>
+  >;
   componentSetNodes: HydratedComponentSetNode[];
+  setComponentSetNodes: React.Dispatch<
+    React.SetStateAction<HydratedComponentSetNode[]>
+  >;
   selectedNodeId: string;
   setSelectedNodeId: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -30,30 +35,22 @@ function NodeProviderCore(props: PropsWithChildren) {
 
   const [selectedNodeId, setSelectedNodeId] = useState<string>("");
 
-  const message = useMessage();
-
   useEffect(() => {
-    switch (message?.type) {
-      case "nodes/update":
-        setComponentNodes(message.payload.componentNodes);
-        setComponentSetNodes(message.payload.componentSetNodes);
-        return;
-      default:
+    if (selectedNodeId) {
+      sendMessage({
+        type: "nodes/selected",
+        payload: { id: selectedNodeId },
+      });
     }
-  }, [message]);
-
-  useEffect(() => {
-    sendMessage({
-      type: "nodes/selected",
-      payload: { id: selectedNodeId },
-    });
   }, [selectedNodeId]);
 
   return (
     <NodeContext.Provider
       value={{
         componentNodes,
+        setComponentNodes,
         componentSetNodes,
+        setComponentSetNodes,
         selectedNodeId,
         setSelectedNodeId,
       }}
@@ -67,8 +64,8 @@ export function NodeProvider(props: PropsWithChildren) {
   const { children } = props;
 
   return (
-    <MessageProvider>
-      <NodeProviderCore>{children}</NodeProviderCore>
-    </MessageProvider>
+    <NodeProviderCore>
+      <MessageProvider>{children}</MessageProvider>
+    </NodeProviderCore>
   );
 }

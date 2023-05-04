@@ -2,7 +2,7 @@ interface Payload {
   id: string;
 }
 
-export const focusNode = (payload: Payload) => {
+export function focusNode(payload: Payload) {
   const { id } = payload;
 
   // We know that every node being passed must be component or component set
@@ -13,4 +13,4 @@ export const focusNode = (payload: Payload) => {
     figma.viewport.scrollAndZoomIntoView([component]);
     page.selection = [component];
   }
-};
+}
