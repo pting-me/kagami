@@ -43,7 +43,7 @@ export function TagInput() {
           onChange={(event) => setQuery(event.target.value)}
           displayValue={(tag: Tag) => tag.label}
         />
-        <Combobox.Options className="bg-fill-secondary absolute right-0 z-10 rounded py-2">
+        <Combobox.Options className="bg-fill-secondary border-stroke absolute right-0 z-10 rounded border py-2">
           {filteredTags.map((tag) => (
             <Combobox.Option
               key={`${tag.label}-${tag.type}`}

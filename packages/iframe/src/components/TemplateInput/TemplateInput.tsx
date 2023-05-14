@@ -27,9 +27,6 @@ export function TemplateInput() {
         return (
           <div className="relative whitespace-nowrap">
             <Listbox.Button
-              onClick={(e) => {
-                console.log(e);
-              }}
               className={clsx(
                 open && "bg-fill border-stroke fill-icon",
                 "hover:bg-fill hover:border-stroke fill-icon-tertiary hover:fill-icon flex h-7 items-center justify-between rounded-sm border border-transparent bg-transparent px-1.5"
