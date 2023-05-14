@@ -92,7 +92,7 @@ ${components
 ${children
   .map(({ style: childStyle, name, defaultValue }) => {
     return `          <div style={ ${childStyle} }>
-            { ${name}${defaultValue ? `?? ${defaultValue}` : ""} }
+            { ${name}${defaultValue ? ` ?? ${defaultValue}` : ""} }
           </div>`;
   })
   .join("\n")}

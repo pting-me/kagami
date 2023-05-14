@@ -1,7 +1,8 @@
-import { HydratedComponentNode, HydratedComponentSetNode } from "./nodes/types";
+import { HydratedComponentNode, HydratedComponentSetNode } from "./nodes";
+import { HtmlElementTag, SvgElementTag } from "./tags";
 
 export interface Tag {
-  label: string;
+  label: HtmlElementTag | SvgElementTag;
   type: "svg" | "html";
 }
 
@@ -12,6 +13,7 @@ export interface Template {
 }
 
 export interface DownloadRequestedPayload {
+  nodeId: string;
   tag: Tag;
   template: Template;
 }
@@ -26,7 +28,7 @@ export type MessageForSandbox =
   | {
       type: "nodes/selected";
       payload: {
-        id: string;
+        nodeId: string;
       };
     }
   | {
@@ -52,13 +54,21 @@ export function isMessageForSandbox(message: {
 /**
  * This is a message that will be received in the iframe
  */
-export type MessageForIframe = {
-  type: "nodes/update";
-  payload: {
-    componentNodes: HydratedComponentNode[];
-    componentSetNodes: HydratedComponentSetNode[];
-  };
-};
+export type MessageForIframe =
+  | {
+      type: "nodes/update";
+      payload: {
+        componentNodes: HydratedComponentNode[];
+        componentSetNodes: HydratedComponentSetNode[];
+      };
+    }
+  | {
+      type: "files/download";
+      payload: {
+        content: string;
+        filename: string;
+      };
+    };
 
 export const messageTypesForIframe = ["nodes/update"] as const;
 

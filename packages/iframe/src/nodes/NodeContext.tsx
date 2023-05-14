@@ -39,7 +39,7 @@ function NodeProviderCore(props: PropsWithChildren) {
     if (selectedNodeId) {
       sendMessage({
         type: "nodes/selected",
-        payload: { id: selectedNodeId },
+        payload: { nodeId: selectedNodeId },
       });
     }
   }, [selectedNodeId]);

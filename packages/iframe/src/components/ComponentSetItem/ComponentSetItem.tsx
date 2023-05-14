@@ -73,7 +73,13 @@ export function ComponentSetItem(props: ComponentSetItemProps) {
 
             sendMessage({
               type: "nodes/downloadRequested",
-              payload: formValues as unknown as DownloadRequestedPayload,
+              payload: {
+                ...(formValues as unknown as Omit<
+                  DownloadRequestedPayload,
+                  "nodeId"
+                >),
+                nodeId: node.id,
+              },
             });
           }}
         >

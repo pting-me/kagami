@@ -459,14 +459,14 @@ const getVariantProps = (componentSetNode: ComponentSetNode) => {
   );
 };
 
-interface GenerateCodeOptions {
+export interface GenerateCodeOptions {
   node: ComponentSetNode;
   isForwardRef?: boolean;
   elementContext?: "html" | "svg";
   tagName?: HtmlElementTag | SvgElementTag;
 }
 
-const generateCode = (options: GenerateCodeOptions) => {
+export const generateCode = (options: GenerateCodeOptions) => {
   const {
     node,
     isForwardRef = false,
@@ -497,5 +497,3 @@ const generateCode = (options: GenerateCodeOptions) => {
 
   return fileContent;
 };
-
-export default generateCode;

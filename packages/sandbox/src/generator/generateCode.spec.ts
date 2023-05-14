@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
-import generateCode, {
+import {
+  generateCode,
   serializeProperties,
   valuesAreNumbers,
 } from "./generateCode";

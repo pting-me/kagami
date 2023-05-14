@@ -14,6 +14,7 @@ import {
 } from "@kagami/common";
 
 import { NodeContext } from "../nodes/NodeContext";
+import { downloadFile } from "../utils/downloadFile";
 import { IS_MOCK } from "../utils/env";
 
 interface MessageData {
@@ -64,6 +65,13 @@ export function MessageProvider(props: PropsWithChildren) {
         setComponentNodes(message.payload.componentNodes);
         setComponentSetNodes(message.payload.componentSetNodes);
         break;
+      case "files/download": {
+        if (!IS_MOCK) {
+          const { filename, content } = message.payload;
+          downloadFile({ dataBlob: [content], filename });
+        }
+        break;
+      }
       default:
         break;
     }
