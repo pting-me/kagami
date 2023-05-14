@@ -96,8 +96,8 @@ ${children
           </div>`;
   })
   .join("\n")}
-${shouldRenderInFragment ? "          </>" : ""};
-      }`;
+${shouldRenderInFragment ? "          </>" : ""}
+      };`;
   })
   .join("\n")}
     default:
@@ -112,12 +112,12 @@ ${
 }
   const {
     children: childrenOverride,
-    ${variantProps
-      .map(({ name, defaultValue }) => {
-        return `${name}${defaultValue ? `=${defaultValue}` : ""},`;
-      })
-      .join("\n")}
-    ${childNodeProps.map(({ name }) => name).join("\n")}
+${variantProps
+  .map(({ name, defaultValue }) => {
+    return `    ${name}${defaultValue ? `=${defaultValue}` : ""},`;
+  })
+  .join("\n")}
+${childNodeProps.map(({ name }) => `    ${name},`).join("\n")}
     style: styleOverride,
     ...rest
   } = props;
