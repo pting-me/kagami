@@ -26,6 +26,18 @@ Follow [instructions here](https://help.figma.com/hc/en-us/articles/360042786733
 
 Your changes will be updated via the watch scripts, but you will need to manually update the plugin within Figma using **Plugins > Run last plugin**.
 
+## Testing components
+
+You can test downloaded components by using the [playground](packages/playground).
+
+Place components in `packages/playground/src/components`.
+
+Then start Storybook. Your stories will be automatically generated:
+
+```sh
+yarn storybook
+```
+
 ## Publishing
 
 To do a production build, run:

@@ -1,0 +1,3 @@
+src/components/*
+!src/components/examples
+!src/components/README.md

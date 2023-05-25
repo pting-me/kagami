@@ -141,6 +141,7 @@ ${childNodeProps.map(({ name }) => `    ${name},`).join("\n")}
 }${isForwardRef ? ")" : ""};
 
 export default ${name};
-export type { Props };
+export { ${name} };
+export type { Props as ${name}Props };
 `;
 }

@@ -7,7 +7,8 @@
     "dev": "nx run-many -t dev -p iframe sandbox",
     "mock": "nx mock iframe",
     "build": "rm -rf dist/prod && nx run-many -t build -p iframe sandbox",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "storybook": "nx run playground:generate-stories && nx run playground:storybook"
   },
   "devDependencies": {
     "concurrently": "^8.0.1",
