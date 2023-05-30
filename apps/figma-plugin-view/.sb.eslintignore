@@ -1,2 +1,0 @@
-# CLI has problems processing, so we have a separate eslint config within .storybook
-.storybook

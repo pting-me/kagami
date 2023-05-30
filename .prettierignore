@@ -41,8 +41,8 @@ Thumbs.db
 # Yarn without Zero-installs
 .pnp.*
 .yarn/*
-# !.yarn/patches
-# !.yarn/plugins
-# !.yarn/releases
-# !.yarn/sdks
-# !.yarn/versions
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
